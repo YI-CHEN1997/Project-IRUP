@@ -24,7 +24,7 @@
 <style scoped lang="scss">
     nav {
     padding: 30px;
-    position: fixed;
+    position: sticky;
     top: 0;
     right: 0;
     width: 100vw;

@@ -35,7 +35,7 @@
     position: relative;
     bottom: 0;
     text-align: center;
-    height: 80vh;
+    height: calc(100vh - 116px);
     overflow: hidden;
     z-index: -99;
 
