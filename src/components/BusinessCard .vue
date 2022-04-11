@@ -35,9 +35,6 @@ export default {
 </script>
 
 <style scoped>
-    .cards:last-child:nth-last-child(2n-1){
-        margin-right: calc(41.6vw + 1.5rem) !important;
-    }
     .cards{
         box-shadow: 0 0 30px 1px rgb(220, 220, 220);
         background-color: #fff;
