@@ -17,8 +17,8 @@
       </div>
     </div>
     <div class="">
-      <p class="text-break my-3">
-        {{ member.profileContent }}
+      <p class="text-break my-3" v-html="member.profileContent">
+        
       </p>
     </div>
   </div>
