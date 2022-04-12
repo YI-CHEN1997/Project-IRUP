@@ -37,12 +37,6 @@ export default {
 </script>
 
 <style scoped>
-i {
-  color: #66bb6a;
-}
-.cards:last-child:nth-last-child(2n-1) {
-  margin-right: calc(41.66666667vw + 1.5rem) !important;
-}
 .cards {
   box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
   background-color: #fff;
@@ -59,7 +53,6 @@ img {
   border-radius: 99em;
   max-height: 12vw;
 }
-
 .edit-icons {
   position: absolute;
   left: 80%;

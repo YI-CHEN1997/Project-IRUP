@@ -4,18 +4,41 @@ import { collection, getDocs } from "firebase/firestore";
 
 export default createStore({
   state: {
-    boardMembers:[]
+    boardMembers: [],
+    profilePhotoName: "",
+    profilePhotoURL: "https://fakeimg.pl/200x200/?text=ProfilePicture",
+    profileName: "",
+    profilePhone: "",
+    profileEmail: "",
+    profileContent: "",
   },
+
   getters: {},
-  mutations: {},
+  mutations: {
+    fileNameChange(state, payload) {
+      state.profilePhotoName = payload;
+    },
+    updateprofilePhotoURL(state, payload) {
+      state.profilePhotoURL = payload;
+    },
+    updateProfileName(state, payload) {
+      state.profileName = payload;
+    },
+    updateprofilePhone(state, payload) {
+      state.profilePhone = payload;
+    },
+    updateprofileEmail(state, payload) {
+      state.profileEmail = payload;
+    },
+  },
   actions: {
-    async getBoardMembers({state}) {
-      const dataBase = await collection(db, 'executiveBoard')
+    async getBoardMembers({ state }) {
+      const dataBase = await collection(db, "executiveBoard");
       const dbResults = await getDocs(dataBase);
-      dbResults.docs.forEach((doc)=>{
-        state.boardMembers.push({...doc.data(),id: doc.id})
-      })
-      console.log(this.state.boardMembers)
+      dbResults.docs.forEach((doc) => {
+        state.boardMembers.push({ ...doc.data(), id: doc.id });
+      });
+      console.log(this.state.boardMembers);
     },
   },
   modules: {},
