@@ -29,6 +29,7 @@
     right: 0;
     width: 100vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 99;
 
     li {
       list-style: none;

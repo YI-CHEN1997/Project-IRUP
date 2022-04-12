@@ -1,8 +1,8 @@
 <template>
   <div class="cards col-md-5 col-sm-6 px-5 py-4 m-4">
-    <div class="d-flex justify-content-end">
-      <router-link to="" class="mx-4"><i class="fa-solid fa-pen fa-lg"></i></router-link>
-      <router-link to=""><i class="fa-solid fa-trash-can fa-lg"></i></router-link>
+    <div class="d-flex justify-content-end edit-icons">
+      <span class="edit-icon me-3"><i class="fa-solid fa-pen fa-lg"></i></span>
+      <span class="edit-icon"><i class="fa-solid fa-trash-can fa-lg"></i></span>
     </div>
     <div class="d-flex">
       <div>
@@ -13,15 +13,19 @@
           <h5>{{ member.profileName }}</h5>
         </div>
         <div class="contact">
-          <p><span class="icon"><i class="fa-solid fa-phone fa-lg"></i></span>{{info.phone}}</p>
-          <p><span class="icon"><i class="fa-solid fa-envelope fa-lg"></i></span>{{info.email}}</p>
+          <p>
+            <span class="icon"><i class="fa-solid fa-phone fa-lg"></i></span
+            >{{ member.contactPhone }}
+          </p>
+          <p>
+            <span class="icon"><i class="fa-solid fa-envelope fa-lg"></i></span
+            >{{ member.contactEmail }}
+          </p>
         </div>
       </div>
     </div>
     <div class="">
-      <p class="text-break my-3" v-html="member.profileContent">
-        
-      </p>
+      <p class="text-break my-3" v-html="member.profileContent"></p>
     </div>
   </div>
 </template>
@@ -33,25 +37,51 @@ export default {
 </script>
 
 <style scoped>
-    a{
-        color: #66BB6A;
-    }
-    .cards:last-child:nth-last-child(2n-1){
-        margin-right: calc(41.66666667vw + 1.5rem)!important;
-    }
-    .cards{
-        box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-    }
-    .contact p{
-        margin-bottom: 0px;
-    }
-    .icon{
-        color: #66BB6A;
-        margin-right: 10px;
-    }
-    img{
-        border-radius: 99em;
-        max-height: 12vw;
-    }
+i {
+  color: #66bb6a;
+}
+.cards:last-child:nth-last-child(2n-1) {
+  margin-right: calc(41.66666667vw + 1.5rem) !important;
+}
+.cards {
+  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  position: relative;
+}
+.contact p {
+  margin-bottom: 0px;
+}
+.icon {
+  color: #66bb6a;
+  margin-right: 10px;
+}
+img {
+  border-radius: 99em;
+  max-height: 12vw;
+}
+
+.edit-icons {
+  position: absolute;
+  left: 80%;
+  top: 8%;
+}
+
+.edit-icon {
+  height: 35px;
+  width: 35px;
+  color: #fff;
+  background-color: #66bb6a;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.edit-icon:hover{
+  background-color: #396e3c;
+}
+
+.edit-icon svg {
+  height: 20px;
+  width: 20px;
+  margin: 8px;
+}
 </style>
