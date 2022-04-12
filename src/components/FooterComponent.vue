@@ -1,30 +1,31 @@
 <template>
 
   <footer>
-    <div class="contact">
-      <h5 class="text-uppercase">contact</h5>
-      <h6>145 Xingda Rd., Taichung 402, Taiwan R.O.C.</h6>
-      <h6>+886-4-22859125</h6>
-      <h6>cfwu@dragon.nchu.edu.tw</h6>
-      <div class="icon">
-        <a href="">
-          <i class="fab fa-facebook-f fa-2x"></i>
-        </a>
-        <a href="">
-          <i class="fab fa-youtube fa-2x"></i>
-        </a>
-        <a href="">
-          <i class="fab fa-whatsapp fa-2x"></i>
-        </a>
+    <div class="content">
+      <div class="contact">
+        <h5 class="text-uppercase">contact</h5>
+        <h6>145 Xingda Rd., Taichung 402, Taiwan R.O.C.</h6>
+        <h6>+886-4-22859125</h6>
+        <h6>cfwu@dragon.nchu.edu.tw</h6>
+        <div class="icon">
+          <a href="">
+            <i class="fab fa-facebook-f fa-2x"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-youtube fa-2x"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+
+          <h6 class="copyright">Powered by IRUP - International Rural-Up Partnership</h6>
       </div>
-      <h6 class="copyright">Powered by IRUP - International Rural-Up Partnership</h6>
+        
     </div>
-    <div class="background-color">
-      <div class="background-pattern">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,117.3C384,139,480,213,576,218.7C672,224,768,160,864,117.3C960,75,1056,53,1152,53.3C1248,53,1344,75,1392,85.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
-      </div>
+    <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 240" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(249, 249, 250, 1)" offset="0%"></stop><stop stop-color="rgba(225.531, 241.197, 222.728, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,96L34.3,104C68.6,112,137,128,206,116C274.3,104,343,64,411,68C480,72,549,120,617,148C685.7,176,754,184,823,188C891.4,192,960,192,1029,180C1097.1,168,1166,144,1234,112C1302.9,80,1371,40,1440,48C1508.6,56,1577,112,1646,148C1714.3,184,1783,200,1851,204C1920,208,1989,200,2057,192C2125.7,184,2194,176,2263,152C2331.4,128,2400,88,2469,92C2537.1,96,2606,144,2674,144C2742.9,144,2811,96,2880,76C2948.6,56,3017,64,3086,76C3154.3,88,3223,104,3291,92C3360,80,3429,40,3497,52C3565.7,64,3634,128,3703,164C3771.4,200,3840,208,3909,176C3977.1,144,4046,72,4114,52C4182.9,32,4251,64,4320,72C4388.6,80,4457,64,4526,56C4594.3,48,4663,48,4731,72C4800,96,4869,144,4903,168L4937.1,192L4937.1,240L4902.9,240C4868.6,240,4800,240,4731,240C4662.9,240,4594,240,4526,240C4457.1,240,4389,240,4320,240C4251.4,240,4183,240,4114,240C4045.7,240,3977,240,3909,240C3840,240,3771,240,3703,240C3634.3,240,3566,240,3497,240C3428.6,240,3360,240,3291,240C3222.9,240,3154,240,3086,240C3017.1,240,2949,240,2880,240C2811.4,240,2743,240,2674,240C2605.7,240,2537,240,2469,240C2400,240,2331,240,2263,240C2194.3,240,2126,240,2057,240C1988.6,240,1920,240,1851,240C1782.9,240,1714,240,1646,240C1577.1,240,1509,240,1440,240C1371.4,240,1303,240,1234,240C1165.7,240,1097,240,1029,240C960,240,891,240,823,240C754.3,240,686,240,617,240C548.6,240,480,240,411,240C342.9,240,274,240,206,240C137.1,240,69,240,34,240L0,240Z"></path><defs><linearGradient id="sw-gradient-1" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(255, 255, 255, 1)" offset="0%"></stop><stop stop-color="rgba(201.314, 220.706, 204.941, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 50px); opacity:0.9" fill="url(#sw-gradient-1)" d="M0,168L34.3,156C68.6,144,137,120,206,120C274.3,120,343,144,411,152C480,160,549,152,617,144C685.7,136,754,128,823,108C891.4,88,960,56,1029,60C1097.1,64,1166,104,1234,104C1302.9,104,1371,64,1440,56C1508.6,48,1577,72,1646,72C1714.3,72,1783,48,1851,48C1920,48,1989,72,2057,76C2125.7,80,2194,64,2263,48C2331.4,32,2400,16,2469,36C2537.1,56,2606,112,2674,124C2742.9,136,2811,104,2880,96C2948.6,88,3017,104,3086,124C3154.3,144,3223,168,3291,184C3360,200,3429,208,3497,204C3565.7,200,3634,184,3703,180C3771.4,176,3840,184,3909,192C3977.1,200,4046,208,4114,192C4182.9,176,4251,136,4320,128C4388.6,120,4457,144,4526,144C4594.3,144,4663,120,4731,108C4800,96,4869,96,4903,96L4937.1,96L4937.1,240L4902.9,240C4868.6,240,4800,240,4731,240C4662.9,240,4594,240,4526,240C4457.1,240,4389,240,4320,240C4251.4,240,4183,240,4114,240C4045.7,240,3977,240,3909,240C3840,240,3771,240,3703,240C3634.3,240,3566,240,3497,240C3428.6,240,3360,240,3291,240C3222.9,240,3154,240,3086,240C3017.1,240,2949,240,2880,240C2811.4,240,2743,240,2674,240C2605.7,240,2537,240,2469,240C2400,240,2331,240,2263,240C2194.3,240,2126,240,2057,240C1988.6,240,1920,240,1851,240C1782.9,240,1714,240,1646,240C1577.1,240,1509,240,1440,240C1371.4,240,1303,240,1234,240C1165.7,240,1097,240,1029,240C960,240,891,240,823,240C754.3,240,686,240,617,240C548.6,240,480,240,411,240C342.9,240,274,240,206,240C137.1,240,69,240,34,240L0,240Z"></path></svg>
     </div>
-    <img src="../assets/footer-pattern.svg" alt="">
+    
+    <!-- <img src="../assets/footer-pattern.svg" alt=""> -->
 
   </footer>
 
@@ -32,63 +33,51 @@
 
  <style scoped lang="scss">
   footer {
+    width: 100%;
     position: relative;
     bottom: 0;
+    left: 0;
     text-align: center;
-    height: 80vh;
-    overflow: hidden;
-    z-index: -99;
+    height: 50vh;
+    margin-top: 20vh;
 
-    .contact {
-      padding-top: 300px;
-    }
-
-    .icon a {
-      margin: 1rem;
-      color: #333;
-    }
-
-    h5 {
-      color: #66bb6a;
-    }
-
-    h6 {
-      margin: 1rem 0 1.5rem 0;
-    }
-
-    .copyright {
-      margin-top: 3rem;
-    }
-
-    .background-color {
-      background: #F9F9FA;
-      z-index: -100;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    .content {
+      position: relative;
       width: 100%;
-      height: 90%;
-      // overflow: hidden;
-      line-height: 0;
+      // height: 40vh;
+      background: linear-gradient(180deg, #F9F9FA 0%, rgba(249, 249, 250, 0) 100%);
+      padding: 5rem 0 1rem 0;
 
-      .background-pattern {  
-        fill: #fff;
-
-        svg {
-          position: relative;
-          display: block;
-          width: calc(100% + 1.3px);
-          height: 100%;
-        }
+      .contact {
+        position: relative;
+        z-index: 1;
       }
-    }
 
-    img {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: -99;
-      height: 30%;
+      .icon a {
+        margin: 1rem;
+        color: #333;
+      }
+
+      h5 {
+        color: #66bb6a;
+      }
+
+      h6 {
+        margin: 1rem 0 1.5rem 0;
+      }
+
+      .copyright {
+        margin-top: 3rem;
+      }
+
+      #wave {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+      }
     }
   }
 
