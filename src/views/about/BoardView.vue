@@ -1,12 +1,12 @@
 <template>
   <div class="">
-    <NewMemberModal />
+    <NewMemberModal v-if="modalActive" v-on:toggle-modal="toggleModal"/>
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
         <div class="title col-5 px-5 py-4 mx-4">
           <h2 class="">Executive Board</h2>
         </div>
-        <span class="btn add-btn d-flex align-items-center"
+        <span class="btn add-btn d-flex align-items-center" @click="toggleModal"
           ><i class="fa-solid fa-circle-plus me-2"></i>ADD MEMBER</span
         >
       </div>
@@ -35,6 +35,7 @@ export default {
   },
   data() {
     return {
+      modalActive:null
     };
   },
   computed: {
@@ -42,6 +43,11 @@ export default {
       return this.$store.state.boardMembers;
     },
   },
+  methods:{
+    toggleModal(){
+      this.modalActive = !this.modalActive
+    }
+  }
 };
 </script>
 

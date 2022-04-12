@@ -30,6 +30,9 @@ export default createStore({
     updateprofileEmail(state, payload) {
       state.profileEmail = payload;
     },
+    updateprofileContent(state, payload) {
+      state.profileContent = payload;
+    },
   },
   actions: {
     async getBoardMembers({ state }) {
