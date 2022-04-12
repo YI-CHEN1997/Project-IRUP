@@ -1,6 +1,7 @@
 <template>
   <div class="modal" ref="modal">
     <div class="modal-content">
+      <LoadingComponent v-show="loading" />
       <div :class="{ invisible: !error }" class="err-message">
         <p><span>Error:</span>{{ this.errorMsg }}</p>
       </div>
@@ -53,6 +54,7 @@
 </template>
 
 <script>
+import LoadingComponent from "./LoadingComponent.vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import { storage, db } from "../firebase/firebaseinit";
@@ -62,9 +64,11 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 export default {
   components: {
     QuillEditor,
+    LoadingComponent,
   },
   data() {
     return {
+      loading: null,
       error: null,
       errorMsg: "",
       uploadProgress: 0,
@@ -113,7 +117,7 @@ export default {
     },
   },
   methods: {
-    toggleModal(){
+    toggleModal() {
       this.$emit("toggle-modal");
     },
     fileChange(event) {
@@ -127,11 +131,12 @@ export default {
       );
     },
     addNewMember() {
-      console.log(this.profileName);
-      console.log(this.profileContent);
+      // console.log(this.profileName);
+      // console.log(this.profileContent);
       console.log(this.$store.state.profilePhotoName);
       if (this.profileName !== "" && this.profileContent !== "") {
         if (this.file) {
+          this.loading = true;
           const storageRef = ref(
             storage,
             `/BoardMemberProfile/${this.$store.state.profilePhotoName}`
@@ -144,6 +149,7 @@ export default {
             },
             (err) => {
               console.log(err);
+              this.loading = false;
             },
             async () => {
               const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
@@ -156,7 +162,9 @@ export default {
                 profileContent: this.profileContent,
               });
               await this.$store.dispatch("getBoardMembers");
-              this.$emit("toggleModal");
+              this.loading = false;
+              this.$store.dispatch("getBoardMembers");
+              this.$router.go()
             }
           );
         } else {

@@ -1,8 +1,10 @@
 <template>
-  <div class="cards col-md-5 col-sm-6 px-5 py-4 m-4">
+  <div class="cards col-md-5 col-sm-8 col-12 px-5 py-4 m-4">
     <div class="d-flex justify-content-end edit-icons">
       <span class="edit-icon me-3"><i class="fa-solid fa-pen fa-lg"></i></span>
-      <span class="edit-icon"><i class="fa-solid fa-trash-can fa-lg"></i></span>
+      <span class="edit-icon" @click="deleteMember(member.id)"
+        ><i class="fa-solid fa-trash-can fa-lg"></i
+      ></span>
     </div>
     <div class="d-flex">
       <div>
@@ -30,9 +32,21 @@
   </div>
 </template>
 <script>
+import { db } from "../firebase/firebaseinit";
+import { deleteDoc, doc } from "firebase/firestore";
 export default {
   name: "BusinessCard",
   props: ["member"],
+  methods: {
+    deleteMember(id) {
+      console.log(id);
+      const docRef = doc(db, "executiveBoard", id);
+      deleteDoc(docRef)
+        .then(()=>{
+          this.$router.go()
+        })
+    },
+  },
 };
 </script>
 
@@ -55,8 +69,7 @@ img {
 }
 .edit-icons {
   position: absolute;
-  left: 80%;
-  top: 8%;
+  right: 5%;
 }
 
 .edit-icon {
@@ -68,7 +81,7 @@ img {
   cursor: pointer;
 }
 
-.edit-icon:hover{
+.edit-icon:hover {
   background-color: #396e3c;
 }
 
