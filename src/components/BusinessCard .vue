@@ -1,5 +1,5 @@
 <template>
-  <div class="cards col-md-5 col-sm-8 col-12 px-5 py-4 m-4">
+  <div class="cards col-md-5 col-sm-8 px-5 py-4 m-4"> 
     <div class="d-flex justify-content-end edit-icons">
       <span class="edit-icon me-3"><i class="fa-solid fa-pen fa-lg"></i></span>
       <span class="edit-icon" @click="deleteMember(member.id)"
@@ -56,8 +56,12 @@ export default {
   background-color: #fff;
   position: relative;
 }
+.cards:last-child:nth-last-child(2n-1){
+  margin-right: calc(41.66666667% + 4.5rem) !important;
+}
 .contact p {
   margin-bottom: 0px;
+  white-space: nowrap;
 }
 .icon {
   color: #66bb6a;
@@ -65,7 +69,7 @@ export default {
 }
 img {
   border-radius: 99em;
-  max-height: 12vw;
+  max-width: 12vw;
 }
 .edit-icons {
   position: absolute;

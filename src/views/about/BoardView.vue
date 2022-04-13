@@ -2,20 +2,22 @@
   <div class="">
     <NewMemberModal v-if="modalActive" v-on:toggle-modal="toggleModal"/>
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="title px-5 py-4 mx-4">
+      <div class="ceiling row justify-content-center align-items-center">
+        <div class="title col-5 m-4">
           <h2 class="">Executive Board</h2>
         </div>
-        <span class="btn add-btn d-flex align-items-center" @click="toggleModal"
-          ><i class="fa-solid fa-circle-plus me-2"></i>ADD MEMBER</span
-        >
+        <div class="col-5 m-4 d-flex justify-content-end">
+          <span class="btn add-btn align-items-center" @click="toggleModal">
+            <i class="fa-solid fa-circle-plus me-2"></i>ADD MEMBER
+          </span>
+        </div>
       </div>
       <div class="main row justify-content-center">
         <BusinessCard
           :member="member"
           v-for="member in boardMembers"
-          :key="member"
-        ></BusinessCard>
+          :key="member">
+        </BusinessCard>
       </div>
     </div>
     <div class="bg">
@@ -52,6 +54,9 @@ export default {
 </script>
 
 <style scoped>
+.ceiling{
+  margin-top: 2rem;
+}
 .add-btn {
   color: #fff;
   background-color: #66bb6a;
