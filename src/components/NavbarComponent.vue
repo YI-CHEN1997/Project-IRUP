@@ -15,7 +15,7 @@
         </ul>
       </li>
       <li class="listitem"><router-link to="/casestudies">case studies</router-link></li>
-      <li class="authority"><i class="fas fa-user-lock"></i></li>
+      <li class="authority"><router-link to="/login"><i class="fas fa-user-lock"></i></router-link></li>
     </ul>
   </nav>
 
