@@ -1,11 +1,5 @@
 <template>
   <div class="loginBox">
-    <img
-      class="user"
-      src="img/PngItem_707891.png"
-      height="100px"
-      width="100px"
-    />
     <h3>Sign in</h3>
     <form action="" method="post">
       <div class="inputBox">
@@ -19,18 +13,17 @@
       </div>
       <input type="submit" name="" value="Login" />
     </form>
-    <a href="#">Forget Password?<br /> </a>
+    <router-link to="#" class="send btn rounded-pill text-center"
+      >Forget Password?</router-link
+    >
   </div>
 </template>
 
 <script>
+
 </script>
 
 <style scoped>
-#particles-js {
-  height: 100%;
-}
-
 .loginBox {
   position: absolute;
   top: 50%;
@@ -42,16 +35,6 @@
   border-radius: 10px;
   padding: 40px;
   box-sizing: border-box;
-}
-
-img {
-  border-radius: 50%;
-}
-
-.user {
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 20px;
 }
 
 h3 {
@@ -127,7 +110,4 @@ a:hover {
   color: #3a7e58;
 }
 
-p {
-  color: #b4b4cc;
-}
 </style>
