@@ -9,10 +9,21 @@
 <script>
 import NavbarComponent from "./components/NavbarComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
+import { auth } from "@/firebase/firebaseinit";
+import { onAuthStateChanged } from "firebase/auth";
+
 export default {
   components: { NavbarComponent, FooterComponent },
+  data() {
+    return {};
+  },
   created() {
     this.$store.dispatch("getBoardMembers");
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.$store.commit("userStateChange", user);
+      }
+    });
   },
 };
 </script>

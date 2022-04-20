@@ -3,15 +3,22 @@
     <h3>Sign in</h3>
     <form action="" method="post">
       <div class="inputBox">
-        <input id="uname" type="text" name="Username" placeholder="Username" />
+        <input
+          id="uname"
+          type="text"
+          name="Username"
+          placeholder="Username"
+          v-model="email"
+        />
         <input
           id="pass"
           type="password"
           name="Password"
           placeholder="Password"
+          v-model="password"
         />
       </div>
-      <input type="submit" name="" value="Login" />
+      <input type="button" name="" value="Login" @click="login" />
     </form>
     <router-link to="#" class="send btn rounded-pill text-center"
       >Forget Password?</router-link
@@ -20,7 +27,30 @@
 </template>
 
 <script>
+import { auth } from "../firebase/firebaseinit";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
+export default {
+  name: "LoginView",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    async login() {
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((res) => {
+          console.log(res.user.uid);
+          this.$router.push("/")
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -109,5 +139,4 @@ h3 {
 a:hover {
   color: #3a7e58;
 }
-
 </style>

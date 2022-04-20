@@ -4,6 +4,7 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 export default createStore({
   state: {
+    user: null,
     boardMembers: [],
     profilePhotoName: "",
     profilePhotoURL: "https://fakeimg.pl/200x200/?text=ProfilePicture",
@@ -15,6 +16,9 @@ export default createStore({
 
   getters: {},
   mutations: {
+    userStateChange(state, payload) {
+      state.user = payload;
+    },
     fileNameChange(state, payload) {
       state.profilePhotoName = payload;
     },
