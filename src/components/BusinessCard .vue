@@ -1,7 +1,7 @@
 <template>
   <div class="cards col-md-5 col-sm-8 px-5 py-4 m-4"> 
     <div class="d-flex justify-content-end edit-icons">
-      <span class="edit-icon me-3"><i class="fa-solid fa-pen fa-lg"></i></span>
+      <!-- <span class="edit-icon me-3"><i class="fa-solid fa-pen fa-lg"></i></span> -->
       <span class="edit-icon" @click="deleteMember(member.id)"
         ><i class="fa-solid fa-trash-can fa-lg"></i
       ></span>
