@@ -204,6 +204,12 @@ export default {
         color: #66bb6a;
       }
     }
+
+    @media (max-width: 850px) {
+      .mission-section {
+        margin-top: 80vh;
+      }
+    }
   }
 
 </style>

@@ -6,13 +6,13 @@
         <div class="logo uppercase">
           <router-link :to="{ name: 'home' }">irup</router-link>
         </div>
-        <h6><i class="icon fa-solid fa-location-dot"></i>145 Xingda Rd., Taichung 402, Taiwan R.O.C.</h6>
-        <h6><i class="icon fa-solid fa-phone"></i>+886-4-22859125</h6>
-        <h6><i class="icon fa-solid fa-envelope"></i>cfwu@dragon.nchu.edu.tw</h6>
+        <a href="https://goo.gl/maps/1heG1sWQvpwFeEyPA"><h6><i class="icon fa-solid fa-location-dot"></i>145 Xingda Rd., Taichung 402, Taiwan R.O.C.</h6></a>
+        <a href="tel:+886-4-22859125"><h6><i class="icon fa-solid fa-phone"></i>+886-4-22859125</h6></a>
+        <a href="mailto:cfwu@dragon.nchu.edu.tw"><h6><i class="icon fa-solid fa-envelope"></i>cfwu@dragon.nchu.edu.tw</h6></a>
         <div class="icon">
-          <router-link to=""><i class="fab fa-facebook-f fa-2x"></i></router-link>
-          <router-link to=""><i class="fab fa-youtube fa-2x"></i></router-link> 
-          <router-link to=""><i class="fab fa-whatsapp fa-2x"></i></router-link>
+          <a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f fa-2x"></i></a>
+          <a target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube fa-2x"></i></a> 
+          <a target="_blank" href="https://line.me/R/ti/p/%40iqh4627l"><i class="fa-brands fa-line fa-2x"></i></a>
         </div>
         
     </div>
@@ -60,6 +60,11 @@
         position: relative;
         top: 130px;
         z-index: 1;
+
+        a {
+          text-decoration: none;
+          color: #eee;
+        }
 
         .logo a {
           font-weight: 600;
