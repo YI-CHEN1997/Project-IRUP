@@ -1,34 +1,133 @@
 <template>
-  <nav class="text-uppercase">
-    <ul class="nav-list">
-      <li class="logo"><router-link to="/">irup</router-link></li>
-      <li class="listitem"><router-link to="/about">about<i class="fas fa-caret-down"></i></router-link>
-        <ul class="dropdown">
-          <li><router-link to="/about/operationalstructure">operational structure</router-link></li>
-          <li><router-link to="/about/executiveboard">executive board</router-link></li>
+
+<header :class="{'scrolled-nav' :scrolledNav }">
+  <nav class="uppercase">
+    <div class="logo">
+      <router-link :to="{ name: 'home' }">irup</router-link>
+    </div>
+    <ul v-show="!mobile" class="navigation">
+      <li class="listitem"><router-link :to="{ name: 'about' }">about<i class="fas fa-caret-down"></i></router-link>
+        <ul class="dropdown about-dropdown">
+          <li><router-link :to="{ name: 'operationalstructure' }">operational structure</router-link></li>
+          <li><router-link :to="{ name: 'executiveboard' }">executive board</router-link></li>
         </ul>
       </li>
-      <li class="listitem"><router-link to="/news">news<i class="fas fa-caret-down"></i></router-link>
-        <ul class="dropdown">
-          <li><router-link to="/news/videos">videos</router-link></li>
-          <li><router-link to="/news/publication">publication</router-link></li>
+      <li class="listitem"><router-link :to="{ name: 'news' }">news<i class="fas fa-caret-down"></i></router-link>
+        <ul class="dropdown news-dropdown">
+          <li><router-link :to="{ name: 'videos' }">videos</router-link></li>
+          <li><router-link :to="{ name: 'publication' }">publication</router-link></li>
         </ul>
       </li>
-      <li class="listitem"><router-link to="/casestudies">case studies</router-link></li>
-      <li class="authority"><i class="fas fa-user-lock"></i></li>
+      <li class="listitem"><router-link :to="{ name: 'casestudies' }">case studies</router-link></li>
+      <li class="authority"><router-link to=""><i class="fas fa-user-lock"></i></router-link></li>
     </ul>
+
+    <div class="burger" @click="toggleMobileNav" v-show="mobile" :class="{'icon-active': mobileNav}">
+      <i  class="fa-solid fa-bars" ></i>
+    </div>
+    <transition name="mobile-nav">
+      <ul v-show="mobileNav" class="slide-nav">
+        <div class="logo">
+          <router-link :to="{ name: 'home' }">irup</router-link>
+        </div>
+        <li class="listitem"><router-link :to="{ name: 'about' }">about</router-link><i class="fas fa-caret-down"></i>
+        <span>
+          <ul class="mobile-dropdown">
+            <li><router-link :to="{ name: 'operationalstructure' }">operational structure</router-link></li>
+            <li><router-link :to="{ name: 'executiveboard' }">executive board</router-link></li>
+          </ul>
+        </span>
+          
+        </li>
+        <li class="listitem"><router-link :to="{ name: 'news' }">news</router-link><i class="fas fa-caret-down"></i>
+        <span>
+          <ul class="mobile-dropdown">
+            <li><router-link :to="{ name: 'videos' }">videos</router-link></li>
+            <li><router-link :to="{ name: 'publication' }">publication</router-link></li>
+          </ul>
+        </span>
+          
+        </li>
+        <li class="listitem"><router-link :to="{ name: 'casestudies' }">case studies</router-link></li>
+        <li class="authority"><i class="fas fa-user-lock"></i></li>
+      </ul>
+    </transition>
   </nav>
+</header>
+  
 
 </template>
 
+<script>
+export default {
+
+  data() {
+    return {
+      scrolledNav: null,
+      mobile: null,
+      mobileNav: null,
+      windowWidth: null,
+    };
+  },
+
+  created() {
+    window.addEventListener("resize", this.checkScreen);
+    this.checkScreen();
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.updateScroll);
+  },
+
+  methods: {
+    toggleMobileNav() {
+      this.mobileNav = !this.mobileNav;
+    },
+
+    updateScroll() {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 50) {
+        this.scrolledNav = true;
+        return;
+      }
+      this.scrolledNav = false;
+    },
+
+    checkScreen() {
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth <= 750) {
+        this.mobile = true;
+        return;
+      }
+      this.mobile = false;
+      this.mobileNav = false;
+      return;
+    },
+  },
+};
+</script>
+
 <style scoped lang="scss">
-    nav {
-    padding: 30px;
+    header {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 100vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, .7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    z-index: 99;
+    color: #333;
+    transition: .5s ease all;
+
+    nav {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 20px 0;
+      transition: .5s ease all;
+      width: 90%;
+      margin: 0 auto;
+    }
 
     li {
       list-style: none;
@@ -46,20 +145,14 @@
       }
     }
 
-    .nav-list {
+    .navigation {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: 1rem;
       margin: 0 1rem;
 
-      .authority {
-        color: #66BB6A;
-        margin-left: 3rem;
-      }
-    }
-
-    .listitem {
+      .listitem {
       font-weight: 500;
       font-size: 1rem;
       color: #333;
@@ -69,16 +162,24 @@
       a {
         text-decoration: none;
         color: #333;
+      }
 
-        .fa-caret-down {
-          color: #66BB6A;
-          margin-left: 5px;
-        }
+      .fa-caret-down {
+        color: #66BB6A;
+        margin-left: 5px;
       }
 
       &:hover ul {
         opacity: 1;
         visibility: visible;
+      }
+
+      .about-dropdown {
+        width: 16rem;
+      }
+
+      .news-dropdown {
+        width: 10rem;
       }
 
       .dropdown {
@@ -90,23 +191,147 @@
         font-size: 0.9rem;
         background: white;
         border-radius: 5px;
-        width: 12rem;
         padding: 0.5rem;
         gap: 0.2rem;
         opacity: 0;
         visibility: hidden;
         transition: opacity 200ms ease-in-out;
+
+        li {
+          padding: 0.5rem 1rem;
+          transition: background-color .2s ease-in-out;
+
+          a {
+            border-bottom: 2px solid transparent;
+          }
+          
+
+          &:hover a {
+            border-bottom: 2px solid #66BB6A;
+          }
+        }
+      }
+
+      
+    }
+
+      .authority a {
+        color: #66BB6A;
+        margin-left: 3rem;
+      }
+    }
+
+    
+
+    .burger {
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      height: 100%;
+      align-items: center;
+      color: #333;
+      cursor: pointer;
+      transition: .8s ease all;
+
+      .icon-active {
+        transform: rotate(45deg);
+      }
+    }
+
+    .slide-nav {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      max-width: 300px;
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+      top: 0;
+      left: 0;
+      padding-right: 2rem;
+
+      .logo {
+        margin: 2rem 5px;
       }
 
       li {
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        transition: background-color 200ms ease-in-out;
+        margin-left: 0;
+      }
 
-        &:hover {
-          background-color:#F9F9FA
-        }
+      .authority {
+        color: #66bb6a;
+        margin-top: 2rem;
+        margin-left: 5px;
+      }
+
+      .listitem {
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      padding: 1rem 0.5rem;
+
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      .fa-caret-down {
+        color: #66BB6A;
+        margin-left: 5px;
+      }
+
+      span {
+        display: none;
+        margin-top: .5rem;
+      }
+
+      &:hover span {
+        display: block;
+      }
+
+      .mobile-dropdown {
+        background: #66bb6a;
+        border-radius: 5px;
+        font-size: 0.9rem;       
+        gap: 0.2rem;
+        padding:0.5rem .5rem;
+
+          li {
+            
+            padding: 0.5rem 0;
+
+            a {
+              color: #eee;
+              border-bottom: 2px solid transparent;
+            }
+            
+            &:hover a {
+              border-bottom: 2px solid #eee;
+            }
+          }
+        } 
       }
     }
+
+    .mobile-nav-enter-active, .mobile-nav-leave-active {
+      transition: 1s ease all;
+    }
+
+    .mobile-nav-enter-from, .mobile-nav-leave-to {
+      transform: translateX(-300px);
+    }
+
+    .mobile-nav-enter-to {
+      transform: translateX(0);
+    }
   }
+
+  .scrolled-nav {
+    nav {
+      padding: 8px 0;
+    }
+}
+
 </style>
