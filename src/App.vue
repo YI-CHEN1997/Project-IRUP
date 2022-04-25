@@ -13,16 +13,14 @@
 </template>
 
 <script>
-import NavbarComponent from "./components/NavbarComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+import NavbarComponent from './components/NavbarComponent.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
 import { auth } from "@/firebase/firebaseinit";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default {
   components: { NavbarComponent, FooterComponent },
-  data() {
-    return {};
-  },
+
   created() {
     this.$store.dispatch("getBoardMembers");
     onAuthStateChanged(auth, (user) => {
@@ -31,7 +29,8 @@ export default {
       }
     });
   },
-};
+
+}
 </script>
 
 <style lang="scss">
@@ -97,31 +96,26 @@ export default {
   p {
     font-size: .8rem;
   }
+
+    @media (max-width:850px) {
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h5 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      h6 {
+        font-size: .8rem;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: .6rem;
+      }
+    }
   }
 
-  
-
-h1 {
-  font-size: 2.5rem;
-}
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.7rem;
-}
-h4 {
-  font-size: 1.5rem;
-}
-h5 {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-h6 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-.view {
-  min-height: 100vh;
-}
 </style>

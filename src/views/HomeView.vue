@@ -34,7 +34,7 @@
         </div>        
       </section>
 
-      <section class="section2">
+      <section class="what-is-irup">
         <WhatIsIRUP/>        
       </section>
 
@@ -42,7 +42,7 @@
         <MissionComponent/>
       </section>
 
-      <section class="section3">
+      <section class="news">
         <NewsComponent/>
         <router-link :to="{name: 'news'}">more</router-link>
       </section>
@@ -137,22 +137,9 @@ export default {
           }
         }
       }
-
-      @media (max-width: 850px) {
-        top: 30%;
-
-        .button {
-          justify-content: center;
-
-          a {
-            width: 120px;
-            padding: .5rem 1rem;
-          }
-        }
-      }
     }
 
-    .section2 {
+    .what-is-irup {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -160,22 +147,6 @@ export default {
       top: 100%;
       left: 50%;
       transform: translate(-50%,-50%);
-
-      @media (max-width: 850px) {
-        top: 90%;
-
-        .content {
-          .icon {
-            gap: 2rem;
-            margin-top: 5vh;
-
-            .circle {
-              width: 80px;
-              height: 80px;
-            }
-          }
-        }
-      }
     }
 
     .mission-section {
@@ -184,7 +155,7 @@ export default {
       margin-top: 50vh;
     }
 
-    .section3 {
+    .news {
       position: relative;
 
       a {
@@ -207,11 +178,24 @@ export default {
     @media (max-width: 850px) {
 
       .section1 {
-        top: 41%;
+        top: 30%;
+
+        .button {
+          justify-content: center;
+
+          a {
+            width: 120px;
+            padding: .5rem 1rem;
+          }
+        }
+      }
+
+      .what-is-irup {
+        top: 80%;
       }
 
       .mission-section {
-        margin-top: 80vh;
+        margin-top: 55vh;
       }
     }
   }
