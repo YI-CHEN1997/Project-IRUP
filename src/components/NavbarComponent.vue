@@ -36,31 +36,36 @@
             <li><router-link :to="{ name: 'operationalstructure' }">operational structure</router-link></li>
             <li><router-link :to="{ name: 'executiveboard' }">executive board</router-link></li>
           </ul>
-        </span>
-          
         </li>
-        <li class="listitem"><router-link :to="{ name: 'news' }">news</router-link><i class="fas fa-caret-down"></i>
-        <span>
-          <ul class="mobile-dropdown">
+        <li class="listitem">
+          <router-link :to="{ name: 'news' }"
+            >news<i class="fas fa-caret-down"></i
+          ></router-link>
+          <ul class="dropdown news-dropdown">
             <li><router-link :to="{ name: 'videos' }">videos</router-link></li>
-            <li><router-link :to="{ name: 'publication' }">publication</router-link></li>
+            <li>
+              <router-link :to="{ name: 'publication' }"
+                >publication</router-link
+              >
+            </li>
           </ul>
-        </span>
-          
         </li>
-        <li class="listitem"><router-link :to="{ name: 'casestudies' }">case studies</router-link></li>
-        <li class="authority"><i class="fas fa-user-lock"></i></li>
+        <li class="listitem">
+          <router-link :to="{ name: 'casestudies' }">case studies</router-link>
+        </li>
+        <li class="authority">
+          <router-link to=""><i class="fas fa-user-lock"></i></router-link>
+        </li>
       </ul>
-    </transition>
-  </nav>
-</header>
-  
 
+      
+      </transition>
+    </nav>
+  </header>
 </template>
 
 <script>
 export default {
-
   data() {
     return {
       scrolledNav: null,
@@ -108,51 +113,51 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, .7);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    z-index: 99;
-    color: #333;
-    transition: .5s ease all;
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  color: #333;
+  transition: 0.5s ease all;
 
-    nav {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      padding: 20px 0;
-      transition: .5s ease all;
-      width: 90%;
-      margin: 0 auto;
+  nav {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+    transition: 0.5s ease all;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+
+    a {
+      text-decoration: none;
+      color: #66bb6a;
     }
+  }
 
-    li {
-      list-style: none;
-    }
+  .navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 1rem;
 
-    .logo {
-      margin-right: auto;
-      font-weight: 600;
-      font-size: 2rem;
-      letter-spacing: 0.12em;
-
-      a {
-        text-decoration: none;
-        color: #66BB6A;
-      }
-    }
-
-    .navigation {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 1rem;
-      margin: 0 1rem;
-
-      .listitem {
+    .listitem {
       font-weight: 500;
       font-size: 1rem;
       color: #333;
@@ -165,7 +170,7 @@ export default {
       }
 
       .fa-caret-down {
-        color: #66BB6A;
+        color: #66bb6a;
         margin-left: 5px;
       }
 
@@ -186,7 +191,7 @@ export default {
         position: absolute;
         top: 3.2rem;
         right: -1rem;
-        border: 1px solid #66BB6A;
+        border: 1px solid #66bb6a;
         text-align: end;
         font-size: 0.9rem;
         background: white;
@@ -199,72 +204,69 @@ export default {
 
         li {
           padding: 0.5rem 1rem;
-          transition: background-color .2s ease-in-out;
+          transition: background-color 0.2s ease-in-out;
 
           a {
             border-bottom: 2px solid transparent;
           }
-          
 
           &:hover a {
-            border-bottom: 2px solid #66BB6A;
+            border-bottom: 2px solid #66bb6a;
           }
         }
       }
-
-      
     }
 
-      .authority a {
-        color: #66BB6A;
-        margin-left: 3rem;
-      }
-    } 
+    .authority a {
+      color: #66bb6a;
+      margin-left: 3rem;
+    }
+  }
 
-    .burger {
-      display: flex;
-      position: absolute;
-      top: 0;
-      right: 1rem;
-      height: 100%;
-      align-items: center;
-      color: #333;
-      cursor: pointer;
-      transition: .8s ease all;
+  .burger {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    height: 100%;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+    transition: 0.8s ease all;
 
-      .icon-active {
-        transform: rotate(45deg);
-      }
+    .icon-active {
+      transform: rotate(45deg);
+    }
+  }
+
+  .slide-nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    padding-right: 2rem;
+
+    .logo {
+      margin: 2rem 5px;
     }
 
-    .slide-nav {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      width: 100%;
-      max-width: 300px;
-      height: 100%;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-      top: 0;
-      left: 0;
-      padding-right: 2rem;
+    li {
+      margin-left: 0;
+    }
 
-      .logo {
-        margin: 2rem 5px;
-      }
+    .authority {
+      color: #66bb6a;
+      margin-top: 2rem;
+      margin-left: 5px;
+    }
 
-      li {
-        margin-left: 0;
-      }
-
-      .authority {
-        color: #66bb6a;
-        margin-top: 2rem;
-        margin-left: 5px;
-      }
-
-      .listitem {
+    .listitem {
       font-weight: 500;
       font-size: 1rem;
       position: relative;
@@ -276,13 +278,13 @@ export default {
       }
 
       .fa-caret-down {
-        color: #66BB6A;
+        color: #66bb6a;
         margin-left: 5px;
       }
 
       span {
         display: none;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
       }
 
       &:hover span {
@@ -292,44 +294,44 @@ export default {
       .mobile-dropdown {
         background: #66bb6a;
         border-radius: 5px;
-        font-size: 0.9rem;       
+        font-size: 0.9rem;
         gap: 0.2rem;
-        padding:0.5rem .5rem;
+        padding: 0.5rem 0.5rem;
 
-          li {
-            
-            padding: 0.5rem 0;
+        li {
+          padding: 0.5rem 0;
 
-            a {
-              color: #eee;
-              border-bottom: 2px solid transparent;
-            }
-            
-            &:hover a {
-              border-bottom: 2px solid #eee;
-            }
+          a {
+            color: #eee;
+            border-bottom: 2px solid transparent;
           }
-        } 
+
+          &:hover a {
+            border-bottom: 2px solid #eee;
+          }
+        }
       }
-    }
-
-    .mobile-nav-enter-active, .mobile-nav-leave-active {
-      transition: 1s ease all;
-    }
-
-    .mobile-nav-enter-from, .mobile-nav-leave-to {
-      transform: translateX(-300px);
-    }
-
-    .mobile-nav-enter-to {
-      transform: translateX(0);
     }
   }
 
-  .scrolled-nav {
-    nav {
-      padding: 8px 0;
-    }
+  .mobile-nav-enter-active,
+  .mobile-nav-leave-active {
+    transition: 1s ease all;
+  }
+
+  .mobile-nav-enter-from,
+  .mobile-nav-leave-to {
+    transform: translateX(-300px);
+  }
+
+  .mobile-nav-enter-to {
+    transform: translateX(0);
+  }
 }
 
+.scrolled-nav {
+  nav {
+    padding: 8px 0;
+  }
+}
 </style>
