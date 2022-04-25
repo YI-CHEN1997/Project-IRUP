@@ -1,28 +1,37 @@
 <template>
-  <div class="loginBox">
-    <h3>Sign in</h3>
-    <form action="" method="post">
-      <div class="inputBox">
-        <input
-          id="uname"
-          type="text"
-          name="Username"
-          placeholder="Username"
-          v-model="email"
-        />
-        <input
-          id="pass"
-          type="password"
-          name="Password"
-          placeholder="Password"
-          v-model="password"
-        />
+  <div class="container">
+    <div class="row">
+      <div class="loginBox">
+        <h3>Sign in</h3>
+        <form action="" method="post">
+          <div class="inputBox">
+            <input
+              id="uname"
+              type="text"
+              name="Username"
+              placeholder="Username"
+              v-model="email"
+            />
+            <input
+              id="pass"
+              type="password"
+              name="Password"
+              placeholder="Password"
+              v-model="password"
+            />
+          </div>
+          <input
+            type="button"
+            class="btn btn-success"
+            value="Login"
+            @click="login"
+          />
+        </form>
+        <router-link to="#" class="send btn rounded-pill text-center"
+          >Forget Password?</router-link
+        >
       </div>
-      <input type="button" class="btn btn-success" value="Login" @click="login" />
-    </form>
-    <router-link to="#" class="send btn rounded-pill text-center"
-      >Forget Password?</router-link
-    >
+    </div>
   </div>
 </template>
 
@@ -43,7 +52,7 @@ export default {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((res) => {
           console.log(res.user.uid);
-          this.$router.push("/")
+          this.$router.push("/");
         })
         .catch((err) => {
           console.log(err.message);

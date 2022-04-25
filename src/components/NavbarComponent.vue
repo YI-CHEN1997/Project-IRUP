@@ -19,7 +19,7 @@
         </ul>
       </li>
       <li class="listitem"><router-link :to="{ name: 'casestudies' }">case studies</router-link></li>
-      <li class="authority"><router-link to=""><i class="fas fa-user-lock"></i></router-link></li>
+      <li class="authority"><router-link to="login"><i class="fas fa-user-lock"></i></router-link></li>
     </ul>
 
     <div class="burger" @click="toggleMobileNav" v-show="mobile" :class="{'icon-active': mobileNav}">
