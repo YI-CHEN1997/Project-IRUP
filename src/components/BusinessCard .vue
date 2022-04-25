@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style scoped>
+
 .cards {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -94,5 +95,9 @@ img {
   height: 20px;
   width: 20px;
   margin: 8px;
+}
+
+p{
+  margin-bottom: 0 !important;
 }
 </style>

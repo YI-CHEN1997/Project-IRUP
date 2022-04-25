@@ -54,6 +54,9 @@ export default {
 </script>
 
 <style scoped>
+p{
+  margin-bottom: 0 !important;
+}
 .ceiling{
   margin-top: 2rem;
 }
