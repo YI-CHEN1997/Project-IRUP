@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="">
-      <p class="text-break my-3" v-html="member.profileContent"></p>
+      <h6 class="text-break my-3" v-html="member.profileContent"></h6>
     </div>
   </div>
 </template>
@@ -52,7 +52,8 @@ export default {
 
 <style scoped>
 .cards {
-  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   background-color: #fff;
   position: relative;
 }
@@ -60,12 +61,12 @@ export default {
   margin-right: calc(41.66666667% + 4.5rem) !important;
 }
 .contact p {
-  margin-bottom: 0px;
+  margin-bottom: .5rem;
   white-space: nowrap;
 }
 .icon {
   color: #66bb6a;
-  margin-right: 10px;
+  margin: 1rem;
 }
 img {
   border-radius: 99em;

@@ -1,4 +1,5 @@
 <template>
+<main>
   <div class="">
     <NewMemberModal v-if="modalActive" v-on:toggle-modal="toggleModal"/>
     <div class="container">
@@ -20,10 +21,9 @@
         </BusinessCard>
       </div>
     </div>
-    <div class="bg">
-      <img src="山丘.svg" alt="" />
-    </div>
   </div>
+</main>
+  
 </template>
 <script>
 import BusinessCard from "@/components/BusinessCard .vue";
