@@ -220,9 +220,7 @@ export default {
         color: #66BB6A;
         margin-left: 3rem;
       }
-    }
-
-    
+    } 
 
     .burger {
       display: flex;
