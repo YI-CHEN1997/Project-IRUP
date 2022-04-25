@@ -130,9 +130,8 @@ export default {
     }
 
     li {
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: background-color 200ms ease-in-out;
+      list-style: none;
+    }
 
     .logo {
       margin-right: auto;
