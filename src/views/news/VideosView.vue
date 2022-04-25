@@ -6,7 +6,7 @@
     <div class="content">
       <div class="card box-shadow">
         <router-link :to="{ name: 'news1' }">
-          <img src="@/assets/news:pic1.png" class="card-img-top" alt="align-items-auto">
+          <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
           <div class="card-body">
             <h5 class="card-title ">2019 Rural UP Program at Liyu community</h5>
             <h6 class="card-text">Duration: 14.03 -- 31/07/2019<br>關於：國際洄游駐村共學計畫</h6>
@@ -16,7 +16,7 @@
 
       <div class="card box-shadow">
         <router-link :to="{ name: 'news2' }">
-          <img src="@/assets/news:pic1.png" class="card-img-top" alt="align-items-auto">
+          <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
             <div class="card-body">
               <h5 class="card-title">「鱉」不住就慘了</h5>
               <h6 class="card-text">Duration: 14.03 -- 31/07/2019<br>關於：苗栗縣三義鄉鯉魚社區</h6>
@@ -26,7 +26,7 @@
 
       <div class="card box-shadow">
         <router-link :to="{ name: 'news3' }">
-          <img src="@/assets/news:pic1.png" class="card-img-top" alt="align-items-auto">
+          <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
           <div class="card-body">
             <h5 class="card-title">Satoyama landscape at Liyu community</h5>
             <h6 class="card-text">Duration: 14.03 -- 31/07/2019<br>關於：苗栗縣三義鄉鯉魚社區</h6>
@@ -36,7 +36,7 @@
 
       <div class="card box-shadow">
         <router-link :to="{ name: 'news3' }">
-          <img src="@/assets/news:pic1.png" class="card-img-top" alt="align-items-auto">
+          <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
           <div class="card-body">
             <h5 class="card-title">Satoyama landscape at Gonglaoping community</h5>
             <h6 class="card-text">Duration: 14.03 -- 31/07/2019<br>關於：台中市豐原區公老坪社區</h6>
