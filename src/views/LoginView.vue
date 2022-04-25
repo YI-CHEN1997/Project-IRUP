@@ -1,4 +1,5 @@
 <template>
+<main>
   <div class="container">
     <!-- Modal -->
     <div
@@ -54,20 +55,30 @@
         <h3>Sign in</h3>
         <form action="" method="post">
           <div class="inputBox">
-            <input
+            <div class="form-floating mb-3">
+              <input
+              class="type-in-box form-control" 
               id="uname"
               type="text"
               name="Username"
               placeholder="Username"
               v-model="email"
             />
-            <input
-              id="pass"
-              type="password"
-              name="Password"
-              placeholder="Password"
-              v-model="password"
-            />
+            <label for="floatingInput">Username</label>
+            </div>
+            
+            <div class="form-floating mb-3">
+              <input
+                id="pass"
+                class="type-in-box form-control"
+                type="password"
+                name="Password"
+                placeholder="Password"
+                v-model="password"
+              />
+              <label for="floatingInput">Password</label>
+            </div>
+            
           </div>
           <input
             type="button"
@@ -86,6 +97,8 @@
       </div>
     </div>
   </div>
+</main>
+  
 </template>
 
 <script>
@@ -122,6 +135,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  height: 40vh;
+}
+
 .loginBox {
   position: absolute;
   top: 50%;
@@ -135,10 +152,16 @@ export default {
   box-sizing: border-box;
 }
 
+@media (max-width: 850px) {
+  .loginBox {
+    top: 40%;
+  }
+}
+
 h3 {
   margin: 0;
   padding: 0 0 20px;
-  color: #0f7a0c;
+  color: #66bb6a;
   text-align: center;
 }
 
@@ -150,28 +173,12 @@ h3 {
 .loginBox input[type="text"],
 .loginBox input[type="password"] {
   border: none;
-  border-bottom: 2px solid #262626;
   outline: none;
-  height: 40px;
-  color: #080808;
-  background: transparent;
-  font-size: 16px;
-  padding-left: 20px;
+  height: 60px;
+  color: #333;
+  background: #f9f9fa;
+  font-size: 1rem;
   box-sizing: border-box;
-}
-
-.loginBox input[type="text"]:hover,
-.loginBox input[type="password"]:hover {
-  color: #282b28;
-  border: 2px solid #140a0a;
-  box-shadow: 0 0 5px rgba(234, 238, 234, 0.3),
-    0 0 10px rgba(232, 238, 232, 0.2), 0 0 15px rgba(229, 235, 229, 0.1),
-    0 2px 0 rgb(102, 98, 98);
-}
-
-.loginBox input[type="text"]:focus,
-.loginBox input[type="password"]:focus {
-  border-bottom: 2px solid #f7fafa;
 }
 
 .inputBox {
@@ -181,7 +188,7 @@ h3 {
 .inputBox span {
   position: absolute;
   top: 10px;
-  color: #262626;
+  color: #333;
 }
 
 .loginBox input[type="submit"] {
@@ -189,14 +196,14 @@ h3 {
   outline: none;
   height: 40px;
   font-size: 16px;
-  background: #047918;
+  background: #66bb6a;
   color: #fff;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .loginBox a {
-  color: #262626;
+  color: #333;
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
