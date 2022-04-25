@@ -1,5 +1,54 @@
 <template>
   <div class="container">
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="forgot-password"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Send Password Reset Email
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3" v-if="!isEmailSend">
+              <span class="input-group-text">Email</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Please enter your Email"
+                v-model="pswResetEmail"
+              />
+              <br />
+            </div>
+            <div class="text-center" v-if="isEmailSend">
+              Password Reset Email is sent! Please check your mailbox!
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" @click="forgetPassword">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="loginBox">
         <h3>Sign in</h3>
@@ -27,7 +76,11 @@
             @click="login"
           />
         </form>
-        <router-link to="#" class="send btn rounded-pill text-center"
+        <router-link
+          to="#"
+          class="send btn rounded-pill text-center"
+          data-bs-toggle="modal"
+          data-bs-target="#forgot-password"
           >Forget Password?</router-link
         >
       </div>
@@ -41,14 +94,17 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default {
   name: "LoginView",
+  components: {},
   data() {
     return {
       email: "",
       password: "",
+      pswResetEmail: "",
+      isEmailSend: null,
     };
   },
   methods: {
-    async login() {
+    login() {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((res) => {
           console.log(res.user.uid);
@@ -58,6 +114,9 @@ export default {
           console.log(err.message);
         });
     },
+    forgetPassword() {
+      this.isEmailSend=!this.isEmailSend;   
+    }
   },
 };
 </script>
