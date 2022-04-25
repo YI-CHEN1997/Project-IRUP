@@ -217,7 +217,7 @@ header {
       }
 
       .about-dropdown {
-        width: 16rem;
+        width: 17rem;
       }
 
       .news-dropdown {
