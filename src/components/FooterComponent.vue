@@ -12,7 +12,7 @@
         <div class="icon">
           <router-link to=""><i class="fab fa-facebook-f fa-2x"></i></router-link>
           <router-link to=""><i class="fab fa-youtube fa-2x"></i></router-link> 
-          <router-link to=""><i class="fab fa-whatsapp fa-2x"></i></router-link>
+          <router-link to=""><i class="fab fa-line fa-2x"></i></router-link>
         </div>
         
     </div>
