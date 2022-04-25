@@ -18,7 +18,7 @@
           v-model="password"
         />
       </div>
-      <input type="button" name="" value="Login" @click="login" />
+      <input type="button" class="btn btn-success" value="Login" @click="login" />
     </form>
     <router-link to="#" class="send btn rounded-pill text-center"
       >Forget Password?</router-link
