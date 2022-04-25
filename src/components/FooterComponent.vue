@@ -1,30 +1,40 @@
 <template>
 
   <footer>
-    <div class="contact">
-      <h5 class="text-uppercase">contact</h5>
-      <h6>145 Xingda Rd., Taichung 402, Taiwan R.O.C.</h6>
-      <h6>+886-4-22859125</h6>
-      <h6>cfwu@dragon.nchu.edu.tw</h6>
-      <div class="icon">
-        <a href="">
-          <i class="fab fa-facebook-f fa-2x"></i>
-        </a>
-        <a href="">
-          <i class="fab fa-youtube fa-2x"></i>
-        </a>
-        <a href="">
-          <i class="fab fa-whatsapp fa-2x"></i>
-        </a>
-      </div>
-      <h6 class="copyright">Powered by IRUP - International Rural-Up Partnership</h6>
+    <div class="content">
+      <div class="contact">
+        <div class="logo uppercase">
+          <router-link :to="{ name: 'home' }">irup</router-link>
+        </div>
+        <h6><i class="icon fa-solid fa-location-dot"></i>145 Xingda Rd., Taichung 402, Taiwan R.O.C.</h6>
+        <h6><i class="icon fa-solid fa-phone"></i>+886-4-22859125</h6>
+        <h6><i class="icon fa-solid fa-envelope"></i>cfwu@dragon.nchu.edu.tw</h6>
+        <div class="icon">
+          <router-link to=""><i class="fab fa-facebook-f fa-2x"></i></router-link>
+          <router-link to=""><i class="fab fa-youtube fa-2x"></i></router-link> 
+          <router-link to=""><i class="fab fa-whatsapp fa-2x"></i></router-link>
+        </div>
+        
     </div>
-    <div class="background-color">
-      <div class="background-pattern">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,117.3C384,139,480,213,576,218.7C672,224,768,160,864,117.3C960,75,1056,53,1152,53.3C1248,53,1344,75,1392,85.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
-      </div>
+      <svg id="wave" width="1440" height="513" viewBox="0 0 1440 513" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1440 196L1400 245C1360 294 1280 392 1200 416.5C1120 441 1040 392 960 343C880 294 800 245 720 253.2C640 261 560 327 480 318.5C400 310 320 229 240 179.7C160 131 80 114 0 122.5C-80 131 -160 163 -240 179.7C-320 196 -400 196 -480 179.7C-560 163 -640 131 -720 106.2C-800 82 -880 65 -960 81.7C-1040 98 -1120 147 -1200 196C-1280 245 -1360 294 -1440 294C-1520 294 -1600 245 -1680 261.3C-1760 278 -1840 359 -1920 408.3C-2000 457 -2080 474 -2160 449.2C-2240 425 -2320 359 -2400 343C-2480 327 -2560 359 -2640 326.7C-2720 294 -2800 196 -2880 196C-2960 196 -3040 294 -3120 326.7C-3200 359 -3280 327 -3360 310.3C-3440 294 -3520 294 -3600 277.7C-3680 261 -3760 229 -3840 212.3C-3920 196 -4000 196 -4080 196C-4160 196 -4240 196 -4280 196H-4320V3.05176e-05H-4280C-4240 3.05176e-05 -4160 3.05176e-05 -4080 3.05176e-05C-4000 3.05176e-05 -3920 3.05176e-05 -3840 3.05176e-05C-3760 3.05176e-05 -3680 3.05176e-05 -3600 3.05176e-05C-3520 3.05176e-05 -3440 3.05176e-05 -3360 3.05176e-05C-3280 3.05176e-05 -3200 3.05176e-05 -3120 3.05176e-05C-3040 3.05176e-05 -2960 3.05176e-05 -2880 3.05176e-05C-2800 3.05176e-05 -2720 3.05176e-05 -2640 3.05176e-05C-2560 3.05176e-05 -2480 3.05176e-05 -2400 3.05176e-05C-2320 3.05176e-05 -2240 3.05176e-05 -2160 3.05176e-05C-2080 3.05176e-05 -2000 3.05176e-05 -1920 3.05176e-05C-1840 3.05176e-05 -1760 3.05176e-05 -1680 3.05176e-05C-1600 3.05176e-05 -1520 3.05176e-05 -1440 3.05176e-05C-1360 3.05176e-05 -1280 3.05176e-05 -1200 3.05176e-05C-1120 3.05176e-05 -1040 3.05176e-05 -960 3.05176e-05C-880 3.05176e-05 -800 3.05176e-05 -720 3.05176e-05C-640 3.05176e-05 -560 3.05176e-05 -480 3.05176e-05C-400 3.05176e-05 -320 3.05176e-05 -240 3.05176e-05C-160 3.05176e-05 -80 3.05176e-05 0 3.05176e-05C80 3.05176e-05 160 3.05176e-05 240 3.05176e-05C320 3.05176e-05 400 3.05176e-05 480 3.05176e-05C560 3.05176e-05 640 3.05176e-05 720 3.05176e-05C800 3.05176e-05 880 3.05176e-05 960 3.05176e-05C1040 3.05176e-05 1120 3.05176e-05 1200 3.05176e-05C1280 3.05176e-05 1360 3.05176e-05 1400 3.05176e-05H1440V196Z" fill="#F9F9FA"/>
+<path d="M1440 248L1400 297C1360 346 1280 444 1200 468.5C1120 493 1040 444 960 395C880 346 800 297 720 305.2C640 313 560 379 480 370.5C400 362 320 281 240 231.7C160 183 80 166 0 174.5C-80 183 -160 215 -240 231.7C-320 248 -400 248 -480 231.7C-560 215 -640 183 -720 158.2C-800 134 -880 117 -960 133.7C-1040 150 -1120 199 -1200 248C-1280 297 -1360 346 -1440 346C-1520 346 -1600 297 -1680 313.3C-1760 330 -1840 411 -1920 460.3C-2000 509 -2080 526 -2160 501.2C-2240 477 -2320 411 -2400 395C-2480 379 -2560 411 -2640 378.7C-2720 346 -2800 248 -2880 248C-2960 248 -3040 346 -3120 378.7C-3200 411 -3280 379 -3360 362.3C-3440 346 -3520 346 -3600 329.7C-3680 313 -3760 281 -3840 264.3C-3920 248 -4000 248 -4080 248C-4160 248 -4240 248 -4280 248H-4320V52H-4280C-4240 52 -4160 52 -4080 52C-4000 52 -3920 52 -3840 52C-3760 52 -3680 52 -3600 52C-3520 52 -3440 52 -3360 52C-3280 52 -3200 52 -3120 52C-3040 52 -2960 52 -2880 52C-2800 52 -2720 52 -2640 52C-2560 52 -2480 52 -2400 52C-2320 52 -2240 52 -2160 52C-2080 52 -2000 52 -1920 52C-1840 52 -1760 52 -1680 52C-1600 52 -1520 52 -1440 52C-1360 52 -1280 52 -1200 52C-1120 52 -1040 52 -960 52C-880 52 -800 52 -720 52C-640 52 -560 52 -480 52C-400 52 -320 52 -240 52C-160 52 -80 52 0 52C80 52 160 52 240 52C320 52 400 52 480 52C560 52 640 52 720 52C800 52 880 52 960 52C1040 52 1120 52 1200 52C1280 52 1360 52 1400 52H1440V248Z" fill="url(#paint0_linear_270_917)"/>
+<path d="M1440 223L1400 272C1360 321 1280 419 1200 443.5C1120 468 1040 419 960 370C880 321 800 272 720 280.2C640 288 560 354 480 345.5C400 337 320 256 240 206.7C160 158 80 141 0 149.5C-80 158 -160 190 -240 206.7C-320 223 -400 223 -480 206.7C-560 190 -640 158 -720 133.2C-800 109 -880 92 -960 108.7C-1040 125 -1120 174 -1200 223C-1280 272 -1360 321 -1440 321C-1520 321 -1600 272 -1680 288.3C-1760 305 -1840 386 -1920 435.3C-2000 484 -2080 501 -2160 476.2C-2240 452 -2320 386 -2400 370C-2480 354 -2560 386 -2640 353.7C-2720 321 -2800 223 -2880 223C-2960 223 -3040 321 -3120 353.7C-3200 386 -3280 354 -3360 337.3C-3440 321 -3520 321 -3600 304.7C-3680 288 -3760 256 -3840 239.3C-3920 223 -4000 223 -4080 223C-4160 223 -4240 223 -4280 223H-4320V27H-4280C-4240 27 -4160 27 -4080 27C-4000 27 -3920 27 -3840 27C-3760 27 -3680 27 -3600 27C-3520 27 -3440 27 -3360 27C-3280 27 -3200 27 -3120 27C-3040 27 -2960 27 -2880 27C-2800 27 -2720 27 -2640 27C-2560 27 -2480 27 -2400 27C-2320 27 -2240 27 -2160 27C-2080 27 -2000 27 -1920 27C-1840 27 -1760 27 -1680 27C-1600 27 -1520 27 -1440 27C-1360 27 -1280 27 -1200 27C-1120 27 -1040 27 -960 27C-880 27 -800 27 -720 27C-640 27 -560 27 -480 27C-400 27 -320 27 -240 27C-160 27 -80 27 0 27C80 27 160 27 240 27C320 27 400 27 480 27C560 27 640 27 720 27C800 27 880 27 960 27C1040 27 1120 27 1200 27C1280 27 1360 27 1400 27H1440V223Z" fill="url(#paint1_linear_270_917)"/>
+<defs>
+<linearGradient id="paint0_linear_270_917" x1="-1440" y1="512.514" x2="-1440" y2="52" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F9F9FA" stop-opacity="0.38"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_270_917" x1="-1440" y1="487.514" x2="-1440" y2="27" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EEEEEE"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+      </svg>
+
     </div>
-    <img src="../assets/footer-pattern.svg" alt="">
+
+    <h6 class="copyright">Powered by IRUP - International Rural-Up Partnership</h6>
 
   </footer>
 
@@ -32,63 +42,86 @@
 
  <style scoped lang="scss">
   footer {
+    width: 100%;
     position: relative;
     bottom: 0;
-    text-align: center;
-    height: calc(100vh - 116px);
-    overflow: hidden;
+    left: 0;
+    color: #eee;
     z-index: -99;
 
-    .contact {
-      padding-top: 300px;
-    }
-
-    .icon a {
-      margin: 1rem;
-      color: #333;
-    }
-
-    h5 {
-      color: #66bb6a;
-    }
-
-    h6 {
-      margin: 1rem 0 1.5rem 0;
-    }
-
-    .copyright {
-      margin-top: 3rem;
-    }
-
-    .background-color {
-      background: #F9F9FA;
-      z-index: -100;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    .content {
+      position: relative;
       width: 100%;
-      height: 90%;
-      // overflow: hidden;
-      line-height: 0;
+      height: 65vh;
+      background: linear-gradient(180deg, #66bb6a 0%, rgba(102, 187, 106, 0.8) 100%);
+      padding: 6rem;
 
-      .background-pattern {  
-        fill: #fff;
+      .contact {
+        position: relative;
+        top: 130px;
+        z-index: 1;
 
-        svg {
-          position: relative;
-          display: block;
-          width: calc(100% + 1.3px);
-          height: 100%;
+        .logo a {
+          font-weight: 600;
+          font-size: 2rem;
+          letter-spacing: 0.12em;
+          text-decoration: none;
+          color: #eee;
+        } 
+
+        h6 {
+          font-size: .8rem;
+
+          .icon {
+          margin-right: 1rem;
+          }
         }
+      }
+
+      .icon a {
+        margin-right: 2rem;
+        color: #eee;
+      }
+
+      h6 {
+        margin: 1rem 0 1.5rem 0;
+      }
+
+      #wave {
+        width: 100%;
+        position: absolute;
+        top: -120px;
+        left: 0;
+        z-index: 0;
       }
     }
 
-    img {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: -99;
-      height: 30%;
+    .copyright {
+        padding: 1rem 6rem;
+        color: #333;
+        background: #f9f9fa;
+      }
+  }
+
+  @media (max-width: 850px) {
+    footer {
+
+      .content {
+        height: 50vh;
+        padding-left: 2rem;
+
+        .contact {
+          top: 30px;
+        }
+
+        #wave {
+          top: -200px;
+        }
+      }
+
+      .copyright {
+        padding: 1rem 2rem;
+      }
     }
   }
 

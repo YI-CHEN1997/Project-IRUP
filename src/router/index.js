@@ -28,6 +28,21 @@ const routes = [
     component: () => import('../views/news/NewsView.vue')
   },
   {
+    path: '/news/news1',
+    name: 'news1',
+    component: () => import('../views/news/contents/News1View.vue')
+  },
+  {
+    path: '/news/news2',
+    name: 'news2',
+    component: () => import('../views/news/contents/News2View.vue')
+  },
+  {
+    path: '/news/news3',
+    name: 'news3',
+    component: () => import('../views/news/contents/News3View.vue')
+  },
+  {
     path: '/news/videos',
     name: 'videos',
     component: () => import('../views/news/VideosView.vue')
@@ -40,7 +55,22 @@ const routes = [
   {
     path: '/casestudies',
     name: 'casestudies',
-    component: () => import('../views/CasestudiesView.vue')
+    component: () => import('../views/case-studies/CasestudiesView.vue')
+  },
+  {
+    path: '/casestudies/case1',
+    name: 'case1',
+    component: () => import('../views/case-studies/Case1View.vue')
+  },
+  {
+    path: '/casestudies/case2',
+    name: 'case2',
+    component: () => import('../views/case-studies/Case2View.vue')
+  },
+  {
+    path: '/casestudies/case3',
+    name: 'case3',
+    component: () => import('../views/case-studies/Case3View.vue')
   },
   {
     path: '/login',
