@@ -1,40 +1,25 @@
 <template>
-
-<header :class="{'scrolled-nav' :scrolledNav }">
-  <nav class="uppercase">
-    <div class="logo">
-      <router-link :to="{ name: 'home' }">irup</router-link>
-    </div>
-    <ul v-show="!mobile" class="navigation">
-      <li class="listitem"><router-link :to="{ name: 'about' }">about<i class="fas fa-caret-down"></i></router-link>
-        <ul class="dropdown about-dropdown">
-          <li><router-link :to="{ name: 'operationalstructure' }">operational structure</router-link></li>
-          <li><router-link :to="{ name: 'executiveboard' }">executive board</router-link></li>
-        </ul>
-      </li>
-      <li class="listitem"><router-link :to="{ name: 'news' }">news<i class="fas fa-caret-down"></i></router-link>
-        <ul class="dropdown news-dropdown">
-          <li><router-link :to="{ name: 'videos' }">videos</router-link></li>
-          <li><router-link :to="{ name: 'publication' }">publication</router-link></li>
-        </ul>
-      </li>
-      <li class="listitem"><router-link :to="{ name: 'casestudies' }">case studies</router-link></li>
-      <li class="authority"><router-link to="login"><i class="fas fa-user-lock"></i></router-link></li>
-    </ul>
-
-    <div class="burger" @click="toggleMobileNav" v-show="mobile" :class="{'icon-active': mobileNav}">
-      <i  class="fa-solid fa-bars" ></i>
-    </div>
-    <transition name="mobile-nav">
-      <ul v-show="mobileNav" class="slide-nav">
-        <div class="logo">
-          <router-link :to="{ name: 'home' }">irup</router-link>
-        </div>
-        <li class="listitem"><router-link :to="{ name: 'about' }">about</router-link><i class="fas fa-caret-down"></i>
-        <span>
-          <ul class="mobile-dropdown">
-            <li><router-link :to="{ name: 'operationalstructure' }">operational structure</router-link></li>
-            <li><router-link :to="{ name: 'executiveboard' }">executive board</router-link></li>
+  <header :class="{ 'scrolled-nav': scrolledNav }">
+    <nav class="uppercase">
+      <div class="logo">
+        <router-link :to="{ name: 'home' }">irup</router-link>
+      </div>
+      <ul v-show="!mobile" class="navigation">
+        <li class="listitem">
+          <router-link :to="{ name: 'about' }"
+            >about<i class="fas fa-caret-down"></i
+          ></router-link>
+          <ul class="dropdown about-dropdown">
+            <li>
+              <router-link :to="{ name: 'operationalstructure' }"
+                >operational structure</router-link
+              >
+            </li>
+            <li>
+              <router-link :to="{ name: 'executiveboard' }"
+                >executive board</router-link
+              >
+            </li>
           </ul>
         </li>
         <li class="listitem">
@@ -54,11 +39,64 @@
           <router-link :to="{ name: 'casestudies' }">case studies</router-link>
         </li>
         <li class="authority">
-          <router-link to=""><i class="fas fa-user-lock"></i></router-link>
+          <router-link to="login"><i class="fas fa-user-lock"></i></router-link>
         </li>
       </ul>
 
-      
+      <div
+        class="burger"
+        @click="toggleMobileNav"
+        v-show="mobile"
+        :class="{ 'icon-active': mobileNav }"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <transition name="mobile-nav">
+        <ul v-show="mobileNav" class="slide-nav">
+          <div class="logo">
+            <router-link :to="{ name: 'home' }">irup</router-link>
+          </div>
+          <li class="listitem">
+            <router-link :to="{ name: 'about' }">about</router-link
+            ><i class="fas fa-caret-down"></i>
+            <span>
+              <ul class="mobile-dropdown">
+                <li>
+                  <router-link :to="{ name: 'operationalstructure' }"
+                    >operational structure</router-link
+                  >
+                </li>
+                <li>
+                  <router-link :to="{ name: 'executiveboard' }"
+                    >executive board</router-link
+                  >
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li class="listitem">
+            <router-link :to="{ name: 'news' }">news</router-link
+            ><i class="fas fa-caret-down"></i>
+            <span>
+              <ul class="mobile-dropdown">
+                <li>
+                  <router-link :to="{ name: 'videos' }">videos</router-link>
+                </li>
+                <li>
+                  <router-link :to="{ name: 'publication' }"
+                    >publication</router-link
+                  >
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li class="listitem">
+            <router-link :to="{ name: 'casestudies' }"
+              >case studies</router-link
+            >
+          </li>
+          <li class="authority"><i class="fas fa-user-lock"></i></li>
+        </ul>
       </transition>
     </nav>
   </header>
@@ -137,7 +175,6 @@ header {
   li {
     list-style: none;
   }
-
   .logo {
     margin-right: auto;
     font-weight: 600;
