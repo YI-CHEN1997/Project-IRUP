@@ -197,6 +197,10 @@ export default {
       .mission-section {
         margin-top: 55vh;
       }
+
+      .news {
+        margin-top: -20%;
+      }
     }
   }
 

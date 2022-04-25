@@ -83,13 +83,13 @@
   .about-content {
     height: 200px;
     display: flex;
-    border-radius: 30px;
+    border-radius: 10px;
     background: rgba(238, 238, 238, .8);
     padding: 2rem;
 
     .single-content {
       background: #fff;
-      border-radius: 30px;
+      border-radius: 10px;
       width: 250px;
       height: 330px;
       padding: 1rem;
@@ -122,8 +122,10 @@
     }
 
     .about-content {
-      height: 150px;
-      padding: 1rem;
+      width: 50vh;
+      height: 120px;
+      padding: 0;
+      justify-content: center;
 
       .single-content {
         background: none;
