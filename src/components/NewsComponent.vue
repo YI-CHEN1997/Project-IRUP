@@ -6,7 +6,7 @@
     <div class="content">
       <div class="card box-shadow">
         <router-link :to="{ name: 'news1' }">
-          <img src="@/assets/news:pic1.png" class="card-img-top" alt="align-items-auto">
+          <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
           <div class="card-body">
             <h5 class="card-title ">IPSI-7 Summary Report and Presentation Abstracts..</h5>
             <h6 class="card-text">Written by admin on December 4, 2019</h6>
@@ -16,7 +16,7 @@
 
       <div class="card box-shadow">
         <router-link :to="{ name: 'news2' }">
-          <img src="@/assets/news:pic1.png" class="card-img-top" alt="align-items-auto">
+          <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
             <div class="card-body">
               <h5 class="card-title">29 May 2019: Seminar on.. </h5>
               <h6 class="card-text">Written by admin on December 4, 2019</h6>
@@ -26,7 +26,7 @@
 
       <div class="card box-shadow">
         <router-link :to="{ name: 'news3' }">
-          <img src="@/assets/news:pic1.png" class="card-img-top" alt="align-items-auto">
+          <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
           <div class="card-body">
             <h5 class="card-title">Gonglaoping Community, Fengyuan Dist., Taichung..</h5>
             <h6 class="card-text">Written by admin on November 26, 2019</h6>

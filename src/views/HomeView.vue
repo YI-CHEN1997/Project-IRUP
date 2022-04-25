@@ -74,7 +74,6 @@ export default {
 
   .home {
     font-family: 'Montserrat', sans-serif;
-    // text-align: center;
     color: #333;
     background: #F9F9FA;
 
@@ -202,6 +201,17 @@ export default {
         justify-content: flex-end;
         margin: 1rem 5rem;
         color: #66bb6a;
+      }
+    }
+
+    @media (max-width: 850px) {
+
+      .section1 {
+        top: 41%;
+      }
+
+      .mission-section {
+        margin-top: 80vh;
       }
     }
   }

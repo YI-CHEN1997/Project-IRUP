@@ -10,7 +10,7 @@
     
     <div class="content">
       <div class="section1">
-        <img src="@/assets/news:pic1.png" alt="">
+        <img src="@/assets/news.png" alt="">
         <ul>
         <li><h6>Gonglaoping Community is located a flat terrace east to Fengyuan, Taichung, near the Han River’ s source.</h6></li>
         <li><h6>Total channel length of Han river: 9.6 km.</h6></li>
