@@ -6,7 +6,7 @@
         <div class="logo uppercase">
           <router-link :to="{ name: 'home' }">irup</router-link>
         </div>
-        <h6><i class="icon fa-solid fa-location-dot"></i>145 Xingda Rd., Taichung 402, Taiwan R.O.C.</h6>
+        <h6><i class="icon fa-solid fa-location-dot"></i>145 Xingda Rd., Taichung 402, Taiwan R.O.C</h6>
         <h6><i class="icon fa-solid fa-phone"></i>+886-4-22859125</h6>
         <h6><i class="icon fa-solid fa-envelope"></i>cfwu@dragon.nchu.edu.tw</h6>
         <div class="icon">
@@ -88,7 +88,7 @@
       }
 
       #wave {
-        width: 100%;
+        width: 100vw;
         position: absolute;
         top: -120px;
         left: 0;

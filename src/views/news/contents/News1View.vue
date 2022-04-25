@@ -62,6 +62,11 @@
 
       h6 {
         margin-right: 0;
+        text-align: center;
+
+        li {
+          text-align: left;
+        }
       }
 
       img {
@@ -71,6 +76,5 @@
     }
   }
 }
-
   
 </style>

@@ -39,7 +39,7 @@
           <router-link :to="{ name: 'casestudies' }">case studies</router-link>
         </li>
         <li class="authority">
-          <router-link to="login"><i class="fas fa-user-lock"></i></router-link>
+          <router-link :to="{ name: 'login' }"><i class="fas fa-user-lock"></i></router-link>
         </li>
       </ul>
 
@@ -95,7 +95,7 @@
               >case studies</router-link
             >
           </li>
-          <li class="authority"><i class="fas fa-user-lock"></i></li>
+          <li class="authority"><router-link :to="{ name: 'login' }"><i class="fas fa-user-lock"></i></router-link></li>
         </ul>
       </transition>
     </nav>
@@ -297,7 +297,7 @@ header {
       margin-left: 0;
     }
 
-    .authority {
+    .authority a {
       color: #66bb6a;
       margin-top: 2rem;
       margin-left: 5px;

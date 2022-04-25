@@ -115,8 +115,8 @@ export default {
       
       .button {
         display: flex;
-        justify-content: end;
-        margin-top: 2vh;
+        justify-content: center;
+        margin-top: 4vh;
 
         a {
           width: 150px;
