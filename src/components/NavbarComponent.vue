@@ -129,10 +129,10 @@ export default {
       margin: 0 auto;
     }
 
+
     li {
       list-style: none;
     }
-
     .logo {
       margin-right: auto;
       font-weight: 600;
