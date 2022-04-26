@@ -1,15 +1,15 @@
 <template>
-  <div class="cards col-md-5 col-sm-8 px-5 py-4 m-4"> 
-    <div class="d-flex justify-content-end edit-icons">
-      <!-- <span class="edit-icon me-3"><i class="fa-solid fa-pen fa-lg"></i></span> -->
-      <span class="edit-icon" @click="deleteMember(member.id)"
-        ><i class="fa-solid fa-trash-can fa-lg"></i
-      ></span>
+  <div class="cards p-4 m-4"> 
+    <div class="d-flex flex-column justify-content-end edit-icons">      
+      <span class="d-flex justify-content-center edit-icon">
+      <i class="fas fa-pen-nib"></i>
+      </span>
+      <span class="d-flex justify-content-center delete-icon" @click="deleteMember(member.id)"
+        ><i class="fas fa-trash"></i>
+      </span>
     </div>
-    <div class="d-flex">
-      <div>
-        <img :src="member.profilePhoto" />
-      </div>
+    <div class="d-flex">    
+      <img :src="member.profilePhoto" />
       <div class="d-flex flex-column justify-content-center m-4">
         <div class="mb-3">
           <h5>{{ member.profileName }}</h5>
@@ -30,7 +30,9 @@
       <h6 class="text-break my-3" v-html="member.profileContent"></h6>
     </div>
   </div>
+
 </template>
+
 <script>
 import { db } from "../firebase/firebaseinit";
 import { deleteDoc, doc } from "firebase/firestore";
@@ -50,9 +52,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .cards {
+  width: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #fff;
@@ -61,21 +64,26 @@ export default {
 .cards:last-child:nth-last-child(2n-1){
   margin-right: calc(41.66666667% + 4.5rem) !important;
 }
+
+
 .contact p {
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
   white-space: nowrap;
 }
+
 .icon {
   color: #66bb6a;
-  margin: 1rem;
+  margin: 0 1rem 0 0;
 }
 img {
-  border-radius: 99em;
-  max-width: 12vw;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
 }
 .edit-icons {
   position: absolute;
-  right: 5%;
+  right: 3%;
+  top: 3%;
 }
 
 .edit-icon {
@@ -84,18 +92,38 @@ img {
   color: #fff;
   background-color: #66bb6a;
   border-radius: 50%;
+  margin: .2rem 0;
   cursor: pointer;
+
+  &:hover {
+    background-color: #396e3c;
+  }
+
+  svg {
+    height: 1rem;
+    margin: 8px;
+  }
 }
 
-.edit-icon:hover {
-  background-color: #396e3c;
+.delete-icon {
+  height: 35px;
+  width: 35px;
+  color: #fff;
+  background-color: #66bb6a;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: .2rem 0;
+
+  &:hover {
+    background-color: #396e3c;
+  }
+
+  svg {
+    height: 1rem;
+    margin: 8px;
+  }
 }
 
-.edit-icon svg {
-  height: 20px;
-  width: 20px;
-  margin: 8px;
-}
 
 p{
   margin-bottom: 0 !important;
