@@ -9,7 +9,7 @@
           <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
           <div class="card-body">
             <h5 class="card-title ">IPSI-7 Summary Report and Presentation Abstracts..</h5>
-            <h6 class="card-text">Written by admin on December 4, 2019</h6>
+            <h6 class="card-text">Written by admin on Dec. 4, 2019</h6>
           </div>
         </router-link>        
       </div>
@@ -19,7 +19,7 @@
           <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
             <div class="card-body">
               <h5 class="card-title">29 May 2019: Seminar on.. </h5>
-              <h6 class="card-text">Written by admin on December 4, 2019</h6>
+              <h6 class="card-text">Written by admin on Dec. 4, 2019</h6>
             </div>
         </router-link>       
       </div>
@@ -29,7 +29,7 @@
           <img src="@/assets/news.png" class="card-img-top" alt="align-items-auto">
           <div class="card-body">
             <h5 class="card-title">Gonglaoping Community, Fengyuan Dist., Taichung..</h5>
-            <h6 class="card-text">Written by admin on November 26, 2019</h6>
+            <h6 class="card-text">Written by admin on Nov. 26, 2019</h6>
           </div>
         </router-link>        
       </div>
