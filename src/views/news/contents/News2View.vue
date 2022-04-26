@@ -58,7 +58,7 @@
 
       h6 {
         margin-right: 0;
-        text-align: center;
+        text-align: left;
 
         li {
           text-align: left;

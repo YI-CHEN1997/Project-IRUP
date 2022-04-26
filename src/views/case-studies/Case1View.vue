@@ -143,7 +143,7 @@
 
     .content {
       h6 {
-        text-align: center;
+        text-align: left;
 
         li {
           text-align: left;

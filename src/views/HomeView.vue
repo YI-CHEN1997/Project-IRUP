@@ -47,7 +47,7 @@
         <router-link :to="{name: 'news'}">more</router-link>
       </section>
 
-      <section class="section4">
+      <section class="case-studies">
         <CaseStudiesComponent/>
         <router-link :to="{name: 'casestudies'}">more</router-link>
       </section>
@@ -116,7 +116,7 @@ export default {
       .button {
         display: flex;
         justify-content: center;
-        margin-top: 4vh;
+        margin-top: 2.5vh;
 
         a {
           width: 150px;
@@ -166,7 +166,7 @@ export default {
       }
     }
 
-    .section4 {
+    .case-studies {
       a {
         display: flex;
         justify-content: flex-end;
@@ -200,6 +200,18 @@ export default {
 
       .news {
         margin-top: -20%;
+
+        a {
+          margin: 1rem 2rem;
+        }
+      }
+
+      .case-studies {
+        margin-top: -20%;
+
+        a {
+          margin: 1rem 2rem;
+        }
       }
     }
   }

@@ -96,10 +96,6 @@ main {
       height: 150px;
     }
   }
-
-  .disappear {
-    visibility: hidden;
-  }
 }
 
 </style>
