@@ -1,11 +1,10 @@
 <template>
   <main>
     <div class="">
-      <!-- <NewMemberModal v-if="modalActive" v-on:toggle-modal="toggleModal"/> -->
       <div class="container">
         <!-- Add New Member Modal -->
         <div class="modal" tabindex="-1" id="addNewMember">
-          <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Add New Member</h5>
@@ -49,7 +48,6 @@
                     <br />
                     <QuillEditor
                       theme="snow"
-                      toolbar="minimal"
                       class="ql-editor"
                       v-model:content="profileContent"
                       contentType="html"
@@ -107,10 +105,6 @@
 </template>
 <script>
 import BusinessCard from "@/components/BusinessCard .vue";
-//import NewMemberModal from "@/components/NewMemberModal.vue";
-import LoadingComponent from "@/components/LoadingComponent.vue";
-import { QuillEditor } from "@vueup/vue-quill";
-import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import { storage, db } from "@/firebase/firebaseinit";
 import { addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -119,9 +113,6 @@ export default {
   setup() {},
   components: {
     BusinessCard,
-    QuillEditor,
-    LoadingComponent,
-    //NewMemberModal,
   },
   data() {
     return {

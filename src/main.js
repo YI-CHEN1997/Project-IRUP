@@ -11,5 +11,12 @@ import '@fortawesome/fontawesome-free/js/all.js'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.js"
 
+// import Quill
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
-createApp(App).use(store).use(router).mount('#app')
+
+// loading component globalize
+import LoadingComponent from "@/components/LoadingComponent.vue";
+
+createApp(App).use(store).use(router).component('QuillEditor', QuillEditor).component('LoadingComponent', LoadingComponent).mount('#app')
