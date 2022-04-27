@@ -16,7 +16,7 @@
         <li><h6>The whole Community is located in Han River’ s watershed. The upstream is in mountainous areas; the midstream flows through Fengyuan Agricultural Plain Area; the downstream goes through Taichung City.</h6></li>
       </ul>   
 
-      <img src="@/assets/news:pic1.png" alt="">
+      <img src="@/assets/news.png" alt="">
       <img src="@/assets/site.png" alt="">
 
       <h5 class="mb-4">Site Issue Analysis<br><br>(數字對應藍色小圓圈)</h5>

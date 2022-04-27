@@ -15,8 +15,20 @@
 <script>
 import NavbarComponent from './components/NavbarComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import { auth } from "@/firebase/firebaseinit";
+import { onAuthStateChanged } from "firebase/auth";
+
 export default {
   components: { NavbarComponent, FooterComponent },
+
+  created() {
+    this.$store.dispatch("getBoardMembers");
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.$store.commit("userStateChange", user);
+      }
+    });
+  },
 
 }
 </script>
@@ -84,8 +96,26 @@ export default {
   p {
     font-size: .8rem;
   }
-  }
 
-  
+    @media (max-width:850px) {
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h5 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      h6 {
+        font-size: .8rem;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: .6rem;
+      }
+    }
+  }
 
 </style>

@@ -122,6 +122,8 @@
     }
 
     .about-content {
+      height: 150px;
+      padding: 1rem;
 
       .single-content {
         background: none;
@@ -134,9 +136,7 @@
         display: none;
       }
     }
-  }
-
-      
+  }   
 }
 
 </style>
