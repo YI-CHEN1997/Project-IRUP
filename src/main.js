@@ -12,6 +12,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.js"
 
 
+import jQuery from 'jquery'
+window.$ = window.jQuery = jQuery
 
 // loading component globalize
 import LoadingComponent from "@/components/LoadingComponent.vue";

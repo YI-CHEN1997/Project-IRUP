@@ -1,6 +1,6 @@
 <template>
   <main>
-    <!-- <LoadingComponent v-show="loading" style="z-index:99;" /> -->
+    <LoadingComponent v-show="loading" />
     <div class="container">
       <div
         class="modal"
@@ -99,12 +99,14 @@
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
+                id="close-modal"
               >
                 Close
               </button>
               <button
                 type="button"
                 class="btn btn-primary"
+                
                 @click="uploadCaseStudy"
               >
                 Upload Case Study
@@ -189,6 +191,8 @@ import { db, storage } from "../firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
 
+
+
 export default {
   components: {
     VueEditor,
@@ -271,7 +275,7 @@ export default {
                 TimeStamp: dateresult,
               });
               this.loading = false;
-              
+              document.getElementById('close-modal').click();
             }
           );
         } else {
