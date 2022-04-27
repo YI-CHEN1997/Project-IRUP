@@ -160,6 +160,28 @@
   
   @media (max-width: 850px) {
     padding: 0 0 1vh 0;
+
+    .content {
+      display: block;
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+
+      h6 {
+        margin-right: 0;
+        text-align: left;
+
+        li {
+          text-align: left;
+        }
+      }
+
+      img {
+        margin-top: 2rem;
+        width: 60%;
+      }
+    }
   }
 }
 

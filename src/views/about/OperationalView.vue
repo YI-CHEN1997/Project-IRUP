@@ -68,7 +68,6 @@
 
   .content {
     
-
     .p1, .p2, .p3 {
       margin: 5rem 6rem;
       display: flex;
@@ -98,19 +97,26 @@
       h6 {        
         text-align: justify;
       }
-
-      @media (max-width: 850px) {
-        display: block;
-
-        h3 {
-          margin-bottom: 1rem;
-        }
-      }
     }
   }
 
   @media (max-width: 850px) {
     padding: 0 0 1vh 0;
+
+    .content {
+
+      .p1, .p2, .p3 {
+        display: block;
+
+        h3 {
+          margin-bottom: 1rem;
+        }
+
+        h6 {        
+          text-align: left;
+        }
+      }
+    }
   }
 }
 

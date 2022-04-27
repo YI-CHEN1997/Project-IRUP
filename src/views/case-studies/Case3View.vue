@@ -174,6 +174,20 @@
       }
     }
   }
+
+  @media (max-width: 850px) {
+    padding: 0 0 1vh 0;
+
+    .content {
+      h6 {
+        text-align: left;
+
+        li {
+          text-align: left;
+        }
+      }
+    }
+  }
 }
 
   
