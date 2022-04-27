@@ -2,8 +2,10 @@
 
 <main>
   <div class="container">
+    
     <h1 class="title uppercase">videos</h1>
     <div class="content">
+      
       <div class="card box-shadow">
         <a target="_blank" href="https://www.youtube.com/watch?v=3F2DDJgNxpk">
         <iframe  class="card-img-top" src="https://www.youtube-nocookie.com/embed/3F2DDJgNxpk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -71,7 +73,8 @@ main {
   .card {
     width: 450px;
     height: 400px;
-    border-radius: 5px;
+    border-radius: 10px;
+    overflow: hidden;
     position: relative;
     background-color: white;    
     border: 0px solid #fff;
