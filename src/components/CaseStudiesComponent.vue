@@ -1,7 +1,7 @@
 <template>
   <main>
+    <LoadingComponent v-show="loading" style="z-index:99;" />
     <div class="container">
-      <LoadingComponent v-show="loading" />
       <div
         class="modal"
         data-bs-backdrop="static"
