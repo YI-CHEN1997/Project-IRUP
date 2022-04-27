@@ -1,6 +1,28 @@
 <template>
   <main>
     <div class="container">
+      <div class="modal" tabindex="-1" id="photoPreview">
+        <div
+          class="
+            modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl
+          "
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ coverPhotoName }}</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+              <img :src="coverPhotoURL" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="modal fade" tabindex="-1" id="NewCaseModal">
         <div
           class="
@@ -40,18 +62,21 @@
                       accept=".png, .jpg, ,.jpeg"
                     />
                     <br />
-                    <button>Preview Cover Photo</button>
+                    <button
+                      v-if="coverPhotoURL"
+                      data-bs-toggle="modal"
+                      data-bs-target="#photoPreview"
+                    >
+                      Preview Cover Photo
+                    </button>
                   </div>
                   <div class="caseContent">
-                    <QuillEditor
-                      theme="snow"
-                      toolbar="full"
-                      style="height: 35vh"
-                      contentType="html"
-                      v-model:content="caseContent"
-                      :options="options"
-                      :modules="modules"
-                    />
+                    <vue-editor
+                      v-model="caseContent"
+                      :editorOptions="editorSettings"
+                      useCustomImageHandler
+                      @image-added="imageHandler"
+                    ></vue-editor>
                   </div>
                 </div>
               </div>
@@ -65,7 +90,7 @@
                 Close
               </button>
               <button type="button" class="btn btn-primary">
-                Save changes
+                Upload Case Study
               </button>
             </div>
           </div>
@@ -132,13 +157,18 @@
 </template>
 
 <script>
-import Quill from 'quill'
-
-import { ImageResize } from 'quill-image-resize-module';
-
-Quill.register('modules/imageResize', ImageResize);
+import { VueEditor, Quill } from "vue3-editor";
+import { ImageDrop } from "quill-image-drop-module";
+import ImageResize from "quill-image-resize-module--fix-imports-error";
+Quill.register("modules/imageDrop", ImageDrop);
+Quill.register("modules/imageResize", ImageResize);
+import { storage } from "../firebase/firebaseinit";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export default {
+  components: {
+    VueEditor,
+  },
   data() {
     return {
       caseTitle: "",
@@ -146,10 +176,10 @@ export default {
       caseContent: "",
       coverPhotoURL: "",
       coverPhotoName: "",
-      options: {
-        placeholder: "Please enter case study here...",
+      editorSettings: {
         modules: {
-          imageResize: true,
+          imageDrop: true,
+          imageResize: { modules: ["Resize", "DisplaySize", "Toolbar"] },
         },
       },
     };
@@ -161,6 +191,21 @@ export default {
       console.log(fileName);
       this.coverPhotoName = fileName;
       this.coverPhotoURL = URL.createObjectURL(this.file);
+    },
+    imageHandler(file, Editor, cursorLocation, resetUploader) {
+      const storageRef = ref(storage, `caseStudiesPhotos/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, this.file);
+      uploadTask.on("state_changed", (snapshot) => {
+        console.log(snapshot),
+          (err) => {
+            console.log(err);
+          },
+          async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            Editor.insertEmbed(cursorLocation, "image", downloadURL);
+            resetUploader();
+          };
+      });
     },
   },
 };
