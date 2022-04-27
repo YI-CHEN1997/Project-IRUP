@@ -7,7 +7,7 @@ export default createStore({
     user: null,
     boardMembers: [],
     profilePhotoName: "",
-    profilePhotoURL: "https://fakeimg.pl/200x200/?text=ProfilePicture",
+    profilePhotoURL: "",
     profileName: "",
     profilePhone: "",
     profileEmail: "",

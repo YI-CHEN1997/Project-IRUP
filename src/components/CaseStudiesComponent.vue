@@ -1,7 +1,14 @@
 <template>
   <main>
     <div class="container">
-      <div class="modal" tabindex="-1" id="photoPreview">
+      <LoadingComponent v-show="loading" />
+      <div
+        class="modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        id="photoPreview"
+      >
         <div
           class="
             modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl
@@ -13,8 +20,8 @@
               <button
                 type="button"
                 class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
+                data-bs-target="#NewCaseModal"
+                data-bs-toggle="modal"
               ></button>
             </div>
             <div class="modal-body d-flex justify-content-center">
@@ -79,6 +86,9 @@
                     ></vue-editor>
                   </div>
                 </div>
+                <div class="errorMsg d-flex justify-content-center pt-3" v-if="error" >
+                  {{errMsg}}
+                </div>
               </div>
             </div>
             <div class="modal-footer">
@@ -89,7 +99,11 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="uploadCaseStudy"
+              >
                 Upload Case Study
               </button>
             </div>
@@ -162,8 +176,9 @@ import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module--fix-imports-error";
 Quill.register("modules/imageDrop", ImageDrop);
 Quill.register("modules/imageResize", ImageResize);
-import { storage } from "../firebase/firebaseinit";
+import { db, storage } from "../firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { addDoc, collection } from "firebase/firestore";
 
 export default {
   components: {
@@ -179,9 +194,12 @@ export default {
       editorSettings: {
         modules: {
           imageDrop: true,
-          imageResize: { modules: ["Resize", "DisplaySize", "Toolbar"] },
+          imageResize: {},
         },
       },
+      loading: null,
+      error: null,
+      errMsg: "",
     };
   },
   methods: {
@@ -193,7 +211,7 @@ export default {
       this.coverPhotoURL = URL.createObjectURL(this.file);
     },
     imageHandler(file, Editor, cursorLocation, resetUploader) {
-      const storageRef = ref(storage, `caseStudiesPhotos/${file.name}`);
+      const storageRef = ref(storage, `CaseStudiesPhotos/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, this.file);
       uploadTask.on("state_changed", (snapshot) => {
         console.log(snapshot),
@@ -206,6 +224,60 @@ export default {
             resetUploader();
           };
       });
+    },
+    uploadCaseStudy() {
+      var date = new Date();
+      var dateresult = date.toDateString();
+      if (
+        this.caseTitle.length !== 0 &&
+        this.subtitle.length !== 0 &&
+        this.caseContent.length !== 0
+      ) {
+        if (this.file) {
+          console.log(this.caseContent, dateresult);
+          this.loading = true;
+          const storageRef = ref(
+            storage,
+            `/CaseStudiesPhotos/${this.coverPhotoName}`
+          );
+          const uploadTask = uploadBytesResumable(storageRef, this.file);
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              console.log(snapshot);
+            },
+            (err) => {
+              console.log(err);
+              this.loading = false;
+            },
+            async () => {
+              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+              const colRef = collection(db, "CaseStudise");
+              await addDoc(colRef, {
+                Title: this.caseTitle,
+                Subtitle: this.subtitle,
+                CoverPhotoName: this.coverPhotoName,
+                CoverPhotoURL: downloadURL,
+                Content: this.caseContent,
+                TimeStamp: dateresult,
+              });
+            }
+          );
+        } else {
+          this.error = true;
+          this.errMsg = "Please upload a cover photo for this case!";
+          setTimeout(() => {
+            this.error = false;
+          }, 3000);
+        }
+      } else {
+        this.error = true;
+        this.errMsg =
+          "Please ensure Title & Subtitle & Content has been filled!";
+        setTimeout(() => {
+          this.error = false;
+        }, 3000);
+      }
     },
   },
 };

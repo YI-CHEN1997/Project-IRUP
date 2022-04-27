@@ -56,9 +56,6 @@ export default {
   background-color: #fff;
   position: relative;
 }
-.cards:last-child:nth-last-child(2n-1){
-  margin-right: calc(41.66666667% + 4.5rem) !important;
-}
 .contact p {
   margin-bottom: 0px;
   white-space: nowrap;
