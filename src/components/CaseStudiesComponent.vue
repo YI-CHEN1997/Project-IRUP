@@ -1,6 +1,6 @@
 <template>
   <main>
-    <LoadingComponent v-show="loading" style="z-index:99;" />
+    <!-- <LoadingComponent v-show="loading" style="z-index:99;" /> -->
     <div class="container">
       <div
         class="modal"
@@ -86,8 +86,11 @@
                     ></vue-editor>
                   </div>
                 </div>
-                <div class="errorMsg d-flex justify-content-center pt-3" v-if="error" >
-                  {{errMsg}}
+                <div
+                  class="errorMsg d-flex justify-content-center pt-3"
+                  v-if="error"
+                >
+                  {{ errMsg }}
                 </div>
               </div>
             </div>
@@ -105,6 +108,12 @@
                 @click="uploadCaseStudy"
               >
                 Upload Case Study
+                <span
+                  class="spinner-grow spinner-grow-sm"
+                  role="status"
+                  aria-hidden="true"
+                  v-if="loading"
+                ></span>
               </button>
             </div>
           </div>
@@ -261,6 +270,8 @@ export default {
                 Content: this.caseContent,
                 TimeStamp: dateresult,
               });
+              this.loading = false;
+              
             }
           );
         } else {
