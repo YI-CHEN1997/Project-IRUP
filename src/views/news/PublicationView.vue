@@ -1,4 +1,5 @@
 <template>
+<main>
   <div class="container">
     <div class="title d-flex justify-content-center">
       <h1 class="text-uppercase">PUBLICATION</h1>
@@ -9,6 +10,8 @@
       </template>
     </div>
   </div>
+</main>
+  
 </template>
 <script>
 import ListCard from "@/components/ListCard.vue";
@@ -29,9 +32,6 @@ export default {
 </script>
 
 <style scoped>
-    .title{
-      margin-top: 20vh;
-    }
     .line{
       height: 1px;
       background-color: #000;

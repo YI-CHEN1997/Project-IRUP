@@ -4,26 +4,26 @@
         <div class="date">
             <div class="circle">
                 <div class="year-org-group">
-                    <h2 class="year">{{info.date}}</h2>
+                    <h3 class="year">{{info.date}}</h3>
                     <div class="d-flex justify-content-end">
-                        <h4 class="org">IRUP</h4>
+                        <!-- <h5 class="org">IRUP</h5> -->
                     </div> 
                 </div>
             </div>
         </div>
         <div>
             <div class="category d-flex justify-content-between">
-                <h2 class="category-title">Research&Policy</h2>
+                <h3 class="category-title">Research&Policy</h3>
                 <router-link to="">
                     <div class="link d-flex align-items-center">
                         <i class="fa-solid fa-angles-right me-3"></i>
-                        <h4 class="refrence">Refrence</h4>
+                        <a href=""><h4 class="refrence">Refrence</h4></a>
                     </div>
                 </router-link>
             </div>
-            <h4 class="description">
+            <h6 class="description">
                 Understanding the multiple values associated with sustainable use in SEPLS
-            </h4>
+            </h6>
         </div>
     </div>
     <slot>

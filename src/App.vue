@@ -76,13 +76,13 @@ export default {
     font-size: 2.5rem;
   }
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   h3 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   h5 {
     font-size: 1.2rem;
@@ -101,6 +101,18 @@ export default {
 
       h1 {
         font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      h4 {
+        font-size: 1.1rem;
       }
 
       h5 {
