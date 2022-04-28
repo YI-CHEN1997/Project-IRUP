@@ -4,7 +4,7 @@
     <div class="background">
       <div class="video-wrapper">
       <video playsinline autoplay muted loop>
-        <source src="https://firebasestorage.googleapis.com/v0/b/irup-web-rebuild.appspot.com/o/10秒前導片-2.mp4?alt=media&token=9ea94f44-7383-4efd-b0bc-a85c0d172d3b" type="video/webm">
+        <source src="https://firebasestorage.googleapis.com/v0/b/nchu-irup-rebuild.appspot.com/o/Assets%2F10%E7%A7%92%E5%89%8D%E5%B0%8E%E7%89%87-1.mp4?alt=media&token=4981bad3-7b9d-4d1a-a782-d1b30efc78e9" type="video/webm">
       </video>
     </div>
       <!-- <svg width="1440" height="513" viewBox="0 0 1440 513" fill="#F9F9FA" xmlns="http://www.w3.org/2000/svg">
@@ -83,9 +83,9 @@ export default {
       position: relative;
       width: 100%;
       height: 100vh;
-      // background-image: url(../assets/field.jpg);
-      // background-size: cover;
-      // opacity: .9;
+      background-image: url(../assets/field.jpg);
+      background-size: cover;
+      opacity: .9;
 
       video {
       object-fit: cover;
