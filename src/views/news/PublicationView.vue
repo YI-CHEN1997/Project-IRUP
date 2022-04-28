@@ -41,9 +41,6 @@ export default {
         max-width: 90%;
       }
     }
-    /* .title{
-      margin-top: 20vh;
-    } */
     .line{
       height: 1px;
       background-color: #000;

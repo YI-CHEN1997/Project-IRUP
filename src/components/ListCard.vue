@@ -4,7 +4,7 @@
         <div class="date">
             <div class="circle">
                 <div class="year-org-group">
-                    <h3 class="year">{{info.date}}</h3>
+                    <h3 class="year mb-2">{{info.date}}</h3>
                     <div class="d-flex justify-content-end">
                         <h5 class="org">IRUP</h5>
                     </div> 
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="category">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center mb-2">
                 <h3 class="category-title">Research&Policy</h3>
                 <router-link to="https://collections.unu.edu/eserv/UNU:7506/SITR_vol5_fullset_web.pdf">
                     <div class="link d-flex align-items-center">
@@ -62,7 +62,7 @@ export default {
             --year-font-size: 1.6rem;
         }
         .date.date{
-            margin-right: 3rem;
+            margin-right: 4rem;
         }
         .refrence{
 
@@ -78,10 +78,10 @@ export default {
     }
     @media screen and (max-width:767px){
         .list-card.list-card{
-            --year-font-size: 1.4rem ;
+            --year-font-size: 1.2rem ;
         }
         .date.date{
-            margin-right: 3rem;
+            margin-right: 3.6rem;
         }
         .refrence{
             font-size: 1.2rem !important;
@@ -100,11 +100,14 @@ export default {
             --year-font-size: 1rem ;
         }
         .date.date{
-            margin-right: 3rem;
+            margin-right: 3.2rem;
         }
         .refrence{
             font-size: .8rem !important;
         } 
+        .arrow.arrow{
+            margin-right: .3rem;
+        }
         .org.org{
             letter-spacing: .08em;
         } 
@@ -143,7 +146,6 @@ export default {
         position: absolute;
         top: 20%;
         left: 60%;
-        z-index: 1;
     }
     .year{
         font-size: var(--year-font-size) !important;
@@ -158,7 +160,7 @@ export default {
     .category-title{ 
         font-size: var(--year-font-size) !important;
     }
-    h2 , h4 , h5{
+    h2 , h3 , h4 , h5{
         margin-bottom: 0;
     }
     a{
