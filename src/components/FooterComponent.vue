@@ -52,6 +52,7 @@
 
  <style scoped lang="scss">
   footer {
+    background: #f9f9fa;
     width: 100%;
     position: relative;
     bottom: 0;
@@ -68,7 +69,7 @@
 
       .contact {
         position: relative;
-        top: 130px;
+        top: 70px;
         z-index: 1;
 
         a {
@@ -140,7 +141,7 @@
       }
   }
 
-  @media (max-width: 850px) {
+  @media  (max-width: 850px) {
     footer {
 
       .content {
@@ -152,8 +153,27 @@
         }
 
         #wave {
-          top: -200px;
+          top: -20px;
         }
+      }
+
+      .copyright {
+        padding: 1rem 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    footer {
+
+      .content {
+        height: 50vh;
+        padding-left: 2rem;
+
+        .contact {
+          top: -40px;
+        }
+
       }
 
       .copyright {
