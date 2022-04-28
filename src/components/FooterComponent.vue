@@ -19,8 +19,7 @@
 
     <div class="video-wrapper">
       <video playsinline autoplay muted loop>
-        <source src="https://firebasestorage.googleapis.com/v0/b/nchu-irup-rebuild.appspot.com/o/Assets%2F10%E7%A7%92%E5%89%8D%E5%B0%8E%E7%89%87.mp4?alt=media&token=fe5be1f7-4c59-4f40-85ee-d298507d761a" type="video/webm">
-        Your browser does not support the video tag.
+        <source src="https://firebasestorage.googleapis.com/v0/b/irup-web-rebuild.appspot.com/o/10秒前導片-2.mp4?alt=media&token=9ea94f44-7383-4efd-b0bc-a85c0d172d3b" type="video/webm">
       </video>
     </div>
     
@@ -123,7 +122,7 @@
       }
 
       #wave {
-        // width: 100%;
+        width: 100vw;
         position: absolute;
         top: -120px;
         left: 0;
