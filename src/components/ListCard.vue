@@ -4,16 +4,16 @@
         <div class="date">
             <div class="circle">
                 <div class="year-org-group">
-                    <h2 class="year">{{info.date}}</h2>
+                    <h3 class="year">{{info.date}}</h3>
                     <div class="d-flex justify-content-end">
-                        <h4 class="org">IRUP</h4>
+                        <h5 class="org">IRUP</h5>
                     </div> 
                 </div>
             </div>
         </div>
-        <div>
-            <div class="category d-flex justify-content-between align-items-center">
-                <h2 class="category-title">Research&Policy</h2>
+        <div class="category">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="category-title">Research&Policy</h3>
                 <router-link to="https://collections.unu.edu/eserv/UNU:7506/SITR_vol5_fullset_web.pdf">
                     <div class="link d-flex align-items-center">
                         <i class="arrow fa-solid fa-angles-right"></i>
@@ -42,12 +42,6 @@ export default {
 </script>
 
 <style scoped>
-    /* @media screen and (max-width:1399px){
-        .description, 
-        .org {
-            font-size: 1.2rem !important;
-        }
-    } */
     @media screen and (max-width:1199px){
         .list-card.list-card{
             --year-font-size: 1.6rem;
@@ -55,6 +49,9 @@ export default {
         .refrence{
             font-size: 1.4rem !important;
         }
+        .org.org{
+            letter-spacing: .13em;
+        } 
         .description, 
         .org {
             font-size: 1.2rem !important;
@@ -71,6 +68,9 @@ export default {
 
             font-size: 1.4rem !important;
         }
+        .org.org{
+            letter-spacing: .14em;
+        } 
         .description, 
         .org {
             font-size: 1rem !important;
@@ -119,9 +119,7 @@ export default {
     }
     .date{
         width: calc( var(--year-font-size) * 3.6 );
-        margin-right: 2rem;
-        /* width: 113px; */
-        
+        margin-right: 4rem;
     }    
     .circle{
         width: calc( var(--year-font-size) * 2 );
@@ -149,17 +147,15 @@ export default {
     }
     .year{
         font-size: var(--year-font-size) !important;
-        position: relative;
+        letter-spacing: .06em;
     }
     .org{
-        position: absolute;
-        letter-spacing: .1em;
+        letter-spacing: .3em;
     }
     .category{
         margin-top: calc( var(--year-font-size) * 0.4 );
     }
-    .category-title{
-        
+    .category-title{ 
         font-size: var(--year-font-size) !important;
     }
     h2 , h4 , h5{
