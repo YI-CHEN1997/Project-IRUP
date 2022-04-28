@@ -1,7 +1,8 @@
 <template>
+<main>
   <div class="container">
-    <div class="title d-flex justify-content-center">
-      <h1 class="text-uppercase">PUBLICATION</h1>
+    <div class="d-flex justify-content-center">
+      <h1 class="title uppercase">PUBLICATION</h1>
     </div>
     <div class="row justify-content-center mt-5">
       <template v-for="info in infos" :key="info">
@@ -9,6 +10,7 @@
       </template>
     </div>
   </div>
+</main>  
 </template>
 <script>
 import ListCard from "@/components/ListCard.vue";
@@ -29,9 +31,19 @@ export default {
 </script>
 
 <style scoped>
-    .title{
-      margin-top: 20vh;
+    @media screen and (max-width:1199px) {
+      .container{
+        max-width: 90%;
+      }
     }
+    @media screen and (max-width:575px) {
+      .container{
+        max-width: 90%;
+      }
+    }
+    /* .title{
+      margin-top: 20vh;
+    } */
     .line{
       height: 1px;
       background-color: #000;
