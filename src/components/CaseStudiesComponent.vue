@@ -49,7 +49,27 @@
             <div class="modal-body">
               <div class="container">
                 <div class="inputs">
-                  <div class="caseTitle">
+                  <!-- case title -->
+                  <div class="caseTitle form-floating mx-3 mt-3">
+                    <input
+                      class="type-in-box form-control"
+                      type="text"
+                      placeholder="Case Title"
+                      v-model="caseTitle"
+                    />
+                    <label for="floatingInput">Case Title</label>
+                  </div>
+                  <!-- subtitle -->
+                  <div class="subtitle form-floating mx-3 mt-3">
+                    <input
+                      class="type-in-box form-control"
+                      type="text"
+                      placeholder="Subtitle"
+                      v-model="subtitle"
+                    />
+                    <label for="floatingInput subtitle">Subtitle</label>
+                  </div>
+                  <!-- <div class="caseTitle">
                     <label for="caseTitle">Case Title</label>
                     <br />
                     <input type="text" v-model="caseTitle" />
@@ -57,27 +77,30 @@
                     <label for="subtitle">Subtitle</label>
                     <br />
                     <input type="text" v-model="subtitle" />
-                  </div>
-                  <div class="caseCoverPhoto">
-                    <label for="caseCoverPhoto">Case Cover Photo</label>
-                    <br />
-                    <input
+                  </div> -->
+                  <div class="caseCoverPhoto mx-3 mt-3 p-3 d-flex align-items-center">
+                    <label for="caseCoverPhoto" class="p-5 px-0"><i class="fa-solid fa-image"></i>Upload Case Cover Photo
+                      <input
                       type="file"
                       ref="profilePhoto"
                       id="profile-photo"
                       @change="fileChange"
                       accept=".png, .jpg, ,.jpeg"
                     />
+                    </label>
+                    <br />
+                    
                     <br />
                     <button
                       v-if="coverPhotoURL"
                       data-bs-toggle="modal"
                       data-bs-target="#photoPreview"
                     >
-                      Preview Cover Photo
+                      Preview
                     </button>
                   </div>
-                  <div class="caseContent">
+
+                  <div class="caseContent mx-3 mt-3">
                     <vue-editor
                       v-model="caseContent"
                       :editorOptions="editorSettings"
@@ -87,7 +110,7 @@
                   </div>
                 </div>
                 <div
-                  class="errorMsg d-flex justify-content-center pt-3"
+                  class="errorMsg d-flex justify-content-center mt-3 mx-3"
                   v-if="error"
                 >
                   {{ errMsg }}
@@ -95,21 +118,14 @@
               </div>
             </div>
             <div class="modal-footer">
+              
               <button
                 type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-                id="close-modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
+                class="btn"
                 
                 @click="uploadCaseStudy"
               >
-                Upload Case Study
+                SAVE
                 <span
                   class="spinner-grow spinner-grow-sm"
                   role="status"
@@ -123,6 +139,8 @@
       </div>
       <div class="title position-relative">
         <h1 class="uppercase text-center d-flex justify-content-center">case studies</h1>
+
+        <!-- add content button -->
       <div class="plus-btn">
         <span
           class="d-flex justify-content-center add-btn align-items-center"
@@ -134,6 +152,7 @@
       </div>
       </div>
 
+    <!-- media show button -->
       <div class="media-title d-flex justify-content-center align-items-center mb-3">
         <h1 class="uppercase px-3 m-0">case studies</h1>
       <div class="plus-btn">
@@ -370,6 +389,46 @@ main {
       height: 150px;
     }
   }
+}
+
+.modal-footer {
+  .btn {
+    width: 100%;
+    background: #66bb6a;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background: #396e3c;
+    }
+  }
+}
+
+.caseCoverPhoto {
+  border: 1px solid rgb(195, 202, 210);
+  border-radius: 3px;
+  overflow: hidden;
+
+  svg {
+    width: 20px;
+    margin-right: 1rem;
+    color: #66bb6a;
+  }
+
+  label {
+    width: 100%;
+    height: 100%;
+    color: #333;
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+  }
+}
+
+.errorMsg {
+  color: red;
 }
 
 .title {
