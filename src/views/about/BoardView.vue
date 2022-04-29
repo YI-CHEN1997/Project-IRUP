@@ -138,7 +138,7 @@
           </div>
         </div>
         
-          <div class="business-card row d-flex justify-content-center">
+          <div class="conatainer business-card row d-flex justify-content-center ">
             <BusinessCard
               :member="member"
               v-for="member in boardMembers"
@@ -387,6 +387,13 @@ export default {
 
 .err-message {
   color: red;
+}
+
+.business-card {
+
+  // .card:last-child {
+  //   margin-left: 100px;
+  // }
 }
 
 </style>

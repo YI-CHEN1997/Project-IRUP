@@ -61,8 +61,9 @@ export default {
   background-color: #fff;
   position: relative;
 }
+
 // .cards:last-child:nth-last-child(2n-1){
-//   margin: auto !important;
+//   margin-right: calc(37% + 8% / 3) !important;
 // }
 
 
