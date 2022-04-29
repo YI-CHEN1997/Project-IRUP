@@ -100,11 +100,11 @@
                   </div>
 
                 </div>
-                <div class="err-message mt-3" v-if="error">
+                <div class="err-message mt-3 mx-3" v-if="error">
                   <p>{{ this.errorMsg }}</p>
                 </div>
-              </div>
-              <div class="modal-footer">
+
+               <div class="modal-footer">
                 <!-- <button
                   type="button"
                   class="btn btn-secondary"
@@ -119,10 +119,13 @@
                 >
                   SAVE
                 </button>
+              </div> 
               </div>
+              
             </div>
           </div>
         </div>
+        
         <div class="ceiling row justify-content-center align-items-center">
           <div class="title">
             <h1 class="text-center">Executive Board</h1>
@@ -290,9 +293,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .ceiling {
-//   margin-top: 2rem;
-// }
+.ceiling {
+  margin-top: 2rem;
+}
 
 .modal-body {
 
