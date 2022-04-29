@@ -90,11 +90,8 @@
                     <!-- <label for="profileContent">Description</label> -->
                     <br />
                     <VueEditor
-                      theme="snow"
-                      toolbar="minimal"
                       class="ql-editor"
-                      v-model:content="profileContent"
-                      contentType="html"
+                      v-model="profileContent"
                       placeholder="Description"
                     />
                   </div>
@@ -140,14 +137,16 @@
             </span>
           </div>
         </div>
-        <div class="main row justify-content-center">
-          <BusinessCard
-            :member="member"
-            v-for="member in boardMembers"
-            :key="member"
-          >
-          </BusinessCard>
-        </div>
+        
+          <div class="business-card row d-flex justify-content-center">
+            <BusinessCard
+              :member="member"
+              v-for="member in boardMembers"
+              :key="member"
+            >
+            </BusinessCard>
+          </div>
+        
       </div>
   </main>
 </template>
@@ -389,4 +388,5 @@ export default {
 .err-message {
   color: red;
 }
+
 </style>

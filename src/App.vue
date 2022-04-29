@@ -22,7 +22,7 @@ export default {
   components: { NavbarComponent, FooterComponent },
 
   created() {
-    //this.$store.dispatch("getBoardMembers");
+    this.$store.dispatch("getBoardMembers");
     onAuthStateChanged(auth, (user) => {
       if (user) {
         this.$store.commit("userStateChange", user);
