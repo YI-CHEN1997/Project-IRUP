@@ -50,7 +50,7 @@
       </section>
 
       <section class="section4">
-        <CaseStudiesComponent/>
+        <CaseStudiesComponent />
         <router-link :to="{name: 'casestudies'}">more</router-link>
       </section>
       
@@ -69,6 +69,12 @@ import CaseStudiesComponent from '@/components/CaseStudiesComponent.vue'
 export default {
   components: {NewsComponent, CaseStudiesComponent, WhatIsIRUP, MissionComponent },
   name: 'HomeView',
+
+  data() {
+    return {
+      // addButton: false,
+    }
+  },
 }
 </script>
 
