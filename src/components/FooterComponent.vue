@@ -69,7 +69,7 @@
 
       .contact {
         position: relative;
-        top: 70px;
+        top: 100px;
         z-index: 1;
 
         a {
