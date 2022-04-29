@@ -18,11 +18,11 @@
               <div class="modal-body">
                 <LoadingComponent v-show="loading" />
 
-                <div class="upload-photo d-flex flex-column justify-content-center m-2">
-                  <i class="fa-solid fa-user photo-preview"></i>
-                  <label class="text-center p-2">
-                    UPLOAD
-                    
+                <div class="upload-photo">
+                  <img :src="profilePhotoURL" alt="" class="photo-preview" />
+
+                  <label class="text-center">
+                    <i class="fa-solid fa-user-plus photo-preview"></i>         
                     <input
                       type="file"
                       ref="profilePhoto"
@@ -34,11 +34,11 @@
                   
                 </div>
                 
-                <!-- <img :src="profilePhotoURL" alt="" class="photo-preview" /> -->
+                
                 <div class="inputs">
                   <!-- <label for="profile-photo" class="mx-2">Upload Member Photo</label> -->
                   
-                  <div class="name form-floating my-3">
+                  <div class="name form-floating mx-3 mb-3">
                 <input
                   class="type-in-box form-control"
                   type="text"
@@ -54,7 +54,7 @@
                     <input type="text" v-model="profileName" />
                   </div> -->
                   
-                  <div class="phone form-floating my-3">
+                  <div class="phone form-floating mx-3 my-3">
                 <input
                   class="type-in-box form-control"
                   type="text"
@@ -70,7 +70,7 @@
                     <br />
                     <input type="text" v-model="profilePhone" />
                   </div> -->
-              <div class="email form-floating mt-3">
+              <div class="email form-floating mx-3 mt-3">
                 <input
                   class="type-in-box form-control"
                   type="text"
@@ -98,6 +98,7 @@
                       placeholder="Description"
                     />
                   </div>
+
                 </div>
                 <div class="err-message mt-3" v-if="error">
                   <p>{{ this.errorMsg }}</p>
@@ -289,9 +290,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ceiling {
-  margin-top: 2rem;
-}
+// .ceiling {
+//   margin-top: 2rem;
+// }
 
 .modal-body {
 
@@ -302,9 +303,15 @@ export default {
     background: #eee;
     overflow: hidden;
     position: relative;
-    top: 50%;
-    left: 25%;
-    transition: translate(-50%, -50%);
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 130px;
+    
+    img {
+      position: relative;
+      z-index: 10;
+    }
     
     svg {
       color: #fff;
@@ -312,18 +319,23 @@ export default {
     }
 
     label {
-      width: 100%;
-      height: 40px;
-      color: #fff;
-      background: #333;
+      color: #333;
       position: absolute;
-      bottom: 0;
+      top: 25%;             
+      bottom: 0;           
+      left: 0;        
+      right: 0;
       cursor: pointer;
 
       input {
         display: none;
       }
     }
+  }
+
+  .inputs {
+    position: relative;
+    top: -80px;
   }
 }
 
