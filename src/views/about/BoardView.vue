@@ -77,7 +77,7 @@
                   </div>
 
                 </div>
-                <div class="err-message mt-3 mx-3" v-if="error">
+                <div class="err-message d-flex justify-content-center mt-3 mx-3" v-if="error">
                   <p>{{ this.errorMsg }}</p>
                 </div>
 
