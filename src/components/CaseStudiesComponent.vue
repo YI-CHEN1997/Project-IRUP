@@ -121,10 +121,36 @@
           </div>
         </div>
       </div>
-      <h1 class="title uppercase">case studies</h1>
-      <button data-bs-toggle="modal" data-bs-target="#NewCaseModal">
-        ADD CASE
-      </button>
+      <div class="title position-relative">
+        <h1 class="uppercase text-center d-flex justify-content-center">case studies</h1>
+      <div class="plus-btn">
+        <span
+          class="d-flex justify-content-center add-btn align-items-center"
+          data-bs-toggle="modal"
+          data-bs-target="#NewCaseModal"
+        >
+        <i class="fa-solid fa-plus"></i>
+        </span>
+      </div>
+      </div>
+
+      <div class="media-title d-flex justify-content-center align-items-center mb-3">
+        <h1 class="uppercase px-3 m-0">case studies</h1>
+      <div class="plus-btn">
+        <span
+          class="d-flex justify-content-center add-btn align-items-center"
+          data-bs-toggle="modal"
+          data-bs-target="#NewCaseModal"
+        >
+        <i class="fa-solid fa-plus"></i>
+        </span>
+      </div>
+      </div>
+      
+      <!-- <button data-bs-toggle="modal" data-bs-target="#NewCaseModal">
+        <i class="fa-solid fa-plus"></i>
+      </button> -->
+
       <div class="content">
         <div class="card h-100">
           <router-link :to="{ name: 'case1' }">
@@ -345,4 +371,71 @@ main {
     }
   }
 }
+
+.title {
+  .plus-btn {
+  position: absolute;
+  bottom: -5px;
+  right: 5rem;
+
+  .add-btn {
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    background-color: #66bb6a;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #396e3c;
+    }
+
+    svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  display: none;
+}
+}
+
+.media-title {
+  display: none;
+  opacity: 0;
+
+  .plus-btn {
+    bottom: 0;
+    right: 0;   
+
+    .add-btn {
+      height: 30px;
+      width: 30px;
+      color: #fff;
+      background-color: #66bb6a;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: #396e3c;
+      }
+
+      svg {
+        height: 10px;
+        width: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    opacity: 1;
+    display: block;
+  }
+  
+}
+
+
+
+
+
 </style>
