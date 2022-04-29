@@ -33,11 +33,8 @@
                   </label>
                   
                 </div>
-                
-                
-                <div class="inputs">
-                  <!-- <label for="profile-photo" class="mx-2">Upload Member Photo</label> -->
-                  
+                                
+                <div class="inputs">                
                   <div class="name form-floating mx-3 mb-3">
                 <input
                   class="type-in-box form-control"
@@ -48,11 +45,6 @@
                 />
                 <label for="floatingInput memberName">Member's Name</label>
               </div>
-                  <!-- <div class="name">
-                    <label for="memberName">Member Name</label>
-                    <br />
-                    <input type="text" v-model="profileName" />
-                  </div> -->
                   
                   <div class="phone form-floating mx-3 my-3">
                 <input
@@ -64,12 +56,7 @@
                 />
                 <label for="floatingInput profilePhone">Phone</label>
               </div>
-                  
-                  <!-- <div class="phone">
-                    <label for="profilePhone">Phone</label>
-                    <br />
-                    <input type="text" v-model="profilePhone" />
-                  </div> -->
+                                
               <div class="email form-floating mx-3 mt-3">
                 <input
                   class="type-in-box form-control"
@@ -80,14 +67,7 @@
                 />
                 <label for="floatingInput profileEmail">Email</label>
               </div>
-                  
-                  <!-- <div class="email">
-                    <label for="profileEmail">Email</label>
-                    <br />
-                    <input type="text" v-model="profileEmail" />
-                  </div>
-                  <div> -->
-                    <!-- <label for="profileContent">Description</label> -->
+                                
                     <br />
                     <VueEditor
                       class="ql-editor"
@@ -102,13 +82,6 @@
                 </div>
 
                <div class="modal-footer">
-                <!-- <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button> -->
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -123,11 +96,36 @@
           </div>
         </div>
         
-        <div class="ceiling row justify-content-center align-items-center">
-          <div class="title">
-            <h1 class="text-center">Executive Board</h1>
+        <div class="row justify-content-center align-items-center">
+          <div class="title position-relative">
+            <h1 class="text-center uppercase d-flex justify-content-center">Executive Board</h1>
+
+            <!-- add content button -->
+            <div class="plus-btn">
+              <span
+                class="d-flex justify-content-center add-btn align-items-center"
+                data-bs-toggle="modal"
+                data-bs-target="#addNewMember"
+              >
+              <i class="fa-solid fa-plus"></i>
+              </span>
+            </div>
           </div>
-          <div class="plus-btn d-flex justify-content-end">
+
+          <!-- media show button -->
+      <div class="media-title d-flex justify-content-center align-items-center mb-3">
+        <h1 class="uppercase px-3 m-0">Executive Board</h1>
+      <div class="plus-btn">
+        <span
+          class="d-flex justify-content-center add-btn align-items-center"
+          data-bs-toggle="modal"
+          data-bs-target="#NewCaseModal"
+        >
+        <i class="fa-solid fa-plus"></i>
+        </span>
+      </div>
+      </div>
+          <!-- <div class="plus-btn d-flex justify-content-end">
             <span
               class="d-flex justify-content-center add-btn align-items-center"
               data-bs-toggle="modal"
@@ -135,7 +133,7 @@
             >
             <i class="fa-solid fa-plus"></i>
             </span>
-          </div>
+          </div> -->
         </div>
         
           <div class="conatainer business-card row d-flex justify-content-center ">
@@ -354,27 +352,30 @@ export default {
 }
 
 
-.plus-btn {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-}
+// .plus-btn {
+//   position: fixed;
+//   bottom: 1rem;
+//   right: 1rem;
+//   z-index: 10;
 
-.add-btn {
-  height: 60px;
-  width: 60px;
-  color: #fff;
-  background-color: #66bb6a;
-  border-radius: 50%;
-  opacity: 0.6;
-}
-.add-btn:hover {
-  background-color: #396e3c;
-}
-.add-btn svg {
-  height: 30px;
-  width: 30px;
-}
+//   .add-btn {
+//     height: 60px;
+//     width: 60px;
+//     color: #fff;
+//     background-color: #66bb6a;
+//     border-radius: 50%;
+//     opacity: 0.6;
+//   }
+//   .add-btn:hover {
+//     background-color: #396e3c;
+//   }
+//   .add-btn svg {
+//     height: 30px;
+//     width: 30px;
+//   }
+// }
+
+
 .bg {
   position: absolute;
   z-index: -98;
@@ -389,11 +390,66 @@ export default {
   color: red;
 }
 
-.business-card {
+.title {
+  .plus-btn {
+  position: fixed;
+  top: 190px;
+  right: 5rem;
 
-  // .card:last-child {
-  //   margin-left: 100px;
-  // }
+  .add-btn {
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    background-color: #66bb6a;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #396e3c;
+    }
+
+    svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  display: none;
+}
+}
+
+.media-title {
+  display: none;
+  opacity: 0;
+
+  .plus-btn {
+    bottom: 0;
+    right: 0;   
+
+    .add-btn {
+      height: 30px;
+      width: 30px;
+      color: #fff;
+      background-color: #66bb6a;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: #396e3c;
+      }
+
+      svg {
+        height: 10px;
+        width: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    opacity: 1;
+    display: block;
+  }
+  
 }
 
 </style>
