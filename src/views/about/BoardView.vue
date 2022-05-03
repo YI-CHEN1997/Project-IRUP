@@ -27,7 +27,7 @@
                       ref="profilePhoto"
                       id="profile-photo"
                       @change="fileChange"
-                      accept=".png, .jpg, ,jpeg"
+                      accept=".png, .jpg, ,.jpeg"
                     />
                   </label>
                 </div>
