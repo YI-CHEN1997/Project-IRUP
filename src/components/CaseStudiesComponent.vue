@@ -2,34 +2,6 @@
   <main>
     <LoadingComponent v-show="loading" />
     <div class="container">
-      <div
-        class="modal"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        id="photoPreview"
-      >
-        <div
-          class="
-            modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl
-          "
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">{{ coverPhotoName }}</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-target="#NewCaseModal"
-                data-bs-toggle="modal"
-              ></button>
-            </div>
-            <div class="modal-body d-flex justify-content-center">
-              <img :src="coverPhotoURL" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="modal fade" tabindex="-1" id="NewCaseModal">
         <div
           class="
@@ -42,6 +14,7 @@
               <button
                 type="button"
                 class="btn-close"
+                id="close-modal"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -189,7 +162,24 @@
       </button> -->
 
       <div class="content">
-        <div class="card h-100">
+        <template v-for="caseStudy in caseStudies" :key="caseStudy">
+          <div class="card h-100" @click="redirectCase(caseStudy.id)">
+            <div class="img">
+              <img
+                :src="caseStudy.CoverPhotoURL"
+                class="card-img-top"
+                alt="align-items-auto"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ caseStudy.Title }}
+              </h5>
+              <!-- <h6 class="card-text">Farmers of Liyu community..</h6> -->
+            </div>
+          </div>
+        </template>
+        <!-- <div class="card h-100">
           <router-link :to="{ name: 'case1' }">
             <div class="img">
               <img
@@ -238,7 +228,7 @@
               <h6 class="card-text">located a flat terrace..</h6>
             </div>
           </router-link>
-        </div>
+        </div> -->
       </div>
     </div>
   </main>
@@ -252,14 +242,24 @@ Quill.register("modules/imageDrop", ImageDrop);
 Quill.register("modules/imageResize", ImageResize);
 import { db, storage } from "../firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { addDoc, collection } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
 
 export default {
   components: {
     VueEditor,
   },
+  created() {
+    this.getAllCases();
+  },
   data() {
     return {
+      caseStudies: [],
       caseTitle: "",
       subtitle: "",
       caseContent: "",
@@ -277,6 +277,18 @@ export default {
     };
   },
   methods: {
+    async getAllCases() {
+      const caseArray = [];
+      const dataBase = collection(db, "CaseStudies");
+      const dbResult = await getDocs(
+        query(dataBase, orderBy("TimeStamp", "desc"))
+      );
+      dbResult.docs.forEach((doc) => {
+        caseArray.push({ ...doc.data(), id: doc.id });
+      });
+      this.caseStudies = caseArray;
+      console.log(this.caseStudies);
+    },
     fileChange(event) {
       this.file = event.target.files[0];
       const fileName = this.file.name;
@@ -302,11 +314,7 @@ export default {
     uploadCaseStudy() {
       var date = new Date();
       var dateresult = date.toDateString();
-      if (
-        this.caseTitle.length !== 0 &&
-        this.subtitle.length !== 0 &&
-        this.caseContent.length !== 0
-      ) {
+      if (this.caseTitle.length !== 0 && this.caseContent.length !== 0) {
         if (this.file) {
           console.log(this.caseContent, dateresult);
           this.loading = true;
@@ -326,7 +334,7 @@ export default {
             },
             async () => {
               const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-              const colRef = collection(db, "CaseStudise");
+              const colRef = collection(db, "CaseStudies");
               await addDoc(colRef, {
                 Title: this.caseTitle,
                 Subtitle: this.subtitle,
@@ -348,12 +356,14 @@ export default {
         }
       } else {
         this.error = true;
-        this.errMsg =
-          "Please ensure Title & Subtitle & Content has been filled!";
+        this.errMsg = "Please ensure Title & Content has been filled!";
         setTimeout(() => {
           this.error = false;
         }, 3000);
       }
+    },
+    redirectCase(id) {
+      this.$router.push(`/casestudies/${id}`);
     },
   },
 };

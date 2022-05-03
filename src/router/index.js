@@ -58,6 +58,11 @@ const routes = [
     component: () => import('../views/case-studies/CasestudiesView.vue')
   },
   {
+    path: '/casestudies/:caseID',
+    name: 'case',
+    component: () => import('../views/case-studies/CaseView.vue')
+  },
+  {
     path: '/casestudies/case1',
     name: 'case1',
     component: () => import('../views/case-studies/Case1View.vue')
