@@ -78,26 +78,40 @@
                     <br />
                     <input type="text" v-model="subtitle" />
                   </div> -->
-                  <div class="caseCoverPhoto mx-3 mt-3 p-3 d-flex align-items-center">
-                    <label for="caseCoverPhoto" class="p-5 px-0"><i class="fa-solid fa-image"></i>Upload Case Cover Photo
+                  <div
+                    class="
+                      caseCoverPhoto
+                      mx-3
+                      mt-3
+                      p-3
+                      d-flex
+                      align-items-center
+                    "
+                  >
+                    <label for="caseCoverPhoto" class="p-5 px-0"
+                      ><span v-if="!coverPhotoURL">
+                        <i class="fa-solid fa-image"></i>Upload Case Cover Photo
+                      </span>
+                      <img :src="coverPhotoURL" alt="" v-if="coverPhotoURL" />
                       <input
-                      type="file"
-                      ref="profilePhoto"
-                      id="profile-photo"
-                      @change="fileChange"
-                      accept=".png, .jpg, ,.jpeg"
-                    />
+                        type="file"
+                        ref="caseCoverPhoto"
+                        id="caseCoverPhoto"
+                        @change="fileChange"
+                        accept=".png, .jpg, ,.jpeg"
+                      />
                     </label>
+
                     <br />
-                    
+
                     <br />
-                    <button
+                    <!-- <button
                       v-if="coverPhotoURL"
                       data-bs-toggle="modal"
                       data-bs-target="#photoPreview"
                     >
                       Preview
-                    </button>
+                    </button> -->
                   </div>
 
                   <div class="caseContent mx-3 mt-3">
@@ -118,13 +132,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              
-              <button
-                type="button"
-                class="btn"
-                
-                @click="uploadCaseStudy"
-              >
+              <button type="button" class="btn" @click="uploadCaseStudy">
                 SAVE
                 <span
                   class="spinner-grow spinner-grow-sm"
@@ -138,34 +146,44 @@
         </div>
       </div>
       <div class="title position-relative">
-        <h1 class="uppercase text-center d-flex justify-content-center">case studies</h1>
+        <h1 class="uppercase text-center d-flex justify-content-center">
+          case studies
+        </h1>
 
         <!-- add content button -->
-      <div class="plus-btn">
-        <span
-          class="d-flex justify-content-center add-btn align-items-center"
-          data-bs-toggle="modal"
-          data-bs-target="#NewCaseModal"
-        >
-        <i class="fa-solid fa-plus"></i>
-        </span>
-      </div>
+        <div class="plus-btn">
+          <span
+            class="d-flex justify-content-center add-btn align-items-center"
+            data-bs-toggle="modal"
+            data-bs-target="#NewCaseModal"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </div>
       </div>
 
-    <!-- media show button -->
-      <div class="media-title d-flex justify-content-center align-items-center mb-3">
+      <!-- media show button -->
+      <div
+        class="
+          media-title
+          d-flex
+          justify-content-center
+          align-items-center
+          mb-3
+        "
+      >
         <h1 class="uppercase px-3 m-0">case studies</h1>
-      <div class="plus-btn">
-        <span
-          class="d-flex justify-content-center add-btn align-items-center"
-          data-bs-toggle="modal"
-          data-bs-target="#NewCaseModal"
-        >
-        <i class="fa-solid fa-plus"></i>
-        </span>
+        <div class="plus-btn">
+          <span
+            class="d-flex justify-content-center add-btn align-items-center"
+            data-bs-toggle="modal"
+            data-bs-target="#NewCaseModal"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </div>
       </div>
-      </div>
-      
+
       <!-- <button data-bs-toggle="modal" data-bs-target="#NewCaseModal">
         <i class="fa-solid fa-plus"></i>
       </button> -->
@@ -235,8 +253,6 @@ Quill.register("modules/imageResize", ImageResize);
 import { db, storage } from "../firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
-
-
 
 export default {
   components: {
@@ -320,7 +336,7 @@ export default {
                 TimeStamp: dateresult,
               });
               this.loading = false;
-              document.getElementById('close-modal').click();
+              document.getElementById("close-modal").click();
             }
           );
         } else {
@@ -433,31 +449,31 @@ main {
 
 .title {
   .plus-btn {
-  position: absolute;
-  bottom: -5px;
-  right: 5rem;
+    position: absolute;
+    bottom: -5px;
+    right: 5rem;
 
-  .add-btn {
-    height: 60px;
-    width: 60px;
-    color: #fff;
-    background-color: #66bb6a;
-    border-radius: 50%;
+    .add-btn {
+      height: 60px;
+      width: 60px;
+      color: #fff;
+      background-color: #66bb6a;
+      border-radius: 50%;
 
-    &:hover {
-      background-color: #396e3c;
-    }
+      &:hover {
+        background-color: #396e3c;
+      }
 
-    svg {
-      height: 30px;
-      width: 30px;
+      svg {
+        height: 30px;
+        width: 30px;
+      }
     }
   }
-}
 
-@media (max-width: 850px) {
-  display: none;
-}
+  @media (max-width: 850px) {
+    display: none;
+  }
 }
 
 .media-title {
@@ -466,7 +482,7 @@ main {
 
   .plus-btn {
     bottom: 0;
-    right: 0;   
+    right: 0;
 
     .add-btn {
       height: 30px;
@@ -490,11 +506,5 @@ main {
     opacity: 1;
     display: block;
   }
-  
 }
-
-
-
-
-
 </style>
