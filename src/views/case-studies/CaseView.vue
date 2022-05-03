@@ -2,9 +2,15 @@
   <main>
     <LoadingComponent v-show="loading" />
     <div class="case">
-      <button data-bs-toggle="modal" data-bs-target="#EditCaseModal">
-        Edit
-      </button>
+      <span
+      class="d-flex justify-content-center edit-icon"
+      data-bs-toggle="modal"
+      data-bs-target="#EditCaseModal">
+        <i class="fas fa-pen-nib"></i>
+      </span>
+      <!-- <button data-bs-toggle="modal" data-bs-target="#EditCaseModal">
+        <i class="fas fa-pen-nib"></i>
+      </button> -->
       <h1 class="title text-uppercase">
         {{ caseStudy.Title }}
       </h1>
@@ -200,6 +206,28 @@ export default {
 .case {
   padding: 0 10vw 5vh 10vw;
   text-align: center;
+
+  .edit-icon {
+    position: fixed;
+    right: 3rem;
+    top: 130px;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    background-color: #66bb6a;
+    border-radius: 50%;
+    margin: 0.2rem 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #396e3c;
+    }
+
+    svg {
+      height: 1rem;
+      margin: 12px;
+    }
+  }
 
   .date {
     color: #999;
