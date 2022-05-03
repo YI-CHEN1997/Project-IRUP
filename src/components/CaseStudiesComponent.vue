@@ -42,15 +42,6 @@
                     />
                     <label for="floatingInput subtitle">Subtitle</label>
                   </div>
-                  <!-- <div class="caseTitle">
-                    <label for="caseTitle">Case Title</label>
-                    <br />
-                    <input type="text" v-model="caseTitle" />
-                    <br />
-                    <label for="subtitle">Subtitle</label>
-                    <br />
-                    <input type="text" v-model="subtitle" />
-                  </div> -->
                   <div
                     class="
                       caseCoverPhoto
@@ -75,9 +66,6 @@
                       />
                     </label>
 
-                    <br />
-
-                    <br />
                     <!-- <button
                       v-if="coverPhotoURL"
                       data-bs-toggle="modal"
@@ -157,13 +145,9 @@
         </div>
       </div>
 
-      <!-- <button data-bs-toggle="modal" data-bs-target="#NewCaseModal">
-        <i class="fa-solid fa-plus"></i>
-      </button> -->
-
       <div class="content">
         <template v-for="caseStudy in caseStudies" :key="caseStudy">
-          <div class="card h-100" @click="redirectCase(caseStudy.id)">
+          <div class="card h-100 box-shadow" @click="redirectCase(caseStudy.id)">
             <div class="img">
               <img
                 :src="caseStudy.CoverPhotoURL"
@@ -386,29 +370,23 @@ main {
   .card {
     width: 350px;
     height: 300px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
     position: relative;
     background-color: white;
     border: 0px solid #fff;
     transition: 0.3s ease-in-out;
+    text-decoration: none;
+    color: #333;
+
+    &:hover {
+      color: #eee;
+      background-color: #333;
+    }
 
     .img {
       height: 200px;
       overflow: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: #333;
-
-      &:hover {
-        color: #eee;
-      }
-    }
-
-    &:hover {
-      background-color: #333;
     }
 
     .card-body {
