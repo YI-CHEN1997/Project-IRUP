@@ -39,7 +39,7 @@
           <router-link :to="{ name: 'casestudies' }">case studies</router-link>
         </li>
         <li class="authority">
-          <router-link :to="{ name: 'login' }"><i class="fas fa-user-lock"></i></router-link>
+          <router-link :to="{ name: 'login' }"><i class="fa-solid fa-user-lock"></i></router-link>
         </li>
       </ul>
 
@@ -47,7 +47,6 @@
         class="burger"
         @click="toggleMobileNav"
         v-show="mobile"
-        :class="{ 'icon-active': mobileNav }"
       >
         <i class="fa-solid fa-bars"></i>
       </div>
@@ -254,7 +253,9 @@ header {
       }
     }
 
-    .authority a {
+    .authority svg {
+      width: 25px;
+      height: 25px;
       color: #66bb6a;
       margin-left: 3rem;
     }
@@ -270,6 +271,12 @@ header {
     color: #333;
     cursor: pointer;
     transition: 0.8s ease all;
+
+    svg {
+      color: #66bb6a;
+      width: 20px;
+      height: 20px;
+    }
 
     .icon-active {
       transform: rotate(45deg);
@@ -297,9 +304,12 @@ header {
       margin-left: 0;
     }
 
-    .authority a {
+    .authority svg {
+      height: 25px;
+      width: 25px;
       color: #66bb6a;
-      margin-top: 2rem;
+      position: absolute;
+      bottom: 2rem;
       margin-left: 5px;
     }
 
@@ -314,7 +324,7 @@ header {
         color: #333;
       }
 
-      .fa-caret-down {
+      svg {
         color: #66bb6a;
         margin-left: 5px;
       }
