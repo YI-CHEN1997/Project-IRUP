@@ -38,10 +38,6 @@
 </defs>
       </svg>
     </div>
-    
-
-      
-
     </div>
 
     <h6 class="copyright">Powered by IRUP - International Rural-Up Partnership</h6>
@@ -69,7 +65,7 @@
 
       .contact {
         position: relative;
-        top: 100px;
+        top: 130px;
         z-index: 1;
 
         a {
@@ -149,7 +145,7 @@
         padding-left: 2rem;
 
         .contact {
-          top: 0;
+          top: 80px;
         }
 
         #wave {
@@ -171,7 +167,7 @@
         padding-left: 2rem;
 
         .contact {
-          top: -40px;
+          // top: -40px;
         }
 
       }
