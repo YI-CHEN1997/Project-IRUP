@@ -61,7 +61,7 @@
       </div>
       <div class="row">
         <div class="loginBox">
-          <h3>Sign in</h3>
+          <h3 class="uppercase">Sign in</h3>
           <form action="" method="post">
             <div class="inputBox">
               <div class="form-floating mb-3">
@@ -89,8 +89,8 @@
               </div>
             </div>
             <input
-              type="button"
-              class="btn btn-success"
+              type="submit"
+              class="btn btn-success uppercase"
               value="Login"
               @click="login"
             />
@@ -156,7 +156,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   height: 40vh;
 }
@@ -196,7 +196,6 @@ h3 {
 .loginBox input[type="password"] {
   border: none;
   outline: none;
-  height: 60px;
   color: #333;
   background: #f9f9fa;
   font-size: 1rem;
@@ -220,8 +219,12 @@ h3 {
   font-size: 16px;
   background: #66bb6a;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
+
+  &:hover {
+    background: #3a7e58;
+  }
 }
 
 .loginBox a {
