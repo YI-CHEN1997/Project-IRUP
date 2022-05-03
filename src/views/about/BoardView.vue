@@ -1,6 +1,7 @@
 <template>
   <main>
     <div class="">
+      <LoadingComponent v-show="loading" />
       <div class="container">
         <!-- Add New Member Modal -->
         <div class="modal" tabindex="-1" id="addNewMember">
@@ -16,13 +17,11 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <LoadingComponent v-show="loading" />
-
                 <div class="upload-photo">
                   <img :src="profilePhotoURL" alt="" class="photo-preview" />
 
                   <label class="text-center">
-                    <i class="fa-solid fa-user-plus photo-preview"></i>         
+                    <i class="fa-solid fa-user-plus photo-preview"></i>
                     <input
                       type="file"
                       ref="profilePhoto"
@@ -31,57 +30,58 @@
                       accept=".png, .jpg, ,jpeg"
                     />
                   </label>
-                  
                 </div>
-                                
-                <div class="inputs">                
+
+                <div class="inputs">
                   <div class="name form-floating mx-3 mb-3">
-                <input
-                  class="type-in-box form-control"
-                  type="text"
-                  name="memberName"
-                  placeholder="memberName"
-                  v-model="profileName"
-                />
-                <label for="floatingInput memberName">Member's Name</label>
-              </div>
-                  
-                  <div class="phone form-floating mx-3 my-3">
-                <input
-                  class="type-in-box form-control"
-                  type="text"
-                  name="profilePhone"
-                  placeholder="Phone"
-                  v-model="profilePhone"
-                />
-                <label for="floatingInput profilePhone">Phone</label>
-              </div>
-                                
-              <div class="email form-floating mx-3 mt-3">
-                <input
-                  class="type-in-box form-control"
-                  type="text"
-                  name="profileEmail"
-                  placeholder="Email"
-                  v-model="profileEmail"
-                />
-                <label for="floatingInput profileEmail">Email</label>
-              </div>
-                                
-                    <br />
-                    <VueEditor
-                      class="ql-editor"
-                      v-model="profileContent"
-                      placeholder="Description"
+                    <input
+                      class="type-in-box form-control"
+                      type="text"
+                      name="memberName"
+                      placeholder="memberName"
+                      v-model="profileName"
                     />
+                    <label for="floatingInput memberName">Member's Name</label>
                   </div>
 
-                </div>
-                <div class="err-message d-flex justify-content-center mt-3 mx-3" v-if="error">
-                  <p>{{ this.errorMsg }}</p>
-                </div>
+                  <div class="phone form-floating mx-3 my-3">
+                    <input
+                      class="type-in-box form-control"
+                      type="text"
+                      name="profilePhone"
+                      placeholder="Phone"
+                      v-model="profilePhone"
+                    />
+                    <label for="floatingInput profilePhone">Phone</label>
+                  </div>
 
-               <div class="modal-footer">
+                  <div class="email form-floating mx-3 mt-3">
+                    <input
+                      class="type-in-box form-control"
+                      type="text"
+                      name="profileEmail"
+                      placeholder="Email"
+                      v-model="profileEmail"
+                    />
+                    <label for="floatingInput profileEmail">Email</label>
+                  </div>
+
+                  <br />
+                  <VueEditor
+                    class="ql-editor"
+                    v-model="profileContent"
+                    placeholder="Description"
+                  />
+                </div>
+              </div>
+              <div
+                class="err-message d-flex justify-content-center mt-3 mx-3"
+                v-if="error"
+              >
+                <p>{{ this.errorMsg }}</p>
+              </div>
+
+              <div class="modal-footer">
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -89,43 +89,52 @@
                 >
                   SAVE
                 </button>
-              </div> 
               </div>
-              
             </div>
           </div>
         </div>
-        
-        <div class="row justify-content-center align-items-center">
-          <div class="title position-relative">
-            <h1 class="text-center uppercase d-flex justify-content-center">Executive Board</h1>
+      </div>
 
-            <!-- add content button -->
-            <div class="plus-btn">
-              <span
-                class="d-flex justify-content-center add-btn align-items-center"
-                data-bs-toggle="modal"
-                data-bs-target="#addNewMember"
-              >
+      <div class="row justify-content-center align-items-center">
+        <div class="title position-relative">
+          <h1 class="text-center uppercase d-flex justify-content-center">
+            Executive Board
+          </h1>
+
+          <!-- add content button -->
+          <div class="plus-btn">
+            <span
+              class="d-flex justify-content-center add-btn align-items-center"
+              data-bs-toggle="modal"
+              data-bs-target="#addNewMember"
+            >
               <i class="fa-solid fa-plus"></i>
-              </span>
-            </div>
+            </span>
           </div>
+        </div>
 
-          <!-- media show button -->
-      <div class="media-title d-flex justify-content-center align-items-center mb-3">
-        <h1 class="uppercase px-3 m-0">Executive Board</h1>
-      <div class="plus-btn">
-        <span
-          class="d-flex justify-content-center add-btn align-items-center"
-          data-bs-toggle="modal"
-          data-bs-target="#NewCaseModal"
+        <!-- media show button -->
+        <div
+          class="
+            media-title
+            d-flex
+            justify-content-center
+            align-items-center
+            mb-3
+          "
         >
-        <i class="fa-solid fa-plus"></i>
-        </span>
-      </div>
-      </div>
-          <!-- <div class="plus-btn d-flex justify-content-end">
+          <h1 class="uppercase px-3 m-0">Executive Board</h1>
+          <div class="plus-btn">
+            <span
+              class="d-flex justify-content-center add-btn align-items-center"
+              data-bs-toggle="modal"
+              data-bs-target="#NewCaseModal"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </div>
+        </div>
+        <!-- <div class="plus-btn d-flex justify-content-end">
             <span
               class="d-flex justify-content-center add-btn align-items-center"
               data-bs-toggle="modal"
@@ -134,18 +143,17 @@
             <i class="fa-solid fa-plus"></i>
             </span>
           </div> -->
-        </div>
-        
-          <div class="conatainer business-card row d-flex justify-content-center ">
-            <BusinessCard
-              :member="member"
-              v-for="member in boardMembers"
-              :key="member"
-            >
-            </BusinessCard>
-          </div>
-        
       </div>
+
+      <div class="conatainer business-card row d-flex justify-content-center">
+        <BusinessCard
+          :member="member"
+          v-for="member in boardMembers"
+          :key="member"
+        >
+        </BusinessCard>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -154,13 +162,13 @@ import BusinessCard from "@/components/BusinessCard .vue";
 import { storage, db } from "@/firebase/firebaseinit";
 import { addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { VueEditor} from "vue3-editor";
+import { VueEditor } from "vue3-editor";
 
 export default {
   setup() {},
   components: {
     BusinessCard,
-    VueEditor
+    VueEditor,
   },
   data() {
     return {
@@ -295,7 +303,6 @@ export default {
 }
 
 .modal-body {
-
   .upload-photo {
     width: 200px;
     height: 200px;
@@ -307,12 +314,12 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     margin-top: 130px;
-    
+
     img {
       position: relative;
       z-index: 10;
     }
-    
+
     svg {
       color: #fff;
       height: 100px;
@@ -321,9 +328,9 @@ export default {
     label {
       color: #333;
       position: absolute;
-      top: 25%;             
-      bottom: 0;           
-      left: 0;        
+      top: 25%;
+      bottom: 0;
+      left: 0;
       right: 0;
       cursor: pointer;
 
@@ -351,7 +358,6 @@ export default {
   }
 }
 
-
 // .plus-btn {
 //   position: fixed;
 //   bottom: 1rem;
@@ -375,7 +381,6 @@ export default {
 //   }
 // }
 
-
 .bg {
   position: absolute;
   z-index: -98;
@@ -392,31 +397,31 @@ export default {
 
 .title {
   .plus-btn {
-  position: fixed;
-  top: 190px;
-  right: 5rem;
+    position: fixed;
+    top: 190px;
+    right: 5rem;
 
-  .add-btn {
-    height: 60px;
-    width: 60px;
-    color: #fff;
-    background-color: #66bb6a;
-    border-radius: 50%;
+    .add-btn {
+      height: 60px;
+      width: 60px;
+      color: #fff;
+      background-color: #66bb6a;
+      border-radius: 50%;
 
-    &:hover {
-      background-color: #396e3c;
-    }
+      &:hover {
+        background-color: #396e3c;
+      }
 
-    svg {
-      height: 30px;
-      width: 30px;
+      svg {
+        height: 30px;
+        width: 30px;
+      }
     }
   }
-}
 
-@media (max-width: 850px) {
-  display: none;
-}
+  @media (max-width: 850px) {
+    display: none;
+  }
 }
 
 .media-title {
@@ -425,7 +430,7 @@ export default {
 
   .plus-btn {
     bottom: 0;
-    right: 0;   
+    right: 0;
 
     .add-btn {
       height: 30px;
@@ -449,7 +454,5 @@ export default {
     opacity: 1;
     display: block;
   }
-  
 }
-
 </style>
