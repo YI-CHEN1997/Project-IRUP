@@ -54,7 +54,7 @@
     bottom: 0;
     left: 0;
     color: #eee;
-    z-index: -99;
+    // z-index: 0;
 
     .content {
       position: relative;

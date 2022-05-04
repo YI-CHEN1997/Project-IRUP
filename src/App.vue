@@ -46,6 +46,8 @@ export default {
     background: #f9f9fa;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .5px;
+    position: relative;
+    z-index: 1;
   }
 
   .box-shadow {
