@@ -18,7 +18,7 @@
       <h6 class="date">{{ caseStudy.TimeStamp }}</h6>
       <img :src="caseStudy.CoverPhotoURL" alt="" class="mb-4" />
 
-      <div class="content" v-html="caseStudy.Content"></div>
+      <div class="content ql-editor" v-html="caseStudy.Content"></div>
     </div>
     <div class="modal fade" tabindex="-1" id="EditCaseModal">
       <div
@@ -124,6 +124,9 @@
 </template>
 
 <script>
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 import { VueEditor, Quill } from "vue3-editor";
 import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module--fix-imports-error";
@@ -203,6 +206,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/vue3-editor.scss";
+
 .case {
   padding: 0 10vw 5vh 10vw;
   text-align: center;
@@ -243,6 +248,7 @@ export default {
 
   .content {
     margin: 0 6rem;
+    text-align: justify;
 
     h5 {
       margin: 5rem;
@@ -330,4 +336,13 @@ export default {
     }
   }
 }
+
+.ql-editor {
+  img {
+      width: 70% !important;
+      margin: 2rem 0 1rem 0;
+    }
+}
+
+
 </style>
