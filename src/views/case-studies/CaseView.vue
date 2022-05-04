@@ -215,6 +215,7 @@ export default {
     width: 40px;
     color: #fff;
     background-color: #66bb6a;
+    opacity: .9;
     border-radius: 50%;
     margin: 0.2rem 0;
     cursor: pointer;
