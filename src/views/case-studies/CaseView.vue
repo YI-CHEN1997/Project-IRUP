@@ -16,7 +16,7 @@
       </h1>
       <h5>{{ caseStudy.Subtitle }}</h5>
       <h6 class="date">{{ caseStudy.TimeStamp }}</h6>
-      <img :src="caseStudy.CoverPhotoURL" alt="" />
+      <img :src="caseStudy.CoverPhotoURL" alt="" class="mb-4" />
 
       <div class="content" v-html="caseStudy.Content"></div>
     </div>
@@ -222,6 +222,8 @@ export default {
 
     &:hover {
       background-color: #396e3c;
+      scale: 1.2;
+      transition: .2s;
     }
 
     svg {
