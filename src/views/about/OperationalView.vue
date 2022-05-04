@@ -74,14 +74,14 @@
 
       .left-p {
         position: relative;
-        width: 35vw;
         margin-right: 2rem;
 
         h3 {
-        text-align: left;
-        position: relative;
-        z-index: 2;        
-      }
+          width: 180px;
+          text-align: left;
+          position: relative;
+          z-index: 2;        
+        }
 
       .circle {
         background: #66bb6a;
