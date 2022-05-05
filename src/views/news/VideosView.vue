@@ -95,6 +95,8 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .card {

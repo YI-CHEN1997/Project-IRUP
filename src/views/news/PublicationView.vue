@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  position: relative;
+    z-index: 1;
+}
     @media screen and (max-width:1199px) {
       .container{
         max-width: 90%;

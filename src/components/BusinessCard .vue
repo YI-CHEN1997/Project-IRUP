@@ -142,6 +142,7 @@ export default {
   border-radius: 10px;
   background-color: #fff;
   position: relative;
+  z-index: 1;
 }
 
 // .cards:last-child:nth-last-child(2n-1){

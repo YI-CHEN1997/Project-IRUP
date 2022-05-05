@@ -355,6 +355,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
+
   h1 {
     text-align: center;
   }
@@ -365,6 +366,8 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .card {
