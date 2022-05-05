@@ -30,9 +30,9 @@
         <div class="content">
           <h1 class="title">International Rural-Up Partnership</h1>
           <h6>Members of IRUP are expected to submit at least one case study report in English, on their areas of expertise or activities in relation to rural development, within 6 months of the successful approval of their application for IRUP membership.</h6>
-          <div class="button">
-           <router-link to="/">join us</router-link> 
-          </div>  
+          <!-- <div class="button">
+            <a href="">join us</a>
+          </div>   -->
         </div>        
       </section>
 
