@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-5">
         <div class="loginBox">
           <h3 class="uppercase">Sign in</h3>
           <form action="" method="post">
