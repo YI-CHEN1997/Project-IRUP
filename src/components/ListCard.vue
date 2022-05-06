@@ -1,10 +1,10 @@
 <template>
-<div class="list-card col-xxl-10 col-lg-10 col-md-10 mb-3" >
+<div class="list-card col-xxl-9 col-lg-10 col-md-10 mb-3" >
     <div class="d-flex justify-content-center">   
         <div class="date">
             <div class="circle">
                 <div class="year-org-group">
-                    <h3 class="year mb-2">{{info.date}}</h3>
+                    <h4 class="year mb-2">{{info.date}}</h4>
                     <div class="d-flex justify-content-end">
                         <h5 class="org">IRUP</h5>
                     </div> 
@@ -13,7 +13,7 @@
         </div>
         <div class="category">
             <div class="d-flex justify-content-between align-items-center mb-2">
-                <h3 class="category-title">Research&Policy</h3>
+                <h4 class="category-title">Research&Policy</h4>
                 <router-link to="https://collections.unu.edu/eserv/UNU:7506/SITR_vol5_fullset_web.pdf">
                     <div class="link d-flex align-items-center">
                         <i class="arrow fa-solid fa-angles-right"></i>
@@ -47,7 +47,7 @@ export default {
             --year-font-size: 1.6rem;
         }
         .refrence{
-            font-size: 1.4rem !important;
+            font-size: 1.2rem !important;
         }
         .org.org{
             letter-spacing: .13em;
@@ -66,7 +66,7 @@ export default {
         }
         .refrence{
 
-            font-size: 1.4rem !important;
+            font-size: 1.2rem !important;
         }
         .org.org{
             letter-spacing: .14em;
@@ -84,7 +84,7 @@ export default {
             margin-right: 3.6rem;
         }
         .refrence{
-            font-size: 1.2rem !important;
+            font-size: .8rem !important;
         } 
         .arrow.arrow{
             margin-right: .5rem;
@@ -122,7 +122,7 @@ export default {
     }
     .date{
         width: calc( var(--year-font-size) * 3.6 );
-        margin-right: 4rem;
+        margin-right: 3rem;
     }    
     .circle{
         width: calc( var(--year-font-size) * 2 );

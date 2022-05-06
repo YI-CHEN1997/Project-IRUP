@@ -136,6 +136,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@media screen and (min-width:1072px){
+  .cards:last-child:nth-child(2n-1){
+  margin-right: calc(500px + 4.5rem) !important;
+}
+}
 .cards {
   width: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

@@ -84,7 +84,7 @@
         }
 
       .circle {
-        background: #66bb6a;
+        background: rgba(102, 187, 106, 0.5);
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
@@ -92,7 +92,19 @@
         top: -10px;
         left: -20px;
         }
+      .circle::before {
+        content:"";
+        position: absolute;
+        border: solid 1px rgb(102, 187, 106);
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        position: absolute;
+        top: -5%;
+        left: -20%;
+        }
       }
+
 
       h6 {        
         text-align: justify;
