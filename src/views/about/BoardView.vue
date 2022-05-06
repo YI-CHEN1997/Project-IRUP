@@ -298,9 +298,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ceiling {
-  margin-top: 2rem;
-}
 
 .modal-body {
   .upload-photo {
