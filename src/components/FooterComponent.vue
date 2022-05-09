@@ -54,18 +54,17 @@
     bottom: 0;
     left: 0;
     color: #eee;
-    // z-index: 0;
 
     .content {
       position: relative;
       width: 100%;
-      height: 65vh;
+      height: 400px;
       background: linear-gradient(180deg, #66bb6a 0%, rgba(102, 187, 106, 0.8) 100%);
-      padding: 6rem;
+      padding: 6rem 2rem;
 
       .contact {
         position: relative;
-        top: 130px;
+        top: 60px;
         z-index: 1;
 
         a {
@@ -131,21 +130,21 @@
     }
 
     .copyright {
-        padding: 1rem 6rem;
+        padding: 1rem 2rem;
         color: #333;
         background: #f9f9fa;
       }
   }
 
-  @media  (max-width: 850px) {
+  @media screen and (max-width:767px) {
     footer {
 
       .content {
-        height: 50vh;
+        // height: 50vh;
         padding-left: 2rem;
 
         .contact {
-          top: 80px;
+          top: 50px;
         }
 
         #wave {
@@ -159,15 +158,15 @@
     }
   }
 
-  @media (max-width: 320px) {
+  @media screen and (max-width: 480px) {
     footer {
 
       .content {
-        height: 50vh;
+        // height: 50vh;
         padding-left: 2rem;
 
         .contact {
-          // top: -40px;
+          top: 40px;
         }
 
       }
