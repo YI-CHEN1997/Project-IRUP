@@ -159,6 +159,8 @@ export default {
 <style scoped lang="scss">
 .container {
   height: 40vh;
+  position: relative;
+  z-index: 1;
 }
 
 .loginBox {
