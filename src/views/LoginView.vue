@@ -62,7 +62,7 @@
       <div class="row mt-5">
         <div class="loginBox">
           <h3 class="uppercase">Sign in</h3>
-          <form action="" method="post">
+          <form>
             <div class="inputBox">
               <div class="form-floating mb-3">
                 <input
@@ -139,7 +139,7 @@ export default {
           console.log(err.message);
         });
     },
-    forgetPassword() {
+    async forgetPassword() {
       sendPasswordResetEmail(auth, this.pswResetEmail)
         .then(() => {
           this.isEmailSend = true;
