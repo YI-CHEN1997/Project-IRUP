@@ -2,6 +2,34 @@
   <main>
     <LoadingComponent v-show="loading" />
     <div class="container">
+      <div
+        class="modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        id="photoPreview"
+      >
+        <div
+          class="
+            modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl
+          "
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ coverPhotoName }}</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-target="#NewCaseModal"
+                data-bs-toggle="modal"
+              ></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+              <img :src="coverPhotoURL" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="modal fade" tabindex="-1" id="NewCaseModal">
         <div
           class="
@@ -14,7 +42,6 @@
               <button
                 type="button"
                 class="btn-close"
-                id="close-modal"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -42,37 +69,35 @@
                     />
                     <label for="floatingInput subtitle">Subtitle</label>
                   </div>
-                  <div
-                    class="
-                      caseCoverPhoto
-                      mx-3
-                      mt-3
-                      p-3
-                      d-flex
-                      align-items-center
-                    "
-                  >
-                    <label for="caseCoverPhoto" class="p-5 px-0"
-                      ><span v-if="!coverPhotoURL">
-                        <i class="fa-solid fa-image"></i>Upload Case Cover Photo
-                      </span>
-                      <img :src="coverPhotoURL" alt="" v-if="coverPhotoURL" />
+                  <!-- <div class="caseTitle">
+                    <label for="caseTitle">Case Title</label>
+                    <br />
+                    <input type="text" v-model="caseTitle" />
+                    <br />
+                    <label for="subtitle">Subtitle</label>
+                    <br />
+                    <input type="text" v-model="subtitle" />
+                  </div> -->
+                  <div class="caseCoverPhoto mx-3 mt-3 p-3 d-flex align-items-center">
+                    <label for="caseCoverPhoto" class="p-5 px-0"><i class="fa-solid fa-image"></i>Upload Case Cover Photo
                       <input
-                        type="file"
-                        ref="caseCoverPhoto"
-                        id="caseCoverPhoto"
-                        @change="fileChange"
-                        accept=".png, .jpg, ,.jpeg"
-                      />
+                      type="file"
+                      ref="profilePhoto"
+                      id="profile-photo"
+                      @change="fileChange"
+                      accept=".png, .jpg, ,.jpeg"
+                    />
                     </label>
-
-                    <!-- <button
+                    <br />
+                    
+                    <br />
+                    <button
                       v-if="coverPhotoURL"
                       data-bs-toggle="modal"
                       data-bs-target="#photoPreview"
                     >
                       Preview
-                    </button> -->
+                    </button>
                   </div>
 
                   <div class="caseContent mx-3 mt-3">
@@ -93,7 +118,13 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn" @click="uploadCaseStudy">
+              
+              <button
+                type="button"
+                class="btn"
+                
+                @click="uploadCaseStudy"
+              >
                 SAVE
                 <span
                   class="spinner-grow spinner-grow-sm"
@@ -107,63 +138,40 @@
         </div>
       </div>
       <div class="title position-relative">
-        <h1 class="uppercase text-center d-flex justify-content-center">
-          case studies
-        </h1>
+        <h1 class="uppercase text-center d-flex justify-content-center">case studies</h1>
 
         <!-- add content button -->
-        <div class="plus-btn">
-          <span
-            class="d-flex justify-content-center add-btn align-items-center"
-            data-bs-toggle="modal"
-            data-bs-target="#NewCaseModal"
-          >
-            <i class="fa-solid fa-plus"></i>
-          </span>
-        </div>
+      <div class="plus-btn">
+        <span
+          class="d-flex justify-content-center add-btn align-items-center"
+          data-bs-toggle="modal"
+          data-bs-target="#NewCaseModal"
+        >
+        <i class="fa-solid fa-plus"></i>
+        </span>
+      </div>
       </div>
 
-      <!-- media show button -->
-      <div
-        class="
-          media-title
-          d-flex
-          justify-content-center
-          align-items-center
-          mb-3
-        "
-      >
+    <!-- media show button -->
+      <div class="media-title d-flex justify-content-center align-items-center mb-3">
         <h1 class="uppercase px-3 m-0">case studies</h1>
-        <div class="plus-btn">
-          <span
-            class="d-flex justify-content-center add-btn align-items-center"
-            data-bs-toggle="modal"
-            data-bs-target="#NewCaseModal"
-          >
-            <i class="fa-solid fa-plus"></i>
-          </span>
-        </div>
+      <div class="plus-btn">
+        <span
+          class="d-flex justify-content-center add-btn align-items-center"
+          data-bs-toggle="modal"
+          data-bs-target="#NewCaseModal"
+        >
+        <i class="fa-solid fa-plus"></i>
+        </span>
       </div>
+      </div>
+      
+      <!-- <button data-bs-toggle="modal" data-bs-target="#NewCaseModal">
+        <i class="fa-solid fa-plus"></i>
+      </button> -->
 
       <div class="content">
-        <template v-for="caseStudy in caseStudies" :key="caseStudy">
-          <div class="card h-100 box-shadow" @click="redirectCase(caseStudy.id)">
-            <div class="img">
-              <img
-                :src="caseStudy.CoverPhotoURL"
-                class="card-img-top"
-                alt="align-items-auto"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">
-                {{ caseStudy.Title }}
-              </h5>
-              <!-- <h6 class="card-text">Farmers of Liyu community..</h6> -->
-            </div>
-          </div>
-        </template>
-        <!-- <div class="card h-100">
+        <div class="card h-100">
           <router-link :to="{ name: 'case1' }">
             <div class="img">
               <img
@@ -212,7 +220,7 @@
               <h6 class="card-text">located a flat terrace..</h6>
             </div>
           </router-link>
-        </div> -->
+        </div>
       </div>
     </div>
   </main>
@@ -226,24 +234,16 @@ Quill.register("modules/imageDrop", ImageDrop);
 Quill.register("modules/imageResize", ImageResize);
 import { db, storage } from "../firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import {
-  addDoc,
-  collection,
-  getDocs,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
+
+
 
 export default {
   components: {
     VueEditor,
   },
-  created() {
-    this.getAllCases();
-  },
   data() {
     return {
-      caseStudies: [],
       caseTitle: "",
       subtitle: "",
       caseContent: "",
@@ -261,18 +261,6 @@ export default {
     };
   },
   methods: {
-    async getAllCases() {
-      const caseArray = [];
-      const dataBase = collection(db, "CaseStudies");
-      const dbResult = await getDocs(
-        query(dataBase, orderBy("TimeStamp", "desc"))
-      );
-      dbResult.docs.forEach((doc) => {
-        caseArray.push({ ...doc.data(), id: doc.id });
-      });
-      this.caseStudies = caseArray;
-      console.log(this.caseStudies);
-    },
     fileChange(event) {
       this.file = event.target.files[0];
       const fileName = this.file.name;
@@ -298,7 +286,11 @@ export default {
     uploadCaseStudy() {
       var date = new Date();
       var dateresult = date.toDateString();
-      if (this.caseTitle.length !== 0 && this.caseContent.length !== 0) {
+      if (
+        this.caseTitle.length !== 0 &&
+        this.subtitle.length !== 0 &&
+        this.caseContent.length !== 0
+      ) {
         if (this.file) {
           console.log(this.caseContent, dateresult);
           this.loading = true;
@@ -318,7 +310,7 @@ export default {
             },
             async () => {
               const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-              const colRef = collection(db, "CaseStudies");
+              const colRef = collection(db, "CaseStudise");
               await addDoc(colRef, {
                 Title: this.caseTitle,
                 Subtitle: this.subtitle,
@@ -328,7 +320,7 @@ export default {
                 TimeStamp: dateresult,
               });
               this.loading = false;
-              document.getElementById("close-modal").click();
+              document.getElementById('close-modal').click();
             }
           );
         } else {
@@ -340,14 +332,12 @@ export default {
         }
       } else {
         this.error = true;
-        this.errMsg = "Please ensure Title & Content has been filled!";
+        this.errMsg =
+          "Please ensure Title & Subtitle & Content has been filled!";
         setTimeout(() => {
           this.error = false;
         }, 3000);
       }
-    },
-    redirectCase(id) {
-      this.$router.push(`/casestudies/${id}`);
     },
   },
 };
@@ -355,7 +345,6 @@ export default {
 
 <style lang="scss" scoped>
 main {
-
   h1 {
     text-align: center;
   }
@@ -373,23 +362,29 @@ main {
   .card {
     width: 350px;
     height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     position: relative;
     background-color: white;
     border: 0px solid #fff;
     transition: 0.3s ease-in-out;
-    text-decoration: none;
-    color: #333;
-
-    &:hover {
-      color: #eee;
-      background-color: #333;
-    }
 
     .img {
       height: 200px;
       overflow: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+
+      &:hover {
+        color: #eee;
+      }
+    }
+
+    &:hover {
+      background-color: #333;
     }
 
     .card-body {
@@ -440,31 +435,31 @@ main {
 
 .title {
   .plus-btn {
-    position: absolute;
-    bottom: -5px;
-    right: 5rem;
+  position: absolute;
+  bottom: -5px;
+  right: 5rem;
 
-    .add-btn {
-      height: 60px;
-      width: 60px;
-      color: #fff;
-      background-color: #66bb6a;
-      border-radius: 50%;
+  .add-btn {
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    background-color: #66bb6a;
+    border-radius: 50%;
 
-      &:hover {
-        background-color: #396e3c;
-      }
+    &:hover {
+      background-color: #396e3c;
+    }
 
-      svg {
-        height: 30px;
-        width: 30px;
-      }
+    svg {
+      height: 30px;
+      width: 30px;
     }
   }
+}
 
-  @media (max-width: 850px) {
-    display: none;
-  }
+@media (max-width: 850px) {
+  display: none;
+}
 }
 
 .media-title {
@@ -473,7 +468,7 @@ main {
 
   .plus-btn {
     bottom: 0;
-    right: 0;
+    right: 0;   
 
     .add-btn {
       height: 30px;
@@ -497,5 +492,11 @@ main {
     opacity: 1;
     display: block;
   }
+  
 }
+
+
+
+
+
 </style>
