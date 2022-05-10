@@ -119,6 +119,8 @@ export default {
 
     .list-card{
         --year-font-size: 2rem;
+        position: relative;
+        z-index: 1;
     }
     .date{
         width: calc( var(--year-font-size) * 3.6 );
