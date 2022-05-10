@@ -82,8 +82,8 @@
                     <label for="caseCoverPhoto" class="p-5 px-0"><i class="fa-solid fa-image"></i>Upload Case Cover Photo
                       <input
                       type="file"
-                      ref="profilePhoto"
-                      id="profile-photo"
+                      ref="caseCoverPhoto"
+                      id="caseCoverPhoto"
                       @change="fileChange"
                       accept=".png, .jpg, ,.jpeg"
                     />
