@@ -38,8 +38,14 @@
         <li class="listitem">
           <router-link :to="{ name: 'casestudies' }">case studies</router-link>
         </li>
-        <li class="authority">
-          <router-link :to="{ name: 'login' }"><i class="fa-solid fa-user-lock"></i></router-link>
+        <li class="authority" v-if="!user">
+          <router-link :to="{ name: 'login' }"><i class="fa-solid fa-circle-user"></i></router-link>
+        </li>
+        <li class="authority listitem" v-if="user">
+          <i class="fa-solid fa-user-check"></i>
+          <ul class="dropdown news-dropdown">
+            <li><router-link to="">signout</router-link></li>
+          </ul>
         </li>
       </ul>
 
@@ -119,6 +125,12 @@ export default {
 
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
+  },
+
+  computed: {
+    user() {
+      return this.$store.state.user
+    }
   },
 
   methods: {
