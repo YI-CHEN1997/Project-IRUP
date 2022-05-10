@@ -309,26 +309,21 @@ export default {
 
       h6 {
         margin-right: 0;
+        text-align: left;
       }
+
+      li {
+          text-align: left;
+        }
 
       img {
         margin-top: 2rem;
         width: 60%;
       }
     }
-  }
 
-  @media (max-width: 850px) {
-    padding: 0 0 1vh 0;
-
-    .content {
-      h6 {
-        text-align: left;
-
-        li {
-          text-align: left;
-        }
-      }
+    .edit-icon, .delete-icon {
+      right: 1rem;
     }
   }
 }
