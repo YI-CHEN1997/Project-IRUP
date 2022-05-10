@@ -39,21 +39,19 @@
           <router-link :to="{ name: 'casestudies' }">case studies</router-link>
         </li>
         <li class="authority" v-if="!user">
-          <router-link :to="{ name: 'login' }"><i class="fa-solid fa-circle-user"></i></router-link>
+          <router-link :to="{ name: 'login' }"
+            ><i class="fa-solid fa-circle-user"></i
+          ></router-link>
         </li>
         <li class="authority listitem" v-if="user">
           <i class="fa-solid fa-user-check"></i>
           <ul class="dropdown news-dropdown">
-            <li><router-link to="">signout</router-link></li>
+            <li><router-link to="" @click="signOut">signout</router-link></li>
           </ul>
         </li>
       </ul>
 
-      <div
-        class="burger"
-        @click="toggleMobileNav"
-        v-show="mobile"
-      >
+      <div class="burger" @click="toggleMobileNav" v-show="mobile">
         <i class="fa-solid fa-bars"></i>
       </div>
       <transition name="mobile-nav">
@@ -100,7 +98,11 @@
               >case studies</router-link
             >
           </li>
-          <li class="authority"><router-link :to="{ name: 'login' }"><i class="fas fa-user-lock"></i></router-link></li>
+          <li class="authority">
+            <router-link :to="{ name: 'login' }"
+              ><i class="fas fa-user-lock"></i
+            ></router-link>
+          </li>
         </ul>
       </transition>
     </nav>
@@ -108,6 +110,8 @@
 </template>
 
 <script>
+import { auth } from "../firebase/firebaseinit";
+import { signOut } from "firebase/auth";
 export default {
   data() {
     return {
@@ -129,8 +133,8 @@ export default {
 
   computed: {
     user() {
-      return this.$store.state.user
-    }
+      return this.$store.state.user;
+    },
   },
 
   methods: {
@@ -156,6 +160,14 @@ export default {
       this.mobile = false;
       this.mobileNav = false;
       return;
+    },
+    signOut() {
+      signOut(auth).then(() => {
+        this.$store.commit("userStateChange", null);
+        this.$router.push("/");
+      }).catch((err)=>{
+        console.log(err.message);
+      });
     },
   },
 };
