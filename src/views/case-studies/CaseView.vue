@@ -3,10 +3,17 @@
     <LoadingComponent v-show="loading" />
     <div class="case">
       <span
-      class="d-flex justify-content-center edit-icon"
+      class="d-flex justify-content-center align-items-center edit-icon"
       data-bs-toggle="modal"
       data-bs-target="#EditCaseModal">
         <i class="fas fa-pen-nib"></i>
+      </span>
+      
+      <span
+      class="d-flex justify-content-center align-items-center delete-icon"
+      data-bs-toggle="modal"
+      data-bs-target="#EditCaseModal">
+        <i class="fas fa-trash"></i>
       </span>
       <!-- <button data-bs-toggle="modal" data-bs-target="#EditCaseModal">
         <i class="fas fa-pen-nib"></i>
@@ -214,10 +221,11 @@ export default {
 
   .edit-icon {
     position: fixed;
-    right: 3rem;
-    top: 130px;
-    height: 40px;
-    width: 40px;
+    z-index: 1;
+    right: 4rem;
+    top: 140px;
+    height: 55px;
+    width: 55px;
     color: #fff;
     background-color: #66bb6a;
     opacity: .9;
@@ -232,8 +240,32 @@ export default {
     }
 
     svg {
-      height: 1rem;
-      margin: 12px;
+      height: 25px;
+    }
+  }
+
+  .delete-icon {
+    position: fixed;
+    z-index: 1;
+    right: 4rem;
+    top: 210px;
+    height: 55px;
+    width: 55px;
+    color: #fff;
+    background-color: #66bb6a;
+    opacity: .9;
+    border-radius: 50%;
+    margin: 0.2rem 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #396e3c;
+      scale: 1.2;
+      transition: .2s;
+    }
+
+    svg {
+      height: 25px;
     }
   }
 

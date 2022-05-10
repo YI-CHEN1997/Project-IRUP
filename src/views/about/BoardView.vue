@@ -395,18 +395,20 @@ export default {
 .title {
   .plus-btn {
     position: fixed;
-    top: 190px;
-    right: 5rem;
+    right: 4rem;
+    top: 140px;
 
     .add-btn {
-      height: 60px;
-      width: 60px;
+      height: 55px;
+      width: 55px;
       color: #fff;
       background-color: #66bb6a;
       border-radius: 50%;
 
       &:hover {
         background-color: #396e3c;
+        scale: 1.2;
+        transition: .2s;
       }
 
       svg {
