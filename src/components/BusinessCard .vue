@@ -9,7 +9,7 @@
         <span class="visually-hidden">Loading...</span>
       </div>
       <span
-        class="d-flex justify-content-center edit-icon"
+        class="d-flex justify-content-center align-items-center edit-icon"
         v-if="!edit"
         @click="toggleEdit"
       >
@@ -23,7 +23,7 @@
         <i class="fa-solid fa-floppy-disk"></i>
       </span>
       <span
-        class="d-flex justify-content-center delete-icon"
+        class="d-flex justify-content-center align-items-center delete-icon"
         @click="deleteMember(member.id)"
         ><i class="fas fa-trash"></i>
       </span>
@@ -208,7 +208,6 @@ img {
 
   svg {
     height: 1rem;
-    margin: 8px;
   }
 }
 
@@ -227,7 +226,6 @@ img {
 
   svg {
     height: 1rem;
-    margin: 8px;
   }
 }
 
