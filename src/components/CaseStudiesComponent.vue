@@ -356,6 +356,12 @@ export default {
 <style lang="scss" scoped>
 main {
 
+  @media (min-width: 1000px) and (max-width:1400px){
+    .card:last-child:nth-child(2n-1){
+      margin-right: calc(320px + 4.5rem) !important;
+    }
+  }
+
   h1 {
     text-align: center;
   }
@@ -445,14 +451,16 @@ main {
     right: 5rem;
 
     .add-btn {
-      height: 60px;
-      width: 60px;
+      height: 55px;
+      width: 55px;
       color: #fff;
       background-color: #66bb6a;
       border-radius: 50%;
 
       &:hover {
         background-color: #396e3c;
+        scale: 1.2;
+        transition: .2s;
       }
 
       svg {
