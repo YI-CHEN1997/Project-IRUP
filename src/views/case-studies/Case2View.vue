@@ -98,6 +98,8 @@
 
   .content {
     margin: 0 6rem;
+    position: relative;
+    z-index: 1;
 
     h5 {
       margin: 5rem;
