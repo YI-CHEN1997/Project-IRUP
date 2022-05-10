@@ -46,7 +46,7 @@
         <li class="authority listitem" v-if="user">
           <i class="fa-solid fa-user-check"></i>
           <ul class="dropdown news-dropdown">
-            <li><router-link to="" @click="signOut">signout</router-link></li>
+            <router-link to=""><li @click="signOut">signout</li></router-link>
           </ul>
         </li>
       </ul>
@@ -98,10 +98,18 @@
               >case studies</router-link
             >
           </li>
-          <li class="authority">
+          <li class="authority" v-if="!user">
             <router-link :to="{ name: 'login' }"
-              ><i class="fas fa-user-lock"></i
+              ><i class="fa-solid fa-circle-user"></i
             ></router-link>
+          </li>
+          <li class="authority listitem" v-if="user">
+            <router-link to=""><i class="fa-solid fa-user-check"></i></router-link>
+            <span>
+              <ul class="mobile-dropdown">
+                <router-link to=""><li @click="signOut">signout</li></router-link>
+              </ul>
+            </span>         
           </li>
         </ul>
       </transition>
@@ -332,8 +340,6 @@ header {
       height: 25px;
       width: 25px;
       color: #66bb6a;
-      position: absolute;
-      bottom: 2rem;
       margin-left: 5px;
     }
 
@@ -371,6 +377,8 @@ header {
 
         li {
           padding: 0.5rem 0;
+          color: #eee;
+          border-bottom: 2px solid transparent;
 
           a {
             color: #eee;
