@@ -11,16 +11,18 @@
       >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-block">
               <h5 class="modal-title" id="forgot-passwordLabel">
-                Send Password Reset Email
+                Reset Password
               </h5>
+              
               <button
                 type="button"
-                class="btn-close"
+                class="btn-close position-absolute m-3"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
+              <p>Enter your email below and we'll send you a link to reset it.</p>
             </div>
             <div class="modal-body">
               <div class="input-group mb-3" v-if="!isEmailSend">
@@ -43,13 +45,6 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
                 class="btn btn-primary"
                 @click="forgetPassword"
               >
@@ -62,7 +57,7 @@
       <div class="row mt-5">
         <div class="loginBox">
           <h3 class="uppercase">Sign in</h3>
-          <form>
+          
             <div class="inputBox">
               <div class="form-floating mb-3">
                 <input
@@ -94,7 +89,7 @@
               value="Login"
               @click="login"
             />
-          </form>
+          
           <router-link
             to="#"
             class="send btn rounded-pill text-center"
@@ -113,6 +108,7 @@ import { auth } from "../firebase/firebaseinit";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  onAuthStateChanged
 } from "firebase/auth";
 
 export default {
@@ -133,7 +129,12 @@ export default {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((res) => {
           console.log(res.user.uid);
-          this.$router.push("/");
+          onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.$store.commit("userStateChange", user);
+      }
+    });
+          this.$router.push("/"); 
         })
         .catch((err) => {
           console.log(err.message);
@@ -159,12 +160,16 @@ export default {
 <style scoped lang="scss">
 .container {
   height: 40vh;
-  position: relative;
-  z-index: 1;
+}
+
+.btn-close {
+  top: 0;
+  right: 0;
 }
 
 .loginBox {
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -244,5 +249,18 @@ a:hover {
 .error-message {
   color: red;
   font-weight: 500;
+}
+
+.modal-footer {
+  .btn {
+    width: 100%;
+    background: #66bb6a;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background: #396e3c;
+    }
+  }
 }
 </style>
