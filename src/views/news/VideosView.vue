@@ -81,6 +81,16 @@
    
 </template>
 
+<script>
+import YouTube from "vue3-youtube";
+
+export default {
+  components: {
+    YouTube,
+  },
+}
+</script>
+
 <style lang="scss" scoped>
 
 main {
