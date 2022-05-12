@@ -123,28 +123,6 @@
         </div>
       </div>
 
-      <!-- media show button -->
-      <div
-        class="
-          media-title
-          d-flex
-          justify-content-center
-          align-items-center
-          mb-3
-        "
-      >
-        <h1 class="uppercase px-3 m-0">case studies</h1>
-        <div class="plus-btn">
-          <span
-            class="d-flex justify-content-center add-btn align-items-center"
-            data-bs-toggle="modal"
-            data-bs-target="#NewCaseModal"
-          >
-            <i class="fa-solid fa-plus"></i>
-          </span>
-        </div>
-      </div>
-
       <div class="content">
         <template v-for="caseStudy in caseStudies" :key="caseStudy">
           <div class="card h-100 box-shadow" @click="redirectCase(caseStudy.id)">
@@ -163,56 +141,7 @@
             </div>
           </div>
         </template>
-        <!-- <div class="card h-100">
-          <router-link :to="{ name: 'case1' }">
-            <div class="img">
-              <img
-                src="@/assets/Case_Studies_1.png"
-                class="card-img-top"
-                alt="align-items-auto"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">
-                Biodiversity Conservation, Green Production, and Rural
-                Development
-              </h5>
-              <h6 class="card-text">Farmers of Liyu community..</h6>
-            </div>
-          </router-link>
-        </div>
-
-        <div class="card h-100">
-          <router-link :to="{ name: 'case2' }">
-            <div class="img">
-              <img
-                src="@/assets/Case_Studies_2.png"
-                class="card-img-top"
-                alt="align-items-auto"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Sustainable Rural Development Practice</h5>
-              <h6 class="card-text">The Gonglaoping community..</h6>
-            </div>
-          </router-link>
-        </div>
-
-        <div class="card h-100">
-          <router-link :to="{ name: 'case3' }">
-            <div class="img">
-              <img
-                src="@/assets/Case_Studies_3.png"
-                class="card-img-top"
-                alt="align-items-auto"
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Gonglaoping Community</h5>
-              <h6 class="card-text">located a flat terrace..</h6>
-            </div>
-          </router-link>
-        </div> -->
+        
       </div>
     </div>
   </main>
@@ -444,11 +373,13 @@ main {
   color: red;
 }
 
+// plus icon
 .title {
   .plus-btn {
     position: absolute;
     bottom: -5px;
     right: 5rem;
+    opacity: .8;
 
     .add-btn {
       height: 55px;
@@ -471,39 +402,23 @@ main {
   }
 
   @media (max-width: 850px) {
-    display: none;
-  }
-}
-
-.media-title {
-  display: none;
-  opacity: 0;
-
-  .plus-btn {
+    .plus-btn {
     bottom: 0;
     right: 0;
 
     .add-btn {
-      height: 30px;
-      width: 30px;
+      height: 40px;
+      width: 40px;
       color: #fff;
       background-color: #66bb6a;
       border-radius: 50%;
 
-      &:hover {
-        background-color: #396e3c;
-      }
-
       svg {
-        height: 10px;
-        width: 10px;
+        height: 20px;
+        width: 20px;
       }
     }
   }
-
-  @media (max-width: 850px) {
-    opacity: 1;
-    display: block;
   }
 }
 </style>
