@@ -40,6 +40,9 @@ export default {
   #app {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .5px;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 
     main {
     padding-top: 200px;
