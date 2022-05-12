@@ -106,8 +106,7 @@
 
         <!-- add content plus-icon-button -->
           <div 
-          class="plus-btn"
-          :class="{ 'scrolled-plus-icon': scrollPlusIcon }" >
+          class="plus-btn">
             <span
               class="d-flex justify-content-center add-btn align-items-center"
               data-bs-toggle="modal"
@@ -204,26 +203,6 @@ export default {
   components: {
     YouTube,
   },
-  // data() {
-  //   return {
-  //     showPlusIcon: true,
-  //     lastScrollPosition: 0
-  //   };
-  // },
-  // mounted() {
-  //   window.addEventListener("scroll", this.updateScroll);
-  // },
-
-  // methods: {
-  //   updateScroll() {
-  //     const scrollPosition = window.scrollY;
-  //     if (scrollPosition > 50) {
-  //       this.scrolledPlusIcon = true;
-  //       return;
-  //     }
-  //     this.scrolledPlusIcon = false;
-  //   },
-  // },
 }
 </script>
 
@@ -337,10 +316,6 @@ main {
     }
   }
 }
-
-  // .plus-btn.scrolled-plus-icon {
-  //   display: none;
-  // }
 }
 
   </style>
