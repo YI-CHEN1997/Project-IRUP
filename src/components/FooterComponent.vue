@@ -60,6 +60,9 @@
     bottom: 0;
     left: 0;
     color: #eee;
+    margin: 0;
+    width: 100vw;
+    margin: 0;
 
     .content {
       position: relative;
@@ -139,6 +142,7 @@
         padding: 1rem 2rem;
         color: #333;
         background: #f9f9fa;
+        margin: 0;
       }
   }
 
@@ -146,8 +150,6 @@
     footer {
 
       .content {
-        // height: 50vh;
-        padding-left: 2rem;
 
         .contact {
           top: 50px;
@@ -164,17 +166,10 @@
     footer {
 
       .content {
-        // height: 50vh;
-        padding-left: 2rem;
 
         .contact {
           top: 40px;
         }
-
-      }
-
-      .copyright {
-        padding: 1rem 2rem;
       }
     }
   }
