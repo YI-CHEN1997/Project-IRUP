@@ -16,7 +16,7 @@
         <i class="fas fa-pen-nib"></i>
       </span>
       <span
-        class="d-flex justify-content-center save-icon"
+        class="d-flex justify-content-center align-items-center save-icon"
         v-if="edit && !loading"
         @click="updateMember"
       >
