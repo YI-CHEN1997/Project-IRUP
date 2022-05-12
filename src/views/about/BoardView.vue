@@ -112,37 +112,6 @@
             </span>
           </div>
         </div>
-
-        <!-- media show button -->
-        <div
-          class="
-            media-title
-            d-flex
-            justify-content-center
-            align-items-center
-            mb-3
-          "
-        >
-          <h1 class="uppercase px-3 m-0">Executive Board</h1>
-          <div class="plus-btn">
-            <span
-              class="d-flex justify-content-center add-btn align-items-center"
-              data-bs-toggle="modal"
-              data-bs-target="#NewCaseModal"
-            >
-              <i class="fa-solid fa-plus"></i>
-            </span>
-          </div>
-        </div>
-        <!-- <div class="plus-btn d-flex justify-content-end">
-            <span
-              class="d-flex justify-content-center add-btn align-items-center"
-              data-bs-toggle="modal"
-              data-bs-target="#addNewMember"
-            >
-            <i class="fa-solid fa-plus"></i>
-            </span>
-          </div> -->
       </div>
 
       <div class="conatainer business-card row d-flex justify-content-center">
@@ -355,29 +324,6 @@ export default {
   }
 }
 
-// .plus-btn {
-//   position: fixed;
-//   bottom: 1rem;
-//   right: 1rem;
-//   z-index: 10;
-
-//   .add-btn {
-//     height: 60px;
-//     width: 60px;
-//     color: #fff;
-//     background-color: #66bb6a;
-//     border-radius: 50%;
-//     opacity: 0.6;
-//   }
-//   .add-btn:hover {
-//     background-color: #396e3c;
-//   }
-//   .add-btn svg {
-//     height: 30px;
-//     width: 30px;
-//   }
-// }
-
 .bg {
   position: absolute;
   z-index: -98;
@@ -392,11 +338,14 @@ export default {
   color: red;
 }
 
+// plus icon
 .title {
   .plus-btn {
     position: fixed;
-    right: 4rem;
-    top: 140px;
+    right: 4vw;
+    bottom: 40px;
+    z-index: 2;
+    opacity: .8;
 
     .add-btn {
       height: 55px;
@@ -417,41 +366,6 @@ export default {
       }
     }
   }
-
-  @media (max-width: 850px) {
-    display: none;
-  }
 }
 
-.media-title {
-  display: none;
-  opacity: 0;
-
-  .plus-btn {
-    bottom: 0;
-    right: 0;
-
-    .add-btn {
-      height: 30px;
-      width: 30px;
-      color: #fff;
-      background-color: #66bb6a;
-      border-radius: 50%;
-
-      &:hover {
-        background-color: #396e3c;
-      }
-
-      svg {
-        height: 10px;
-        width: 10px;
-      }
-    }
-  }
-
-  @media (max-width: 850px) {
-    opacity: 1;
-    display: block;
-  }
-}
 </style>
