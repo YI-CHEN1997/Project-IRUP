@@ -181,6 +181,18 @@ export default {
         width: 30px;
       }
     }
+
+    @media (max-width: 850px) {
+    .add-btn {
+      height: 40px;
+      width: 40px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }      
+  }
   }
 }
 
