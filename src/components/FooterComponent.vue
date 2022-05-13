@@ -62,7 +62,6 @@
     color: #eee;
     margin: 0;
     width: 100vw;
-    margin: 0;
 
     .content {
       position: relative;
@@ -132,7 +131,7 @@
       #wave {
         width: 100vw;
         position: absolute;
-        top: -20px;
+        top: 0;
         left: 0;
         z-index: 0;
       }
@@ -146,29 +145,24 @@
       }
   }
 
-  @media screen and (max-width:767px) {
+  @media (min-width: 1800px) {
     footer {
-
       .content {
-
-        .contact {
-          top: 50px;
+        #wave {
+          top: -50px;
         }
-      }
-
-      .copyright {
-        padding: 1rem 2rem;
       }
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width:767px) {
     footer {
 
       .content {
+        height: 350px;
 
         .contact {
-          top: 40px;
+          top: 0;
         }
       }
     }
