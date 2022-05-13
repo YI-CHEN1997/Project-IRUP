@@ -255,7 +255,7 @@ main {
   .plus-btn {
     position: fixed;
     right: 4vw;
-    bottom: 40px;
+    bottom: 4vh;
     z-index: 2;
     opacity: .8;
 
@@ -275,6 +275,21 @@ main {
       svg {
         height: 30px;
         width: 30px;
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    .plus-btn {
+
+      .add-btn {
+        height: 40px;
+        width: 40px;
+
+        svg {
+          height: 20px;
+          width: 20px;
+        }
       }
     }
   }
