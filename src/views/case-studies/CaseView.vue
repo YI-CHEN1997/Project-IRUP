@@ -2,22 +2,23 @@
   <main>
     <LoadingComponent v-show="loading" />
     <div class="case">
-      <span
-      class="d-flex justify-content-center align-items-center edit-icon"
-      data-bs-toggle="modal"
-      data-bs-target="#EditCaseModal">
-        <i class="fas fa-pen-nib"></i>
-      </span>
+      <div class="edit-icons d-flex flex-column">
+        <span
+        class="d-flex justify-content-center align-items-center edit-icon"
+        data-bs-toggle="modal"
+        data-bs-target="#EditCaseModal">
+          <i class="fas fa-pen-nib"></i>
+        </span>
+        
+        <span
+        class="d-flex justify-content-center align-items-center delete-icon"
+        data-bs-toggle="modal"
+        data-bs-target="#EditCaseModal">
+          <i class="fas fa-trash"></i>
+        </span>
+      </div>
       
-      <span
-      class="d-flex justify-content-center align-items-center delete-icon"
-      data-bs-toggle="modal"
-      data-bs-target="#EditCaseModal">
-        <i class="fas fa-trash"></i>
-      </span>
-      <!-- <button data-bs-toggle="modal" data-bs-target="#EditCaseModal">
-        <i class="fas fa-pen-nib"></i>
-      </button> -->
+      
       <h1 class="title text-uppercase">
         {{ caseStudy.Title }}
       </h1>
@@ -219,16 +220,19 @@ export default {
   padding: 0 10vw 5vh 10vw;
   text-align: center;
 
-  .edit-icon {
+  .edit-icons {
     position: fixed;
-    z-index: 1;
-    right: 4rem;
-    top: 140px;
+    z-index: 2;
+    right: 4vw;
+    bottom: 4vh;
+  }
+
+  .edit-icon {
     height: 55px;
     width: 55px;
     color: #fff;
     background-color: #66bb6a;
-    opacity: .9;
+    opacity: .8;
     border-radius: 50%;
     margin: 0.2rem 0;
     cursor: pointer;
@@ -240,15 +244,21 @@ export default {
     }
 
     svg {
-      height: 25px;
+      height: 20px;
+    }
+
+    @media (max-width: 850px) {
+      height: 40px;
+      width: 40px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
   .delete-icon {
-    position: fixed;
-    z-index: 1;
-    right: 4rem;
-    top: 210px;
     height: 55px;
     width: 55px;
     color: #fff;
@@ -266,6 +276,16 @@ export default {
 
     svg {
       height: 25px;
+    }
+
+    @media (max-width: 850px) {
+      height: 40px;
+      width: 40px;
+
+      svg {
+        height: 20px;
+        width: 20px;
+      }
     }
   }
 
