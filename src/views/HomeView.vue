@@ -31,12 +31,10 @@
 
       <section class="news">
         <NewsComponent/>
-        <router-link :to="{name: 'news'}">more</router-link>
       </section>
 
       <section class="section4">
         <CaseStudiesComponent />
-        <router-link :to="{name: 'casestudies'}">more</router-link>
       </section>
       
     </div>
