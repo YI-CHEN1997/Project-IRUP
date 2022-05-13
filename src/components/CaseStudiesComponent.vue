@@ -409,9 +409,6 @@ main {
     .add-btn {
       height: 40px;
       width: 40px;
-      color: #fff;
-      background-color: #66bb6a;
-      border-radius: 50%;
 
       svg {
         height: 20px;
