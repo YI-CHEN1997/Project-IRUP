@@ -22,7 +22,7 @@
         <source src="@/assets/video.mp4" type="video/webm">
       </video>
 
-      <svg id="wave" width="100%" viewBox="0 0 1440 513" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg id="wave" width="100%" viewBox="0 0 1440 432" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_373_115" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="432">
 <rect width="1920" height="432" fill="#C4C4C4"/>
 </mask>
