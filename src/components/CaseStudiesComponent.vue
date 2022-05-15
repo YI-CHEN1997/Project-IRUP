@@ -229,7 +229,7 @@ export default {
       var dateresult = date.toDateString();
       if (this.caseTitle.length !== 0 && this.caseContent.length !== 0) {
         if (this.file) {
-          console.log(this.caseContent, dateresult);
+          // console.log(this.caseContent, dateresult);
           this.loading = true;
           const storageRef = ref(
             storage,

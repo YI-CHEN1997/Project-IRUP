@@ -205,7 +205,7 @@ export default {
       if (this.videoTitle == "") {
         this.$snackbar.add({
           type: "error",
-          text: "Please enter Video Title",
+          text: "Please enter Video Title.",
         });
         return;
       }

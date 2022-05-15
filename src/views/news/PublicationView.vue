@@ -91,7 +91,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn" @click="uploadCaseStudy">
+              <button type="button" class="btn" @click="uploadFile">
                 SAVE
                 <span
                   class="spinner-grow spinner-grow-sm"
@@ -121,10 +121,10 @@
         </div>
       </div>
       <div class="row justify-content-center mt-5">
-        <template v-for="info in infos" :key="info">
-          <ListCard :info="info"
+        <template v-for="publication in publications" :key="publication">
+          <ListCard :publication="publication"
             ><hr
-              :style="info == infos[infos.length - 1] ? 'display: none ;' : ''"
+              :style="publication == publications[publications.length - 1] ? 'display: none ;' : ''"
           /></ListCard>
         </template>
       </div>
@@ -133,20 +133,34 @@
 </template>
 <script>
 import ListCard from "@/components/ListCard.vue";
+import { storage, db } from "@/firebase/firebaseinit";
+import {
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  getDocs,
+} from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 export default {
   setup() {},
+  created() {
+    this.getPublications();
+  },
   components: {
     ListCard,
   },
   data() {
     return {
+      loading: null,
       category: "",
       organization: "",
       year: "",
       description: "",
       fileName: "",
       fileURL: "",
+      publications: [],
       infos: [
         { date: "2017" },
         { date: "2018" },
@@ -156,6 +170,18 @@ export default {
     };
   },
   methods: {
+    async getPublications() {
+      const fileArray = [];
+      const dataBase = collection(db, "Publication");
+      const q = query(dataBase, orderBy("Year", "desc"));
+      const dbResult = await getDocs(q);
+      dbResult.docs.forEach((doc) => {
+        // console.log(doc.data());
+        fileArray.push({ ...doc.data() });
+        // console.log(videoArray)
+      });
+      this.publications = fileArray;
+    },
     fileChange(event) {
       let file = event.target.files[0];
       let formData = new FormData();
@@ -163,7 +189,62 @@ export default {
       this.fileName = file.name;
       this.fileURL = URL.createObjectURL(file);
     },
-    
+    async uploadFile() {
+      if (this.year.length !== 4) {
+        this.$snackbar.add({
+          type: "error",
+          text: "Please enter correct publish year.",
+        });
+        return;
+      } else if (this.fileName == "" || this.fileURL == "") {
+        this.$snackbar.add({
+          type: "error",
+          text: "Please upload a PDF file.",
+        });
+        return;
+      } else {
+        this.loading = true;
+        const storageRef = ref(
+          storage,
+          `/PublicationFiles/${this.year}/${this.fileName}`
+        );
+        const uploadTask = uploadBytesResumable(storageRef, this.file);
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            console.log(snapshot);
+          },
+          (error) => {
+            this.$snackbar.add({
+              type: "error",
+              text: `${error.message}`,
+            });
+          },
+          async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            const colRef = collection(db, "Publication");
+            addDoc(colRef, {
+              Category: this.category,
+              Organization: this.organization,
+              Year: this.year,
+              Description: this.description,
+              FileName: this.fileName,
+              FileURL: downloadURL,
+            })
+              .then(() => {
+                this.loading = false;
+                document.getElementById("close-modal").click();
+              })
+              .catch((error) => {
+                this.$snackbar.add({
+                  type: "error",
+                  text: `${error.message}`,
+                });
+              });
+          }
+        );
+      }
+    },
   },
 };
 </script>
