@@ -123,13 +123,19 @@
 
     .about-content {
       height: 150px;
-      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .single-content {
+        width: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         background: none;
-        height: 0;
         box-shadow: none;
-        width: 100px;
+        
       }
       
       span {
