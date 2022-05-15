@@ -16,4 +16,8 @@ import "bootstrap/dist/js/bootstrap.js"
 // loading component globalize
 import LoadingComponent from "@/components/LoadingComponent.vue";
 
-createApp(App).use(store).use(router).component('LoadingComponent', LoadingComponent).mount('#app')
+// import snackbar
+import { SnackbarService, Vue3Snackbar } from "vue3-snackbar";
+import "vue3-snackbar/dist/style.css";
+
+createApp(App).use(store).use(router).use(SnackbarService).component("vue3-snackbar", Vue3Snackbar).component('LoadingComponent', LoadingComponent).mount('#app')
