@@ -68,10 +68,10 @@
                   >
                     <label for="publicationFile" class="p-5 px-0"
                       ><span v-if="!fileURL">
-                        <i class="fa-solid fa-video"></i>Upload File
+                        <i class="fas fa-file-alt"></i>Upload File (PDF only)
                       </span>
                       <span v-if="fileURL">
-                        <i class="fa-solid fa-video"></i>Change File
+                        <i class="fas fa-file-alt"></i>Change File (PDF only)
                       </span>
                       <input
                         type="file"
