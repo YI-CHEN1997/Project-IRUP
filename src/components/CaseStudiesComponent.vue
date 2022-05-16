@@ -54,7 +54,7 @@
                   >
                     <label for="caseCoverPhoto" class="p-5 px-0"
                       ><span v-if="!coverPhotoURL">
-                        <i class="fa-solid fa-image"></i>Upload Case Cover Photo
+                        <i class="fa-solid fa-image"></i>Upload Cover Photo (PNG, JPG)
                       </span>
                       <img :src="coverPhotoURL" alt="" v-if="coverPhotoURL" />
                       <input
