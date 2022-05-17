@@ -41,12 +41,13 @@
 <stop offset="1" stop-color="white" stop-opacity="0"/>
 </linearGradient>
 </defs>
-</svg>
+      </svg>
 
     </div>
     </div>
 
     <h6 class="copyright">Powered by IRUP - International Rural-Up Partnership</h6>
+    <router-link :to="{ name: 'developers' }">Developer</router-link>
 
   </footer>
 
