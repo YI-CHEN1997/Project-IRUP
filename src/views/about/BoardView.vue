@@ -74,12 +74,12 @@
                   />
                 </div>
               </div>
-              <div
+              <!-- <div
                 class="err-message d-flex justify-content-center mt-3 mx-3"
                 v-if="error"
               >
                 <p>{{ this.errorMsg }}</p>
-              </div>
+              </div> -->
 
               <div class="modal-footer">
                 <button
@@ -142,8 +142,8 @@ export default {
   data() {
     return {
       loading: null,
-      error: null,
-      errorMsg: "",
+      // error: null,
+      // errorMsg: "",
       uploadProgress: 0,
       //modalActive:null
     };
@@ -242,20 +242,28 @@ export default {
             }
           );
         } else {
-          this.error = true;
-          this.errorMsg = "Please ensure Profile Photo has been uploaded!";
-          setTimeout(() => {
-            this.error = false;
-          }, 3000);
+          this.$snackbar.add({
+            type: "error",
+            text: "Please ensure Profile Photo has been uploaded!",
+          });
+          // this.error = true;
+          // this.errorMsg = "Please ensure Profile Photo has been uploaded!";
+          // setTimeout(() => {
+          //   this.error = false;
+          // }, 3000);
           return;
         }
       } else {
-        this.error = true;
-        this.errorMsg =
-          "Please ensure Member Name and Member Description has been filled!";
-        setTimeout(() => {
-          this.error = false;
-        }, 3000);
+        this.$snackbar.add({
+          type: "error",
+          text: "Please ensure Member Name and Member Description has been filled!",
+        });
+        // this.error = true;
+        // this.errorMsg =
+        //   "Please ensure Member Name and Member Description has been filled!";
+        // setTimeout(() => {
+        //   this.error = false;
+        // }, 3000);
         return;
       }
     },
@@ -267,7 +275,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .modal-body {
   .upload-photo {
     width: 200px;
@@ -345,7 +352,7 @@ export default {
     right: 4vw;
     bottom: 40px;
     z-index: 2;
-    opacity: .8;
+    opacity: 0.8;
 
     .add-btn {
       height: 55px;
@@ -357,7 +364,7 @@ export default {
       &:hover {
         background-color: #396e3c;
         scale: 1.2;
-        transition: .2s;
+        transition: 0.2s;
       }
 
       svg {
@@ -367,5 +374,4 @@ export default {
     }
   }
 }
-
 </style>

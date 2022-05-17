@@ -84,12 +84,12 @@
                     ></vue-editor>
                   </div>
                 </div>
-                <div
+                <!-- <div
                   class="errorMsg d-flex justify-content-center mt-3 mx-3"
                   v-if="error"
                 >
                   {{ errMsg }}
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="modal-footer">
@@ -185,8 +185,8 @@ export default {
         },
       },
       loading: null,
-      error: null,
-      errMsg: "",
+      // error: null,
+      // errMsg: "",
     };
   },
   methods: {
@@ -261,18 +261,28 @@ export default {
             }
           );
         } else {
-          this.error = true;
-          this.errMsg = "Please upload a cover photo for this case!";
-          setTimeout(() => {
-            this.error = false;
-          }, 3000);
+          this.$snackbar.add({
+            type: "error",
+            text: "Please upload a cover photo for this case!",
+          })
+          return
+          // this.error = true;
+          // this.errMsg = "Please upload a cover photo for this case!";
+          // setTimeout(() => {
+          //   this.error = false;
+          // }, 3000);
         }
       } else {
-        this.error = true;
-        this.errMsg = "Please ensure Title & Content has been filled!";
-        setTimeout(() => {
-          this.error = false;
-        }, 3000);
+                  this.$snackbar.add({
+            type: "error",
+            text: "Please ensure Title & Content has been filled!",
+          })
+          return
+        // this.error = true;
+        // this.errMsg = "Please ensure Title & Content has been filled!";
+        // setTimeout(() => {
+        //   this.error = false;
+        // }, 3000);
       }
     },
     redirectCase(id) {
