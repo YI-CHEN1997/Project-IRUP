@@ -47,7 +47,8 @@
     </div>
 
     <h6 class="copyright">Powered by IRUP - International Rural-Up Partnership</h6>
-    <router-link :to="{ name: 'developers' }">Developer</router-link>
+    <h6 class="copyright"><router-link :to="{ name: 'developers' }">Developer</router-link></h6>
+    
 
   </footer>
 
@@ -143,6 +144,11 @@
         color: #333;
         background: #f9f9fa;
         margin: 0;
+
+        // a {
+        //   text-decoration: none;
+        //   color: #333;
+        // }
       }
   }
 
