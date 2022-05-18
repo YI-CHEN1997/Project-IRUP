@@ -153,11 +153,11 @@ export default {
             text: `${err.message}`,
           });
           return;
-          this.error = true;
-          this.errMsg = err.message;
-          setTimeout(() => {
-            this.error = false;
-          }, 3000);
+          // this.error = true;
+          // this.errMsg = err.message;
+          // setTimeout(() => {
+          //   this.error = false;
+          // }, 3000);
         });
     },
   },
