@@ -336,6 +336,12 @@ main {
     .card-body {
       height: 150px;
     }
+
+    h6 {
+      margin-bottom: 1rem;
+      position: absolute;
+      bottom: 0;
+    }
   }
 
   // plus icon
