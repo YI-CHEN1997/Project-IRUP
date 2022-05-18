@@ -78,12 +78,12 @@
                     ></vue-editor>
                   </div>
                 </div>
-                <div
+                <!-- <div
                   class="errorMsg d-flex justify-content-center mt-3 mx-3"
                   v-if="error"
                 >
                   {{ errMsg }}
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="modal-footer">

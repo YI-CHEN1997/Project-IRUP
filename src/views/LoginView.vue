@@ -15,14 +15,16 @@
               <h5 class="modal-title" id="forgot-passwordLabel">
                 Reset Password
               </h5>
-              
+
               <button
                 type="button"
                 class="btn-close position-absolute m-3"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
-              <p>Enter your email below and we'll send you a link to reset it.</p>
+              <p>
+                Enter your email below and we'll send you a link to reset it.
+              </p>
             </div>
             <div class="modal-body">
               <div class="input-group mb-3" v-if="!isEmailSend">
@@ -38,9 +40,9 @@
               <div class="text-center" v-if="isEmailSend">
                 Password Reset Email is sent! Please check your mailbox!
               </div>
-              <div class="error-message" v-if="error">
+              <!-- <div class="error-message" v-if="error">
                 {{ errMsg }}
-              </div>
+              </div> -->
             </div>
             <div class="modal-footer">
               <button
@@ -57,39 +59,39 @@
       <div class="row mt-5">
         <div class="loginBox">
           <h3 class="uppercase">Sign in</h3>
-          
-            <div class="inputBox">
-              <div class="form-floating mb-3">
-                <input
-                  class="type-in-box form-control"
-                  id="uname"
-                  type="text"
-                  name="Username"
-                  placeholder="Username"
-                  v-model="email"
-                />
-                <label for="floatingInput">Username</label>
-              </div>
 
-              <div class="form-floating mb-3">
-                <input
-                  id="pass"
-                  class="type-in-box form-control"
-                  type="password"
-                  name="Password"
-                  placeholder="Password"
-                  v-model="password"
-                />
-                <label for="floatingInput">Password</label>
-              </div>
+          <div class="inputBox">
+            <div class="form-floating mb-3">
+              <input
+                class="type-in-box form-control"
+                id="uname"
+                type="text"
+                name="Username"
+                placeholder="Username"
+                v-model="email"
+              />
+              <label for="floatingInput">Username</label>
             </div>
-            <input
-              type="submit"
-              class="btn btn-success uppercase"
-              value="Login"
-              @click="login"
-            />
-          
+
+            <div class="form-floating mb-3">
+              <input
+                id="pass"
+                class="type-in-box form-control"
+                type="password"
+                name="Password"
+                placeholder="Password"
+                v-model="password"
+              />
+              <label for="floatingInput">Password</label>
+            </div>
+          </div>
+          <input
+            type="submit"
+            class="btn btn-success uppercase"
+            value="Login"
+            @click="login"
+          />
+
           <router-link
             to="#"
             class="send btn rounded-pill text-center"
@@ -108,7 +110,7 @@ import { auth } from "../firebase/firebaseinit";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth";
 
 export default {
@@ -120,8 +122,8 @@ export default {
       password: "",
       pswResetEmail: "",
       isEmailSend: null,
-      error: null,
-      errMsg: "",
+      // error: null,
+      // errMsg: "",
     };
   },
   methods: {
@@ -130,11 +132,11 @@ export default {
         .then((res) => {
           console.log(res.user.uid);
           onAuthStateChanged(auth, (user) => {
-      if (user) {
-        this.$store.commit("userStateChange", user);
-      }
-    });
-          this.$router.push("/"); 
+            if (user) {
+              this.$store.commit("userStateChange", user);
+            }
+          });
+          this.$router.push("/");
         })
         .catch((err) => {
           console.log(err.message);
@@ -146,6 +148,11 @@ export default {
           this.isEmailSend = true;
         })
         .catch((err) => {
+          this.$snackbar.add({
+            type: "error",
+            text: `${err.message}`,
+          });
+          return;
           this.error = true;
           this.errMsg = err.message;
           setTimeout(() => {

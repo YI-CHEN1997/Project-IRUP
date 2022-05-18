@@ -2,9 +2,9 @@
   <div class="modal" ref="modal">
     <div class="modal-content">
       <LoadingComponent v-show="loading" />
-      <div :class="{ invisible: !error }" class="err-message">
+      <!-- <div :class="{ invisible: !error }" class="err-message">
         <p><span>Error:</span>{{ this.errorMsg }}</p>
-      </div>
+      </div> -->
       <img :src="profilePhotoURL" alt="" />
       <div class="inputs">
         <label for="profile-photo">Upload Member Photo</label>
@@ -69,8 +69,8 @@ export default {
   data() {
     return {
       loading: null,
-      error: null,
-      errorMsg: "",
+      // error: null,
+      // errorMsg: "",
       uploadProgress: 0,
     };
   },
@@ -164,25 +164,35 @@ export default {
               await this.$store.dispatch("getBoardMembers");
               this.loading = false;
               this.$store.dispatch("getBoardMembers");
-              this.$router.go()
+              this.$router.go();
             }
           );
         } else {
-          this.error = true;
-          this.errorMsg = "Please ensure Profile Photo has been uploaded!";
-          setTimeout(() => {
-            this.error = false;
-          }, 5000);
+          this.$snackbar.add({
+            type: "error",
+            text: "Please ensure Profile Photo has been uploaded!",
+          });
           return;
+          // this.error = true;
+          // this.errorMsg = "Please ensure Profile Photo has been uploaded!";
+          // setTimeout(() => {
+          //   this.error = false;
+          // }, 5000);
+          // return;
         }
       } else {
-        this.error = true;
-        this.errorMsg =
-          "Please ensure Member Name and Member Description has been filled!";
-        setTimeout(() => {
-          this.error = false;
-        }, 5000);
+        this.$snackbar.add({
+          type: "error",
+          text: "Please ensure Member Name and Member Description has been filled!",
+        });
         return;
+        // this.error = true;
+        // this.errorMsg =
+        //   "Please ensure Member Name and Member Description has been filled!";
+        // setTimeout(() => {
+        //   this.error = false;
+        // }, 5000);
+        // return;
       }
     },
   },
