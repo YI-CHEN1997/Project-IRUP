@@ -33,16 +33,6 @@
                     />
                     <label for="floatingInput">Title</label>
                   </div>
-                  <!-- subtitle -->
-                  <div class="subtitle form-floating mx-3 mt-3">
-                    <input
-                      class="type-in-box form-control"
-                      type="text"
-                      placeholder="Author"
-                      v-model="newsInfo.author"
-                    />
-                    <label for="floatingInput subtitle">Author</label>
-                  </div>
                   <div
                     class="videoUpLoad mx-3 mt-3 p-3 d-flex align-items-center"
                   >
@@ -125,7 +115,7 @@
               <h5 class="card-title">
                 IPSI-7 Summary Report and Presentation Abstracts..
               </h5>
-              <h6 class="card-text">Written by admin on Dec. 4, 2019</h6>
+              <h6 class="card-text">Dec. 4, 2019</h6>
             </div>
           </router-link>
         </div>
@@ -139,7 +129,7 @@
             />
             <div class="card-body">
               <h5 class="card-title">29 May 2019: Seminar on..</h5>
-              <h6 class="card-text">Written by admin on Dec. 4, 2019</h6>
+              <h6 class="card-text">Dec. 4, 2019</h6>
             </div>
           </router-link>
         </div>
@@ -155,7 +145,7 @@
               <h5 class="card-title">
                 Gonglaoping Community, Fengyuan Dist., Taichung..
               </h5>
-              <h6 class="card-text">Written by admin on Nov. 26, 2019</h6>
+              <h6 class="card-text">Nov. 26, 2019</h6>
             </div>
           </router-link>
         </div>
