@@ -104,7 +104,22 @@
       </div>
 
       <div class="content">
-        <div class="card box-shadow">
+        <template v-for="news in allNews" :key="news">
+          <div class="card box-shadow" @click="redirectNewsContent(news.id)">
+            <img
+              :src="news.CoverPhotoURL"
+              class="card-img-top"
+              alt="align-items-auto"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                {{news.Title}}
+              </h5>
+              <h6 class="card-text">{{news.TimeStamp}}</h6>
+            </div>
+          </div>
+        </template>
+        <!-- <div class="card box-shadow">
           <router-link :to="{ name: 'news1' }">
             <img
               src="@/assets/news.png"
@@ -148,7 +163,7 @@
               <h6 class="card-text">Nov. 26, 2019</h6>
             </div>
           </router-link>
-        </div>
+        </div> -->
       </div>
     </div>
   </main>
@@ -179,10 +194,9 @@ export default {
   data() {
     return {
       loading: null,
-      news: [],
+      allNews: [],
       newsInfo: {
         title: "",
-        author: "",
         timeStamp: new Date(),
         content: "",
         coverPhotoName: "",
@@ -200,8 +214,11 @@ export default {
       dbResult.docs.forEach((doc) => {
         newsArray.push({ ...doc.data(), id: doc.id });
       });
-      this.news = newsArray;
-      console.log(this.news);
+      this.allNews = newsArray;
+      console.log(this.allNews);
+    },
+    redirectNewsContent(id){
+      this.$router.push(`/news/${id}`);
     },
     fileChange(event) {
       this.file = event.target.files[0];
@@ -232,13 +249,7 @@ export default {
           text: "Please ensure title field has been filled!",
         });
         return;
-      } else if (this.newsInfo.author == "") {
-        this.$snackbar.add({
-          type: "error",
-          text: "Please ensure author field has been filled!",
-        });
-        return;
-      } else if (this.newsInfo.coverPhotoURL == "" || !this.file) {
+      }  else if (this.newsInfo.coverPhotoURL == "" || !this.file) {
         this.$snackbar.add({
           type: "error",
           text: "Please ensure cover photo has been updated!",
@@ -273,7 +284,6 @@ export default {
             const colRef = collection(db, "News");
             await addDoc(colRef, {
               Title: this.newsInfo.title,
-              Author: this.newsInfo.author,
               CoverPhotoName: this.newsInfo.coverPhotoName,
               CoverPhotoURL: downloadURL,
               Content: this.newsInfo.content,
@@ -281,6 +291,7 @@ export default {
             });
             this.loading = false;
             document.getElementById("close-modal").click();
+            this.$router.go(0)
           }
         );
       }
