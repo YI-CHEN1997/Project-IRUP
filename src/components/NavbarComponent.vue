@@ -57,37 +57,37 @@
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="slide-nav">
           <div class="logo">
-            <router-link :to="{ name: 'home' }">irup</router-link>
+            <router-link :to="{ name: 'home' }" @click="toggleMobileNav" >irup</router-link>
           </div>
           <li class="listitem">
-            <router-link :to="{ name: 'about' }">about</router-link
+            <router-link :to="{ name: 'about' }" @click="toggleMobileNav" >about</router-link
             ><i class="fas fa-caret-down"></i>
             <span>
               <ul class="mobile-dropdown">
                 <li>
                   <router-link :to="{ name: 'operationalstructure' }"
-                    >operational structure</router-link
+                  @click="toggleMobileNav" >operational structure</router-link
                   >
                 </li>
                 <li>
                   <router-link :to="{ name: 'executiveboard' }"
-                    >executive board</router-link
+                   @click="toggleMobileNav">executive board</router-link
                   >
                 </li>
               </ul>
             </span>
           </li>
           <li class="listitem">
-            <router-link :to="{ name: 'news' }">news</router-link
+            <router-link :to="{ name: 'news' }" @click="toggleMobileNav" >news</router-link
             ><i class="fas fa-caret-down"></i>
             <span>
               <ul class="mobile-dropdown">
                 <li>
-                  <router-link :to="{ name: 'videos' }">videos</router-link>
+                  <router-link :to="{ name: 'videos' }" @click="toggleMobileNav" >videos</router-link>
                 </li>
                 <li>
                   <router-link :to="{ name: 'publication' }"
-                    >publication</router-link
+                   @click="toggleMobileNav">publication</router-link
                   >
                 </li>
               </ul>
@@ -95,21 +95,19 @@
           </li>
           <li class="listitem">
             <router-link :to="{ name: 'casestudies' }"
-              >case studies</router-link
+              @click="toggleMobileNav">case studies</router-link
             >
           </li>
-          <li class="authority" v-if="!user">
+          <li class="authority signout" v-if="!user">
+            <i class="fa-solid fa-circle-user"></i>
             <router-link :to="{ name: 'login' }"
-              ><i class="fa-solid fa-circle-user"></i
-            ></router-link>
+              @click="toggleMobileNav">login</router-link>
           </li>
-          <li class="authority listitem" v-if="user">
-            <router-link to=""><i class="fa-solid fa-user-check"></i></router-link>
-            <span>
-              <ul class="mobile-dropdown">
-                <router-link to=""><li @click="signOut">signout</li></router-link>
-              </ul>
-            </span>         
+          <li class="authority signout"
+          v-if="user" 
+          @click="toggleMobileNav">
+            <i class="fa-solid fa-user-check"></i>
+            <router-link to="" @click="signOut">signout</router-link>        
           </li>
         </ul>
       </transition>
@@ -315,6 +313,7 @@ header {
     }
   }
 
+  // 側邊navbar
   .slide-nav {
     display: flex;
     flex-direction: column;
@@ -335,6 +334,25 @@ header {
     li {
       margin-left: 0;
     }
+
+    .authority {
+      position: fixed;
+      bottom: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .signout a {
+      font-weight: 500;
+        text-decoration: none;
+        color: #333;
+        margin-left: 10px;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom: 2px solid #66bb6a;
+          }
+      }
 
     .authority svg {
       height: 25px;
