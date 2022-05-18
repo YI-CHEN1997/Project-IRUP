@@ -54,7 +54,8 @@
                   >
                     <label for="caseCoverPhoto" class="p-5 px-0"
                       ><span v-if="!coverPhotoURL">
-                        <i class="fa-solid fa-image"></i>Upload Cover Photo (PNG, JPG)
+                        <i class="fa-solid fa-image"></i>Upload Cover Photo
+                        (PNG, JPG)
                       </span>
                       <img :src="coverPhotoURL" alt="" v-if="coverPhotoURL" />
                       <input
@@ -125,7 +126,10 @@
 
       <div class="content">
         <template v-for="caseStudy in caseStudies" :key="caseStudy">
-          <div class="card h-100 box-shadow" @click="redirectCase(caseStudy.id)">
+          <div
+            class="card h-100 box-shadow"
+            @click="redirectCase(caseStudy.id)"
+          >
             <div class="img">
               <img
                 :src="caseStudy.CoverPhotoURL"
@@ -141,7 +145,6 @@
             </div>
           </div>
         </template>
-        
       </div>
     </div>
   </main>
@@ -264,8 +267,8 @@ export default {
           this.$snackbar.add({
             type: "error",
             text: "Please upload a cover photo for this case!",
-          })
-          return
+          });
+          return;
           // this.error = true;
           // this.errMsg = "Please upload a cover photo for this case!";
           // setTimeout(() => {
@@ -273,11 +276,11 @@ export default {
           // }, 3000);
         }
       } else {
-                  this.$snackbar.add({
-            type: "error",
-            text: "Please ensure Title & Content has been filled!",
-          })
-          return
+        this.$snackbar.add({
+          type: "error",
+          text: "Please ensure Title & Content has been filled!",
+        });
+        return;
         // this.error = true;
         // this.errMsg = "Please ensure Title & Content has been filled!";
         // setTimeout(() => {
@@ -294,9 +297,8 @@ export default {
 
 <style lang="scss" scoped>
 main {
-
-  @media (min-width: 1000px) and (max-width:1400px){
-    .card:last-child:nth-child(2n-1){
+  @media (min-width: 1000px) and (max-width: 1400px) {
+    .card:last-child:nth-child(2n-1) {
       margin-right: calc(320px + 4.5rem) !important;
     }
   }
@@ -389,7 +391,7 @@ main {
     position: absolute;
     bottom: -5px;
     right: 5rem;
-    opacity: .8;
+    opacity: 0.8;
 
     .add-btn {
       height: 55px;
@@ -401,7 +403,7 @@ main {
       &:hover {
         background-color: #396e3c;
         scale: 1.2;
-        transition: .2s;
+        transition: 0.2s;
       }
 
       svg {
@@ -413,19 +415,19 @@ main {
 
   @media (max-width: 850px) {
     .plus-btn {
-    bottom: 0;
-    right: 0;
+      bottom: 0;
+      right: 0;
 
-    .add-btn {
-      height: 40px;
-      width: 40px;
+      .add-btn {
+        height: 40px;
+        width: 40px;
 
-      svg {
-        height: 20px;
-        width: 20px;
+        svg {
+          height: 20px;
+          width: 20px;
+        }
       }
     }
-  }
   }
 }
 </style>
