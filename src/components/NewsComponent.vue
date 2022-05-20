@@ -92,7 +92,7 @@
         </h1>
 
         <!-- add content plus-icon-button -->
-        <div class="plus-btn" :class="{ 'scrolled-plus-icon': scrollPlusIcon }">
+        <div class="plus-btn" :class="{ 'scrolled-plus-icon': scrollPlusIcon }" v-if="user">
           <span
             class="d-flex justify-content-center add-btn align-items-center"
             data-bs-toggle="modal"
@@ -203,6 +203,11 @@ export default {
         coverPhotoURL: "",
       },
     };
+  },
+    computed: {
+    user() {
+      return this.$store.state.user;
+    },
   },
   methods: {
     async getAllNews() {

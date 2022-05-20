@@ -102,7 +102,7 @@
           </h1>
 
           <!-- add content button -->
-          <div class="plus-btn">
+          <div class="plus-btn" v-if="user">
             <span
               class="d-flex justify-content-center add-btn align-items-center"
               data-bs-toggle="modal"
@@ -149,6 +149,9 @@ export default {
     };
   },
   computed: {
+    user(){
+      return this.$store.state.user
+    },
     boardMembers() {
       return this.$store.state.boardMembers;
     },

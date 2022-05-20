@@ -2,7 +2,7 @@
   <main>
     <LoadingComponent v-show="loading" />
     <div class="case">
-      <div class="edit-icons d-flex flex-column">
+      <div class="edit-icons d-flex flex-column" v-if="user">
         <span
           class="d-flex justify-content-center align-items-center edit-icon"
           data-bs-toggle="modal"
@@ -159,6 +159,11 @@ export default {
         },
       },
     };
+  },
+    computed:{
+    user(){
+      return this.$store.state.user
+    }
   },
   methods: {
     getCaseStudy() {

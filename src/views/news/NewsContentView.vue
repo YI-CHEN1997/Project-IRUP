@@ -87,7 +87,7 @@
 
       <div class="content" v-html="currentNews.Content"></div>
       <div class="case">
-        <div class="edit-icons d-flex flex-column">
+        <div class="edit-icons d-flex flex-column" v-if="user">
           <span
             class="d-flex justify-content-center align-items-center edit-icon"
             data-bs-toggle="modal"
@@ -132,6 +132,11 @@ export default {
       loading: null,
       currentNews: {},
     };
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
   },
   methods: {
     getCurrentNews() {

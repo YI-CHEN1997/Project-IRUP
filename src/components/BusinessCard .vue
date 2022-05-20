@@ -1,6 +1,6 @@
 <template>
   <div class="cards p-4 m-4">
-    <div class="d-flex flex-column justify-content-end edit-icons">
+    <div class="d-flex flex-column justify-content-end edit-icons" v-if="user">
       <div
         v-if="loading"
         class="d-flex justify-content-center spinner-grow"
@@ -92,7 +92,11 @@ export default {
       },
     };
   },
-  computed: {},
+  computed: {
+    user() {
+      return this.$store.state.user
+    }
+  },
   methods: {
     toggleEdit() {
       this.edit = !this.edit;

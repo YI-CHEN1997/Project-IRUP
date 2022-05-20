@@ -113,7 +113,7 @@
         </h1>
 
         <!-- add content button -->
-        <div class="plus-btn">
+        <div class="plus-btn" v-if="user">
           <span
             class="d-flex justify-content-center add-btn align-items-center"
             data-bs-toggle="modal"
@@ -192,6 +192,11 @@ export default {
       // errMsg: "",
     };
   },
+  computed:{
+    user(){
+      return this.$store.state.user
+    }
+  },
   methods: {
     async getAllCases() {
       const caseArray = [];
@@ -203,7 +208,7 @@ export default {
         caseArray.push({ ...doc.data(), id: doc.id });
       });
       this.caseStudies = caseArray;
-      console.log(this.caseStudies);
+      // console.log(this.caseStudies);
     },
     fileChange(event) {
       this.file = event.target.files[0];
