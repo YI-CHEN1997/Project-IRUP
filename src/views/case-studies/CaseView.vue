@@ -4,21 +4,21 @@
     <div class="case">
       <div class="edit-icons d-flex flex-column">
         <span
-        class="d-flex justify-content-center align-items-center edit-icon"
-        data-bs-toggle="modal"
-        data-bs-target="#EditCaseModal">
+          class="d-flex justify-content-center align-items-center edit-icon"
+          data-bs-toggle="modal"
+          data-bs-target="#EditCaseModal"
+        >
           <i class="fas fa-pen-nib"></i>
         </span>
-        
+
         <span
-        class="d-flex justify-content-center align-items-center delete-icon"
-        data-bs-toggle="modal"
-        data-bs-target="#EditCaseModal">
+          class="d-flex justify-content-center align-items-center delete-icon"
+          @click="deleteCase"
+        >
           <i class="fas fa-trash"></i>
         </span>
       </div>
-      
-      
+
       <h1 class="title text-uppercase">
         {{ caseStudy.Title }}
       </h1>
@@ -132,9 +132,9 @@
 </template>
 
 <script>
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
 import { VueEditor, Quill } from "vue3-editor";
 import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module--fix-imports-error";
@@ -142,7 +142,7 @@ Quill.register("modules/imageDrop", ImageDrop);
 Quill.register("modules/imageResize", ImageResize);
 import { db, storage } from "@/firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { getDoc, doc, updateDoc } from "firebase/firestore";
+import { getDoc, doc, updateDoc,deleteDoc } from "firebase/firestore";
 export default {
   created() {
     this.getCaseStudy();
@@ -209,6 +209,24 @@ export default {
           console.log(err);
         });
     },
+    deleteCase() {
+      let text = `You are deleting this case  \n Are you sure you want to do this?`;
+      if (confirm(text) == true) {
+        const docRef = doc(
+          db,
+          "CaseStudies",
+          String(this.$route.params.caseID)
+        );
+
+        deleteDoc(docRef)
+          .then(() => {
+            this.$router.push("/casestudies");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
   },
 };
 </script>
@@ -232,7 +250,7 @@ export default {
     width: 55px;
     color: #fff;
     background-color: #66bb6a;
-    opacity: .8;
+    opacity: 0.8;
     border-radius: 50%;
     margin: 0.2rem 0;
     cursor: pointer;
@@ -240,7 +258,7 @@ export default {
     &:hover {
       background-color: #396e3c;
       scale: 1.2;
-      transition: .2s;
+      transition: 0.2s;
     }
 
     svg {
@@ -263,7 +281,7 @@ export default {
     width: 55px;
     color: #fff;
     background-color: #66bb6a;
-    opacity: .9;
+    opacity: 0.9;
     border-radius: 50%;
     margin: 0.2rem 0;
     cursor: pointer;
@@ -271,7 +289,7 @@ export default {
     &:hover {
       background-color: #396e3c;
       scale: 1.2;
-      transition: .2s;
+      transition: 0.2s;
     }
 
     svg {
@@ -333,8 +351,8 @@ export default {
       }
 
       li {
-          text-align: left;
-        }
+        text-align: left;
+      }
 
       img {
         margin-top: 2rem;
@@ -342,7 +360,8 @@ export default {
       }
     }
 
-    .edit-icon, .delete-icon {
+    .edit-icon,
+    .delete-icon {
       right: 1rem;
     }
   }
@@ -386,10 +405,8 @@ export default {
 
 .ql-editor {
   img {
-      width: 70% !important;
-      margin: 2rem 0 1rem 0;
-    }
+    width: 70% !important;
+    margin: 2rem 0 1rem 0;
+  }
 }
-
-
 </style>
