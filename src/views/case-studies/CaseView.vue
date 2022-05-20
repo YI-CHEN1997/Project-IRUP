@@ -407,11 +407,4 @@ export default {
     }
   }
 }
-
-.ql-editor {
-  img {
-    width: 70% !important;
-    margin: 2rem 0 1rem 0;
-  }
-}
 </style>

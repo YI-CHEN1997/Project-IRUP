@@ -85,7 +85,7 @@
       </h1>
       <h6 class="comment">{{ currentNews.TimeStamp }}</h6>
 
-      <div class="content" v-html="currentNews.Content"></div>
+      <div class="content ql-editor" v-html="currentNews.Content"></div>
       <div class="case">
         <div class="edit-icons d-flex flex-column" v-if="user">
           <span
@@ -243,9 +243,6 @@ export default {
 
   .content {
     margin: 5rem 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     h6 {
       text-align: justify;
