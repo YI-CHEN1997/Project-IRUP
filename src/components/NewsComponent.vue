@@ -324,21 +324,20 @@ main {
 
   .card {
     width: 350px;
-    height: 300px;
+    height: 350px;
     border-radius: 5px;
     position: relative;
     background-color: white;
     border: 0px solid #fff;
     transition: 0.3s ease-in-out;
-
-    a {
-      text-decoration: none;
-      color: #333;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
 
       &:hover {
         color: #eee;
       }
-    }
+    
 
     &:hover {
       background-color: #333;
