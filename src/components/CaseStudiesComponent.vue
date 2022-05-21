@@ -333,10 +333,10 @@ main {
     transition: 0.3s ease-in-out;
     text-decoration: none;
     color: #333;
+    cursor: pointer;
 
     &:hover {
-      color: #eee;
-      background-color: #333;
+      color: #66bb6a;
     }
 
     .img {

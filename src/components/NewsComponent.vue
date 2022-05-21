@@ -340,13 +340,8 @@ main {
     cursor: pointer;
 
       &:hover {
-        color: #eee;
+        color: #66bb6a;
       }
-    
-
-    &:hover {
-      background-color: #333;
-    }
 
     .card-body {
       height: 150px;

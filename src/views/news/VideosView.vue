@@ -123,7 +123,7 @@
         </h1>
 
         <!-- add content plus-icon-button -->
-        <div class="plus-btn">
+        <div class="plus-btn" v-if="user">
           <span
             class="d-flex justify-content-center add-btn align-items-center"
             data-bs-toggle="modal"
@@ -187,6 +187,11 @@ export default {
       loading: null,
       videos: [],
     };
+  },
+  computed:{
+    user(){
+      return this.$store.state.user
+    }
   },
   methods: {
     async getVideos() {
@@ -280,6 +285,7 @@ main {
   }
 
   .card {
+    cursor: pointer;
     width: 450px;
     height: 400px;
     border-radius: 10px;
@@ -292,11 +298,7 @@ main {
     color: #333;
 
     &:hover {
-      color: #eee;
-    }
-
-    &:hover {
-      background-color: #333;
+      color: #66bb6a;
     }
 
     .card-body {
