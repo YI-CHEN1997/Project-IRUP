@@ -177,6 +177,7 @@ import { ImageDrop } from "quill-image-drop-module";
 import ImageResize from "quill-image-resize-module--fix-imports-error";
 Quill.register("modules/imageDrop", ImageDrop);
 Quill.register("modules/imageResize", ImageResize);
+
 import { db, storage } from "@/firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {
@@ -195,6 +196,12 @@ export default {
     return {
       loading: null,
       allNews: [],
+       editorSettings: {
+        modules: {
+          imageDrop: true,
+          imageResize: {},
+        },
+      },
       newsInfo: {
         title: "",
         timeStamp: new Date(),
