@@ -302,7 +302,11 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  padding: 0 120px;
+  @media (min-width: 1000px) and (max-width: 1400px) {
+    .card:last-child:nth-child(2n-1) {
+      margin-right: calc(320px + 4.5rem) !important;
+    }
+  }
 
   h1 {
     text-align: center;
@@ -312,7 +316,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2.5rem;
     position: relative;
     z-index: 1;
