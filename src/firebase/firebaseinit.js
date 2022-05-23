@@ -4,13 +4,12 @@ import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDy9ufW-muN1SfigFlDEU467_Kh2wF7uhc",
-  authDomain: "irup-team-1.firebaseapp.com",
-  projectId: "irup-team-1",
-  storageBucket: "irup-team-1.appspot.com",
-  messagingSenderId: "1075727289969",
-  appId: "1:1075727289969:web:747d2f880ea77d892dd5d0",
-  measurementId: "G-QSKRJN5K7C"
+  apiKey: "AIzaSyDc1zd1ZGdOTBJ5g8MMV-WeASjvzkiaNrM",
+  authDomain: "irupremake.firebaseapp.com",
+  projectId: "irupremake",
+  storageBucket: "irupremake.appspot.com",
+  messagingSenderId: "643719127844",
+  appId: "1:643719127844:web:33ab6c4fb2a583084c49b1"
 };
 
 export const app = initializeApp(firebaseConfig);
