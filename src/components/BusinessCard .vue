@@ -28,9 +28,9 @@
         ><i class="fas fa-trash"></i>
       </span>
     </div>
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       <img :src="member.profilePhoto" />
-      <div class="d-flex flex-column justify-content-center m-4">
+      <div class="detail d-flex flex-column justify-content-center">
         <div class="mb-3">
           <h5 v-if="!edit">{{ member.profileName }}</h5>
           <input v-if="edit" type="text" v-model="localProfile.name" />
@@ -142,9 +142,27 @@ export default {
 <style scoped lang="scss">
 @media screen and (min-width:1072px){
   .cards:last-child:nth-child(2n-1){
-  margin-right: calc(500px + 4.5rem) !important;
+    margin-right: calc(500px + 4.5rem) !important;
+  }
 }
+@media screen and (max-width:549px){
+  .cards.cards {
+    width: 90vw;
+  } 
+  .icon.icon {
+    margin: 0 .6rem 0 0;
+  }
+
 }
+@media screen and (max-width:410px){
+  .icon.icon {
+    margin: 0 .4rem 0 0;
+  }
+  .detail.detail{
+    margin: .8rem;
+  }
+}
+
 .cards {
   width: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -153,7 +171,9 @@ export default {
   position: relative;
   z-index: 1;
 }
-
+.detail{
+  margin: 1.5rem;
+}
 // .cards:last-child:nth-last-child(2n-1){
 //   margin-right: calc(37% + 8% / 3) !important;
 // }
