@@ -1,6 +1,6 @@
 <template>
-  <div class="list-card col-xxl-9 col-lg-10 col-md-10 mb-3">
-    <div class="d-flex justify-content-center">
+  <div class="list-card col-xxl-9 col-lg-10 col-md-10">
+    <div class="d-flex justify-content-center mb-4">
       <div class="date">
         <div class="circle">
           <div class="year-org-group">
@@ -125,7 +125,7 @@ export default {
 .circle {
   width: calc(var(--year-font-size) * 2);
   height: calc(var(--year-font-size) * 2);
-  border: solid 1px rgb(174, 220, 176);
+  border: solid 1px rgb(102, 187, 106);
   border-radius: 99rem;
   position: relative;
 }
@@ -137,7 +137,7 @@ export default {
   z-index: 0;
   width: calc(var(--year-font-size) * 1.8);
   height: calc(var(--year-font-size) * 1.8);
-  background-color: rgba(174, 220, 176, 0.5);
+  background-color: rgba(102, 187, 106, 0.5);
   border-radius: 99rem;
 }
 .year-org-group {

@@ -120,12 +120,13 @@
           </span>
         </div>
       </div>
-      <div class="row justify-content-center mt-5">
+      <div class="row justify-content-center">
         <template v-for="publication in publications" :key="publication">
-          <ListCard :publication="publication"
-            ><hr
+          <ListCard :publication="publication">
+            <hr
               :style="publication == publications[publications.length - 1] ? 'display: none ;' : ''"
-          /></ListCard>
+          />
+          </ListCard>
         </template>
       </div>
     </div>
@@ -258,6 +259,10 @@ export default {
 .container {
   // plus icon
   .title {
+    @media (max-width: 850px) {
+      margin-bottom: 5vh !important;
+    }
+  
     .plus-btn {
       position: fixed;
       right: 4vw;
