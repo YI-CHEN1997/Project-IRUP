@@ -81,7 +81,7 @@
                   class="caseCoverPhoto mx-3 mt-3 p-3 d-flex align-items-center"
                 >
                   <label for="caseCoverPhoto" class="p-5 px-0"
-                    ><span v-if="!caseStudy.CoverPhotoURL">
+                    ><span v-if="!coverPhotoURL">
                       <i class="fa-solid fa-image"></i>Upload Case Cover Photo
                     </span>
                     <img
@@ -142,7 +142,7 @@ Quill.register("modules/imageDrop", ImageDrop);
 Quill.register("modules/imageResize", ImageResize);
 import { db, storage } from "@/firebase/firebaseinit";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { getDoc, doc, updateDoc,deleteDoc } from "firebase/firestore";
+import { getDoc, doc, updateDoc, deleteDoc } from "firebase/firestore";
 export default {
   created() {
     this.getCaseStudy();
@@ -160,10 +160,10 @@ export default {
       },
     };
   },
-    computed:{
-    user(){
-      return this.$store.state.user
-    }
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
   },
   methods: {
     getCaseStudy() {
@@ -177,7 +177,7 @@ export default {
       const fileName = this.file.name;
       console.log(fileName);
       this.coverPhotoName = fileName;
-      this.coverPhotoURL = URL.createObjectURL(this.file);
+      this.caseStudy.CoverPhotoURL = URL.createObjectURL(this.file);
     },
     imageHandler(file, Editor, cursorLocation, resetUploader) {
       const storageRef = ref(storage, `CaseStudiesPhotos/${file.name}`);
@@ -197,22 +197,40 @@ export default {
     updateCaseStudy() {
       console.log(this.$route.params.caseID);
       this.loading = true;
-      const docRef = doc(db, "CaseStudies", String(this.$route.params.caseID));
-      updateDoc(docRef, {
-        Title: this.caseStudy.Title,
-        Subtitle: this.caseStudy.Subtitle,
-        CoverPhotoURL: this.caseStudy.CoverPhotoURL,
-        Content: this.caseStudy.Content,
-      })
-        .then(() => {
-          console.log("update completed");
-          this.loading = false;
-          this.$router.go();
-        })
-        .catch((err) => {
-          this.loading = false;
-          console.log(err);
-        });
+      const storageRef = ref(storage, `CaseStudiesPhotos/${this.file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, this.file);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          console.log(snapshot);
+        },
+        (err) => {
+          console.log(err.message);
+        },
+        async () => {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+          const docRef = doc(
+            db,
+            "CaseStudies",
+            String(this.$route.params.caseID)
+          );
+          updateDoc(docRef, {
+            Title: this.caseStudy.Title,
+            Subtitle: this.caseStudy.Subtitle,
+            CoverPhotoURL: downloadURL,
+            Content: this.caseStudy.Content,
+          })
+            .then(() => {
+              console.log("update completed");
+              this.loading = false;
+              this.$router.go();
+            })
+            .catch((err) => {
+              this.loading = false;
+              console.log(err);
+            });
+        }
+      );
     },
     deleteCase() {
       let text = `You are deleting this case  \n Are you sure you want to do this?`;

@@ -5,7 +5,7 @@
     
     <h1 class="title text-uppercase">Operational Structure</h1>
   
-    <img src="@/assets/operational.jpg" alt="">
+    <img src="https://firebasestorage.googleapis.com/v0/b/irup-team-1.appspot.com/o/Assets%2Foperational.jpg?alt=media&token=8497f432-4ec5-4841-a303-d9d143b96f5d" alt="">
     
     <div class="content">
       <div class="p1">

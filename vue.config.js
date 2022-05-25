@@ -5,6 +5,6 @@ module.exports = defineConfig({
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/IRUP-redesign/' // 為 repo 名稱
+    ? './' // 為 repo 名稱
     : '/'
 }
