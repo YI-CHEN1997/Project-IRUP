@@ -1,100 +1,83 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import AboutView from "../views/about/AboutView.vue";
+import OperationalView from "../views/about/OperationalView.vue";
+import BoardView from "../views/about/BoardView.vue";
+import NewsView from "../views/news/NewsView.vue";
+import NewsContentView from "../views/news/NewsContentView.vue";
+import VideosView from "../views/news/VideosView.vue";
+import PublicationView from "../views/news/PublicationView.vue";
+import CasestudiesView from "../views/case-studies/CasestudiesView.vue";
+import CaseView from "../views/case-studies/CaseView.vue";
+import LoginView from "../views/LoginView.vue";
+import DevelopersView from "../views/DevelopersView.vue";
+
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: () => import('../views/HomeView.vue')
+    path: "/",
+    name: "home",
+    component: HomeView,
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/about/AboutView.vue')
+    path: "/about",
+    name: "about",
+    component: AboutView,
   },
   {
-    path: '/about/operationalstructure',
-    name: 'operationalstructure',
-    component: () => import('../views/about/OperationalView.vue')
+    path: "/about/operationalstructure",
+    name: "operationalstructure",
+    component: OperationalView,
   },
   {
-    path: '/about/executiveboard',
-    name: 'executiveboard',
-    component: () => import('../views/about/BoardView.vue')
+    path: "/about/executiveboard",
+    name: "executiveboard",
+    component: BoardView,
   },
   {
-    path: '/news',
-    name: 'news',
-    component: () => import('../views/news/NewsView.vue')
+    path: "/news",
+    name: "news",
+    component: NewsView,
   },
   {
-    path: '/news/:newsId',
-    name: 'newscontent',
-    component: () => import('../views/news/NewsContentView.vue')
-  },
-  // {
-  //   path: '/news/news1',
-  //   name: 'news1',
-  //   component: () => import('../views/news/contents/News1View.vue')
-  // },
-  // {
-  //   path: '/news/news2',
-  //   name: 'news2',
-  //   component: () => import('../views/news/contents/News2View.vue')
-  // },
-  // {
-  //   path: '/news/news3',
-  //   name: 'news3',
-  //   component: () => import('../views/news/contents/News3View.vue')
-  // },
-  {
-    path: '/news/videos',
-    name: 'videos',
-    component: () => import('../views/news/VideosView.vue')
+    path: "/news/:newsId",
+    name: "newscontent",
+    component: NewsContentView,
   },
   {
-    path: '/news/publication',
-    name: 'publication',
-    component: () => import('../views/news/PublicationView.vue')
+    path: "/news/videos",
+    name: "videos",
+    component: VideosView,
   },
   {
-    path: '/casestudies',
-    name: 'casestudies',
-    component: () => import('../views/case-studies/CasestudiesView.vue')
+    path: "/news/publication",
+    name: "publication",
+    component: PublicationView,
   },
   {
-    path: '/casestudies/:caseID',
-    name: 'case',
-    component: () => import('../views/case-studies/CaseView.vue')
-  },
-  // {
-  //   path: '/casestudies/case1',
-  //   name: 'case1',
-  //   component: () => import('../views/case-studies/Case1View.vue')
-  // },
-  // {
-  //   path: '/casestudies/case2',
-  //   name: 'case2',
-  //   component: () => import('../views/case-studies/Case2View.vue')S
-  // },
-  // {
-  //   path: '/casestudies/case3',
-  //   name: 'case3',
-  //   component: () => import('../views/case-studies/Case3View.vue')
-  // },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/LoginView.vue')
+    path: "/casestudies",
+    name: "casestudies",
+    component: CasestudiesView,
   },
   {
-    path: '/developers',
-    name: 'developers',
-    component: () => import('../views/DevelopersView.vue')
+    path: "/casestudies/:caseID",
+    name: "case",
+    component: CaseView,
   },
-]
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
+  },
+  {
+    path: "/developers",
+    name: "developers",
+    component: DevelopersView,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
