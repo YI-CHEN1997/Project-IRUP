@@ -106,11 +106,14 @@
       <div class="content">
         <template v-for="news in allNews" :key="news">
           <div class="card box-shadow" @click="redirectNewsContent(news.id)">
-            <img
-              :src="news.CoverPhotoURL"
-              class="card-img-top"
-              alt="align-items-auto"
-            />
+            <div class="img-top">
+              <img
+                :src="news.CoverPhotoURL"
+                class="card-img-top"
+                alt="align-items-auto"
+              />
+            </div>
+            
             <div class="card-body">
               <h5 class="card-title">
                 {{news.Title}}
@@ -119,51 +122,7 @@
             </div>
           </div>
         </template>
-        <!-- <div class="card box-shadow">
-          <router-link :to="{ name: 'news1' }">
-            <img
-              src="@/assets/news.png"
-              class="card-img-top"
-              alt="align-items-auto"
-            />
-            <div class="card-body">
-              <h5 class="card-title">
-                IPSI-7 Summary Report and Presentation Abstracts..
-              </h5>
-              <h6 class="card-text">Dec. 4, 2019</h6>
-            </div>
-          </router-link>
-        </div>
-
-        <div class="card box-shadow">
-          <router-link :to="{ name: 'news2' }">
-            <img
-              src="@/assets/news.png"
-              class="card-img-top"
-              alt="align-items-auto"
-            />
-            <div class="card-body">
-              <h5 class="card-title">29 May 2019: Seminar on..</h5>
-              <h6 class="card-text">Dec. 4, 2019</h6>
-            </div>
-          </router-link>
-        </div>
-
-        <div class="card box-shadow">
-          <router-link :to="{ name: 'news3' }">
-            <img
-              src="@/assets/news.png"
-              class="card-img-top"
-              alt="align-items-auto"
-            />
-            <div class="card-body">
-              <h5 class="card-title">
-                Gonglaoping Community, Fengyuan Dist., Taichung..
-              </h5>
-              <h6 class="card-text">Nov. 26, 2019</h6>
-            </div>
-          </router-link>
-        </div> -->
+        
       </div>
     </div>
   </main>
@@ -343,8 +302,14 @@ main {
         color: #66bb6a;
       }
 
+      .img-top {
+        width: 350px;
+        height: 300px;
+        overflow: hidden;
+      }
+
     .card-body {
-      height: 150px;
+      height: 280px;
     }
 
     h6 {
